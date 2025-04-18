@@ -14,12 +14,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
           <p className="text-7xl font-semibold">Link your creativity to the world</p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <div className="w-full md:w-1/2 bg-transparent space-y-4">
             <h2 className="text-3xl">
               Creators. Fans.<br />
               No Middlemen.<br/>
-              Just You and Them 🤝
+              Just You and Them🤝
             </h2>
             <p className="text-md">
               We bring creators and fans together, no barriers in between.
@@ -39,7 +39,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
       {/* Right Image Section */}
       <div className="relative w-full md:w-1/2 h-full flex justify-center items-center bg-violet-500 rounded-[50%]">
         {/* Shaped Frame */}
-        <div className="relative w-full md:w-150 h-full flex justify-center items-center bg-blue-500 rounded-[50%]">
+        <div className="relative w-full md:w-148 h-full flex justify-center items-center bg-blue-500 rounded-[50%]">
         <div className="w-136 h-128 rounded-[50%] overflow-hidden shadow-lg">
           <img
             src={CoverImg}
