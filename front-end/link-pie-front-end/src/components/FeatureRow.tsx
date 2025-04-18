@@ -33,7 +33,7 @@ function FeatureRow({ feature, index }: FeatureCardProps) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between my-12 gap-6 md:gap-12">
+    <div className="flex flex-col md:flex-row items-center justify-between my-12 gap-6 md:gap-12 text-left">
       <motion.div
         className={`w-full md:w-1/2 ${isTextLeft ? 'order-1' : 'order-2'}`}
         initial="hidden"
@@ -41,12 +41,12 @@ function FeatureRow({ feature, index }: FeatureCardProps) {
         viewport={{ once: true, amount: 0.3 }}
         variants={textVariants}
       >
-        <h3 className="text-2xl font-bold mb-4 text-indigo-600">{feature.title}</h3>
+        <h3 className="text-3xl font-bold mb-3 text-indigo-600">{feature.title}</h3>
         <p className="text-gray-700 text-lg">{feature.description}</p>
       </motion.div>
 
       <motion.div
-        className={`w-full md:w-1/2 ${isTextLeft ? 'order-2' : 'order-1'} flex justify-center`}
+        className={`w-full md:w-2/8 ${isTextLeft ? 'order-2' : 'order-1'} flex justify-center`}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

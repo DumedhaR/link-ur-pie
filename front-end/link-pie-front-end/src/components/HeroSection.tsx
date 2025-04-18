@@ -18,7 +18,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
           <div className="w-full md:w-1/2 bg-transparent space-y-3">
             <h2 className="text-3xl">
               Creators. Fans.<br />
-              No Middlemen.
+              No Middlemen.<br/>
+              Just You and Them 🤝
             </h2>
             <p className="text-md">
               We bring creators and fans together, no barriers in between.

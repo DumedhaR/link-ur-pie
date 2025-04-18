@@ -6,7 +6,7 @@ const features = [
     title: 'Discover and support your favorite creators.',
     description:
       'Find unique content, support artists directly, and enjoy personalized access to media that matters to you.',
-    image: '/F1.png', // Change this to your actual image path
+    image: '/F1.png',
   },
   {
     title: 'Download exclusive content easily.',
@@ -27,8 +27,8 @@ const HomePage: React.FC = () => {
     <div>
       <HeroSection CoverImg={HeroImage}/>
       <div className='Services'>
-            <h1 className='content-header text-4xl font-semibold pt-20'>WHY JOIN?</h1>
-            <section className="px-4 md:px-12 py-16">
+            <h1 className='content-header text-4xl font-bold pt-20'>WHY JOIN?</h1>
+            <section className="px-4 md:px-40 py-12">
       {features.map((feature, index) => (
         <FeatureRow key={index} feature={feature} index={index} />
       ))}
