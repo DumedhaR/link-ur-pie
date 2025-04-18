@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
   return (
-    <div className="relative min-h-screen flex items-center text-left px-40 bg-indigo-600 text-white space-x-5">
+    <div className="relative min-h-screen flex items-center text-left px-40 bg-indigo-600 text-white">
       {/* Left Content Section */}
       <div className="w-full md:w-1/2">
         <div className="z-10 space-y-4">
@@ -15,11 +15,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
         </div>
 
         <div className="mt-8">
-          <div className="w-full md:w-1/2 bg-transparent space-y-4">
+          <div className="w-full md:w-1/2 bg-transparent space-y-3">
             <h2 className="text-3xl">
               Creators. Fans.<br />
-              No Middlemen.<br/>
-              Just Pure Support🤝
+              No Middlemen.
             </h2>
             <p className="text-md">
               We bring creators and fans together, no barriers in between.
