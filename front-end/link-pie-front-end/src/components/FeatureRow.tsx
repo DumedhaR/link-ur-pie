@@ -38,7 +38,7 @@ function FeatureRow({ feature, index }: FeatureCardProps) {
         className={`w-full md:w-1/2 ${isTextLeft ? 'order-1' : 'order-2'}`}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.33, }}
         variants={textVariants}
       >
         <h3 className="text-3xl font-bold mb-3 text-indigo-600">{feature.title}</h3>
@@ -49,7 +49,7 @@ function FeatureRow({ feature, index }: FeatureCardProps) {
         className={`w-full md:w-2/8 ${isTextLeft ? 'order-2' : 'order-1'} flex justify-center`}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.33 }}
         variants={imageVariants}
       >
         <img
