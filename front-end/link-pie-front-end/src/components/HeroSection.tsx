@@ -14,9 +14,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
           <p className="text-6xl font-semibold">Link your creativity <br/>to the world</p>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <div className="w-full bg-transparent space-y-4">
-            <h2 className="text-3xl">
+            <h2 className="text-2xl">
               Creators. Fans.<br />
               No Middlemen.<br/>
               Just You & Them🤝
