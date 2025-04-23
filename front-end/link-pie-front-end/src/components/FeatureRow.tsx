@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 
 interface Feature {
   title: string;
-  description: string;
-  image: string;
+  forArtist: string;
+  forFans: string;
+  artistImage: string;
+  fanImage: string;
 }
 
 interface FeatureCardProps {
@@ -11,54 +13,92 @@ interface FeatureCardProps {
   index: number;
 }
 
-function FeatureRow({ feature, index }: FeatureCardProps) {
-  const isTextLeft = index % 2 === 0;
-
-  const textVariants = {
-    hidden: { x: isTextLeft ? -100 : 100, opacity: 0 },
+function FeatureRow({ feature }: FeatureCardProps) {
+  const headingVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
-      x: 0,
+      scale: 1,
       opacity: 1,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
-  const imageVariants = {
-    hidden: { x: isTextLeft ? 100 : -100, opacity: 0 },
+  const artistVariants = {
+    hidden: { x: -100, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.5, ease: 'easeOut', delay: 0.4 },
+    },
+  };
+
+  const fanVariants = {
+    hidden: { x: 100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeOut', delay: 0.8 },
     },
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between my-12 gap-6 md:gap-12 text-left">
-      <motion.div
-        className={`w-full md:w-1/2 ${isTextLeft ? 'order-1' : 'order-2'}`}
+    <div className="my-16">
+      {/* Heading */}
+      <motion.h3
+        className="text-2xl font-bold text-indigo-600 mb-8 text-left capitalize"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.33, }}
-        variants={textVariants}
+        viewport={{ once: true, amount: 0.9 }}
+        variants={headingVariants}
       >
-        <h3 className="text-3xl font-bold mb-3 text-indigo-600">{feature.title}</h3>
-        <p className="text-gray-700 text-lg">{feature.description}</p>
-      </motion.div>
+        {feature.title}
+      </motion.h3>
 
-      <motion.div
-        className={`w-full md:w-2/8 ${isTextLeft ? 'order-2' : 'order-1'} flex justify-center`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.33 }}
-        variants={imageVariants}
-      >
-        <img
-          src={feature.image}
-          alt={feature.title}
-          className="w-full max-w-md rounded-2xl shadow-xl"
-        />
-      </motion.div>
+      <div className="flex flex-col md:flex-row justify-between items-start">
+        {/* Artist Side */}
+        <motion.div
+          className="w-full md:w-1/2 flex flex-col text-left"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={artistVariants}
+        >
+          <div className="w-full max-w-xs">
+            <img
+              src={feature.artistImage}
+              alt="Artist feature"
+              className="w-full rounded-xl shadow-md mb-4"
+            />
+            <div>
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">For Artists</h4>
+              <p className="text-gray-700 text-base">{feature.forArtist}</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Fan Side */}
+        <motion.div
+          className="w-full md:w-1/2 flex flex-col items-end text-left"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fanVariants}
+        >
+          <div className="w-full max-w-xs">
+            <img
+              src={feature.fanImage}
+              alt="Fan feature"
+              className="w-full rounded-xl shadow-md mb-4"
+            />
+            <div>
+              <h4 className="text-xl font-semibold text-gray-800 mb-2">For Fans</h4>
+              <p className="text-gray-700 text-base">{feature.forFans}</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
+
 export default FeatureRow;
