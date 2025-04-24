@@ -6,7 +6,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
   return (
-  <footer className="text-white py-12 mt-24" style={{backgroundColor:'#5a4edb'}}>
+  <footer className="text-white py-12 mt-24" style={{backgroundColor:'oklch(58.5% 0.233 277.117)'}}>
     <div className="container mx-auto px-4 mt-8 capitalize">
       <div className="flex justify-between items-center my-10">
         <div className="flex items-center space-x-4">

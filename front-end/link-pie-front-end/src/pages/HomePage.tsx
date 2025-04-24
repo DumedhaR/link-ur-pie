@@ -1,5 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import FeatureRow from "../components/FeatureRow";
+import HowItWorks from "../components/HowItWorksSection";
 
 const features = [
   {
@@ -33,14 +34,15 @@ const HomePage: React.FC = () => {
   return(
     <div>
       <HeroSection CoverImg={HeroImage}/>
-      <div className='Services'>
-            <h1 className='content-header text-4xl font-bold pt-20'>WHY JOIN?</h1>
+      <div className='Services bg-neutral-50 py-16'>
+            <h2 className='text-3xl font-bold text-center'>WHY JOIN?</h2>
             <section className="px-4 md:px-40">
               {features.map((feature, index) => (
                 <FeatureRow key={index} feature={feature} index={index} />
               ))}
             </section>   
-        </div>
+      </div>
+      <HowItWorks/>
     </div>
   );
 }

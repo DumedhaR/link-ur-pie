@@ -15,7 +15,7 @@ interface FeatureCardProps {
 
 function FeatureRow({ feature }: FeatureCardProps) {
   const headingVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
+    hidden: { scale: 0.9, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
@@ -28,7 +28,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.5, ease: 'easeOut', delay: 0.4 },
+      transition: { duration: 0.6, ease: 'easeOut', delay: 0.4 },
     },
   };
 
@@ -37,15 +37,15 @@ function FeatureRow({ feature }: FeatureCardProps) {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.5, ease: 'easeOut', delay: 0.8 },
+      transition: { duration: 0.6, ease: 'easeOut', delay: 0.8 },
     },
   };
 
   return (
-    <div className="my-16">
+    <div className="my-14">
       {/* Heading */}
       <motion.h3
-        className="text-2xl font-bold text-indigo-600 mb-8 text-left capitalize"
+        className="text-2xl font-bold text-indigo-600 mb-10 text-left capitalize"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.9 }}
