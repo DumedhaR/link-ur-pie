@@ -36,7 +36,7 @@ const HomePage: React.FC = () => {
       <div className="h-[calc(100vh-64px)]">
         <HeroSection CoverImg={HeroImage}/>
       </div>
-      <div className='Services bg-neutral-50 py-16'>
+      <div className='Services py-18'>
             <h2 className='text-3xl font-bold text-center'>WHY JOIN?</h2>
             <section className="px-4 md:px-40">
               {features.map((feature, index) => (

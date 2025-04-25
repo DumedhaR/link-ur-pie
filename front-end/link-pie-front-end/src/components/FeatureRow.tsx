@@ -63,7 +63,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
           viewport={{ once: true, amount: 0.4 }}
           variants={artistVariants}
         >
-          <div className="w-full rounded-xl overflow-hidden max-w-xs shadow-sm">
+          <div className="w-full rounded-xl overflow-hidden max-w-xs shadow-sm bg-neutral-50">
             <img
               src={feature.artistImage}
               alt="Artist feature"
@@ -84,7 +84,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
           viewport={{ once: true, amount: 0.4 }}
           variants={fanVariants}
         >
-          <div className="w-full rounded-xl max-w-xs overflow-hidden shadow-sm">
+          <div className="w-full rounded-xl max-w-xs overflow-hidden shadow-sm bg-neutral-50">
             <img
               src={feature.fanImage}
               alt="Fan feature"

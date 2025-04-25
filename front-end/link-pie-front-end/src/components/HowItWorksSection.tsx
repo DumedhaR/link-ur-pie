@@ -45,7 +45,7 @@ const item = {
 
 export default function HowItWorksSection() {
   return (
-    <section className="px-4 md:px-40 py-16">
+    <section className="px-4 md:px-40 pt-16 pb-40 bg-neutral-50">
       <h2 className="text-3xl font-bold text-center mb-12">HOW IT WORKS</h2>
 
       <motion.div
