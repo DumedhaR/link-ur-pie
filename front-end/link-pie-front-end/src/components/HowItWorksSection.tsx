@@ -59,7 +59,7 @@ export default function HowItWorksSection() {
           <motion.div
             key={index}
             variants={item}
-            className={`rounded-2xl py-16 shadow-xl text-white text-center ${step.bgColor}`}
+            className={`rounded-2xl py-20 px-20 shadow-lg text-white text-center ${step.bgColor}`}
           >
             <div className="flex justify-center mb-4">{step.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{step.title}</h3>

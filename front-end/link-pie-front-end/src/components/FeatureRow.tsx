@@ -42,7 +42,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
   };
 
   return (
-    <div className="my-14">
+    <div className="my-12">
       {/* Heading */}
       <motion.h3
         className="text-2xl font-bold text-indigo-600 mb-10 text-left capitalize"
@@ -63,13 +63,13 @@ function FeatureRow({ feature }: FeatureCardProps) {
           viewport={{ once: true, amount: 0.4 }}
           variants={artistVariants}
         >
-          <div className="w-full max-w-xs">
+          <div className="w-full rounded-xl overflow-hidden max-w-xs shadow-sm">
             <img
               src={feature.artistImage}
               alt="Artist feature"
-              className="w-full rounded-xl shadow-md mb-4"
+              className="w-full shadow-sm"
             />
-            <div>
+            <div className='m-8'>
               <h4 className="text-xl font-semibold text-gray-800 mb-2">For Artists</h4>
               <p className="text-gray-700 text-base">{feature.forArtist}</p>
             </div>
@@ -84,13 +84,13 @@ function FeatureRow({ feature }: FeatureCardProps) {
           viewport={{ once: true, amount: 0.4 }}
           variants={fanVariants}
         >
-          <div className="w-full max-w-xs">
+          <div className="w-full rounded-xl max-w-xs overflow-hidden shadow-sm">
             <img
               src={feature.fanImage}
               alt="Fan feature"
-              className="w-full rounded-xl shadow-md mb-4"
+              className="w-full shadow-sm"
             />
-            <div>
+            <div className='m-8'>
               <h4 className="text-xl font-semibold text-gray-800 mb-2">For Fans</h4>
               <p className="text-gray-700 text-base">{feature.forFans}</p>
             </div>

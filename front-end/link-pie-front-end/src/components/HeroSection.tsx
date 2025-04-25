@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
   return (
-    <div className="relative min-h-screen flex items-center text-left px-40 bg-indigo-600 text-white">
+    <div className="h-full relative flex items-center text-left px-40 bg-indigo-600 text-white gap-x-2">
       {/* Left Content Section */}
       <div className="w-full md:w-1/2">
         <div className="z-10 space-y-4">
@@ -14,12 +14,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
           <p className="text-6xl font-semibold">Link your creativity <br/>to the world</p>
         </div>
 
-        <div className="mt-6">
-          <div className="w-full bg-transparent space-y-4">
+        <div className="mt-5 ">
+          <div className="w-full bg-transparent space-y-3">
             <h2 className="text-2xl">
               Creators. Fans.<br />
-              No Middlemen.<br/>
-              Just You & Them🤝
+              No Middlemen 🤝<br/>
             </h2>
             <p className="text-md">
               We bring creators and fans together, no <br/>
@@ -38,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
       </div>
 
       {/* Right Image Section */}
-      <div className="relative w-full md:w-1/2 h-full flex justify-center items-center bg-violet-500 rounded-[50%]">
+      <div className="relative w-full md:w-1/2 h-full md:h-3/4 flex justify-center items-center bg-violet-500 rounded-[50%]">
         <div className="relative w-full md:w-19/20 h-full flex justify-center items-center bg-blue-500 rounded-[50%]">
         <div className="w-28/30 h-full rounded-[50%] overflow-hidden shadow-lg">
           <img
