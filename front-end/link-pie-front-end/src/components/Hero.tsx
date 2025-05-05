@@ -11,11 +11,11 @@ const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
       <div className="w-full md:w-1/2">
         <div className="z-10 space-y-3">
           <p className="text-4xl font-semibold leading-tight">Link.Pi</p>
-          <p className="text-6xl font-semibold leading-tight">Link your creativity <br/>to the world</p>
+          <p className="text-5xl font-semibold leading-tight">Link your creativity <br/>to the world</p>
         </div>
 
         <div className="mt-5">
-          <div className="w-full bg-transparent space-y-3">
+          <div className="w-full bg-transparent space-y-4">
             <h2 className="text-2xl">
               Creators. Fans.<br/>
               No Middlemen 🤝
