@@ -1,24 +1,24 @@
 import React from "react";
 
-interface HeroSectionProps {
+interface HeroProps {
   CoverImg: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
+const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
   return (
-    <div className="h-full relative flex items-center text-left px-40 bg-indigo-600 text-white gap-x-2">
+    <div className="h-full relative flex items-center text-left px-40 bg-indigo-600 text-white gap-x-10">
       {/* Left Content Section */}
       <div className="w-full md:w-1/2">
-        <div className="z-10 space-y-4">
-          <p className="text-4xl font-semibold">Link.Pi</p>
-          <p className="text-6xl font-semibold">Link your creativity <br/>to the world</p>
+        <div className="z-10 space-y-3">
+          <p className="text-4xl font-semibold leading-tight">Link.Pi</p>
+          <p className="text-6xl font-semibold leading-tight">Link your creativity <br/>to the world</p>
         </div>
 
-        <div className="mt-5 ">
+        <div className="mt-5">
           <div className="w-full bg-transparent space-y-3">
             <h2 className="text-2xl">
-              Creators. Fans.<br />
-              No Middlemen 🤝<br/>
+              Creators. Fans.<br/>
+              No Middlemen 🤝
             </h2>
             <p className="text-md">
               We bring creators and fans together, no <br/>
@@ -52,4 +52,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ CoverImg }) => {
   );
 };
 
-export default HeroSection;
+export default Hero;

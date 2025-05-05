@@ -43,13 +43,10 @@ const item = {
   show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
 };
 
-export default function HowItWorksSection() {
+export default function HowItWorksSection(){
   return (
-    <section className="px-4 md:px-40 pt-16 pb-40 bg-neutral-50">
-      <h2 className="text-3xl font-bold text-center mb-12">HOW IT WORKS</h2>
-
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-6"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -59,14 +56,13 @@ export default function HowItWorksSection() {
           <motion.div
             key={index}
             variants={item}
-            className={`rounded-2xl py-20 px-20 shadow-lg text-white text-center ${step.bgColor}`}
-          >
+            className={`rounded-md py-20 px-20 shadow-md text-white text-center ${step.bgColor}`}
+            >
             <div className="flex justify-center mb-4">{step.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
             <p className="text-sm">{step.description}</p>
           </motion.div>
         ))}
       </motion.div>
-    </section>
   );
 }

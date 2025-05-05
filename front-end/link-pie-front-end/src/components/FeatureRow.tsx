@@ -28,7 +28,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut', delay: 0.4 },
+      transition: { duration: 0.5, ease: 'easeOut', delay: 0.3 },
     },
   };
 
@@ -37,7 +37,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut', delay: 0.8 },
+      transition: { duration: 0.5, ease: 'easeOut', delay: 0.6 },
     },
   };
 
@@ -60,7 +60,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
           className="w-full md:w-1/2 flex flex-col text-left"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.5 }}
           variants={artistVariants}
         >
           <div className="w-full rounded-xl overflow-hidden max-w-xs shadow-sm bg-neutral-50">
@@ -81,7 +81,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
           className="w-full md:w-1/2 flex flex-col items-end text-left"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.5 }}
           variants={fanVariants}
         >
           <div className="w-full rounded-xl max-w-xs overflow-hidden shadow-sm bg-neutral-50">

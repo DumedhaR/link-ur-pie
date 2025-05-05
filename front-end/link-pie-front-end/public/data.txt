@@ -1,0 +1,106 @@
+{
+    stepTitle: 'Get Discovered, Get Supported',
+    artistSide: 'Share your work, connect your socials to one place and start building your fanbase instantly.',
+    fanSide: 'Find new creators and enjoy unique, creative abd vast veriants digital content.',
+    artistExample: 'Alex shared his beats and gained new 500 followers in a week.',
+    fanExample: 'Jane unlocked unreleased demos by liking Alex’s page.',
+    artistImage: '/artist1.png',
+    fanImage: '/fan1.png',
+  },
+  {
+    stepTitle: 'Exclusive Access, with own rules',
+    artistSide: 'Share exclusive contents with your fanbase,
+    fanSide: 'Enjoy rare content',
+    artistExample: 'Lana gave early access to concert footage for her top fans.',
+    fanExample: 'Tom discovered a private track drop without needing an account.',
+    artistImage: '/artist2.png',
+    fanImage: '/fan2.png',
+  },
+  {
+    stepTitle: 'Trun Your creative works, into Money, Likes, and followers and reward ur top fans',
+    artistSide: 'Trade ur work for money, or get ur fans like, follow or subscribe ur social accouts',
+    fanSide: 'Unlock special contents or downloads by creator provuded methods.',
+    artistExample: 'Maya gained new 500 youtube account subscribers in a week.',
+    fanExample: 'Eli got a acess to dowload Maya's new song after subribing her yt account.',
+    artistImage: '/artist3.png',
+    fanImage: '/fan3.png',
+  }
+];
+
+const steps: FeatureStep[] = [
+  {
+    stepTitle: 'Grow Your Fanbase with Every Post',
+    artistSide: 'Upload your creations and connect your socials — every post helps grow your audience.',
+    fanSide: 'Discover rising stars and explore original work in music, art, and beyond.',
+    artistExample: 'Nina linked her YouTube and gained 300 new subs through one exclusive track.',
+    fanExample: 'Arjun followed an artist and got access to a secret EP drop.',
+    artistImage: '/artist1.png',
+    fanImage: '/fan1.png',
+  },
+  {
+    stepTitle: 'Unlock Content Through Real Connection',
+    artistSide: 'Gate your content with actions that matter — like follows, subs, or purchases.',
+    fanSide: 'Show support through likes or subs to unlock exclusive videos, songs, or artwork.',
+    artistExample: 'Leo let fans unlock his music video by following his IG.',
+    fanExample: 'Zara liked a profile and received a free digital print.',
+    artistImage: '/artist2.png',
+    fanImage: '/fan2.png',
+  },
+  {
+    stepTitle: 'Monetize Without Middlemen',
+    artistSide: 'Offer your best content directly to fans — no complex platforms, no cuts.',
+    fanSide: 'Get premium content straight from creators. No fluff, just value.',
+    artistExample: 'Ravi sold his behind-the-scenes vlog pack for $5 and earned in a day what other sites pay in weeks.',
+    fanExample: 'Elena bought a time-limited digital zine directly from her fav artist.',
+    artistImage: '/artist3.png',
+    fanImage: '/fan3.png',
+  },
+  {
+    stepTitle: 'Reward Your True Supporters',
+    artistSide: 'Build a community and give back — reward top fans with shoutouts, content, or access.',
+    fanSide: 'Be recognized for your loyalty with early drops, fan-only content, and personal thank-yous.',
+    artistExample: 'Maya gifted her top 10 fans a behind-the-scenes art tutorial.',
+    fanExample: 'Tariq received a custom beat pack as a thank-you for his support streak.',
+    artistImage: '/artist4.png',
+    fanImage: '/fan4.png',
+  }
+];
+
+const steps: FeatureStep[] = [
+  {
+    stepTitle: 'Grow Your Audience with Every Post',
+    artistSide: 'Upload your music, art, or videos and link your social profiles to increase visibility and engagement.',
+    fanSide: 'Discover fresh creators and dive into unique content you won’t find anywhere else.',
+    artistExample: 'Nina shared an exclusive track preview and gained 300 new followers on Instagram.',
+    fanExample: 'Arjun unlocked early access to Nina’s new song by following her page.',
+    artistImage: '/artist1.png',
+    fanImage: '/fan1.png',
+  },
+  {
+    stepTitle: 'Unlock Content Through Engagement',
+    artistSide: 'Give fans access to exclusive content when they engage — follow, like, share, or even purchase.',
+    fanSide: 'Get special content in return for supporting your favorite creators.',
+    artistExample: 'Leo dropped a limited edition video for followers of his YouTube channel.',
+    fanExample: 'Zara unlocked a bonus track by liking Leo’s latest post on social media.',
+    artistImage: '/artist2.png',
+    fanImage: '/fan2.png',
+  },
+  {
+    stepTitle: 'Monetize Your Content Without Barriers',
+    artistSide: 'Turn your content into cash directly — no middlemen, no hassle. Offer it for sale, or set up reward tiers for fans.',
+    fanSide: 'Support your favorite creators and access premium content without a subscription.',
+    artistExample: 'Ravi sold his exclusive behind-the-scenes footage to his fans for a one-time payment.',
+    fanExample: 'Elena bought an exclusive art piece from Ravi, gaining access to a new world of creative content.',
+    artistImage: '/artist3.png',
+    fanImage: '/fan3.png',
+  },
+  {
+    stepTitle: 'Build Deeper Fan Connections',
+    artistSide: 'Reward your most loyal supporters with special shoutouts, early access, or unique creations.',
+    fanSide: 'Be recognized for your support — unlock content, receive shoutouts, and feel closer to the creators you love.',
+    artistExample: 'Maya gave her top fans personalized art commissions as a thank-you for their continued support.',
+    fanExample: 'Tariq received a custom thank-you video from Maya for always sharing her work.',
+    artistImage: '/artist4.png',
+    fanImage: '/fan4.png',
+  }
+];
