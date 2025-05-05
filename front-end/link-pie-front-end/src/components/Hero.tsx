@@ -16,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
 
         <div className="mt-5">
           <div className="w-full bg-transparent space-y-4">
-            <h2 className="text-2xl">
+            <h2 className="text-xl">
               Creators. Fans.<br/>
               No Middlemen 🤝
             </h2>
