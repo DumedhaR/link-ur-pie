@@ -1,4 +1,3 @@
-// import * as React from 'react';
 import { useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -36,8 +35,8 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" elevation={3} sx={{ top: 0, zIndex: 1100,backgroundColor: 'oklch(58.5% 0.233 277.117)' }}>
-      <Container maxWidth="lg">
+    <AppBar position="sticky" elevation={3} sx={{ top: 0, zIndex: 1100, backgroundColor: 'oklch(58.5% 0.233 277.117)' }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -57,7 +56,7 @@ function ResponsiveAppBar() {
             LinkPi
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'center' }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -86,11 +85,12 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <Typography
             variant="h5"
             noWrap
@@ -108,17 +108,25 @@ function ResponsiveAppBar() {
           >
             LinkPi
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'center',
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', textTransform: 'capitalize' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -143,7 +151,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize' }}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -153,4 +161,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { Person, CloudUpload, LockOpen, Favorite } from "@mui/icons-material";
 
@@ -6,25 +6,33 @@ const steps = [
   {
     title: "SIGN UP",
     description: "Create an account as an artist or a fan",
-    icon: <Person fontSize="large" sx={{ color: '#fff' }} />,
-    bgColor: "bg-pink-500",
+    icon: (
+      <Box className="bg-indigo-500 p-3 rounded-full">
+        <Person fontSize="large" sx={{ color: '#fff' }} />
+      </Box>
+    ),
+    bgColor: "bg-indigo-200 text-indigo-800",
   },
   {
     title: "UPLOAD OR UNLOCK",
     description: "Artists upload content. Fans unlock exclusive works.",
     icon: (
-      <Box className="flex gap-2 text-white">
+      <Box className="bg-blue-500 p-3 rounded-full flex gap-1">
         <CloudUpload sx={{ color: '#fff' }} />
         <LockOpen sx={{ color: '#fff' }} />
       </Box>
     ),
-    bgColor: "bg-blue-500",
+    bgColor: "bg-blue-200 text-blue-800",
   },
   {
     title: "CONNECT",
     description: "Build your audience and grow your art",
-    icon: <Favorite fontSize="large" sx={{ color: '#fff' }} />,
-    bgColor: "bg-violet-500",
+    icon: (
+      <Box className="bg-violet-500 p-3 rounded-full">
+        <Favorite fontSize="large" sx={{ color: '#fff' }} />
+      </Box>
+    ),
+    bgColor: "bg-violet-200 text-violet-800",
   },
 ];
 
@@ -43,26 +51,26 @@ const item = {
   show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
 };
 
-export default function HowItWorksSection(){
+export default function HowItWorksSection() {
   return (
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.4 }}
-      >
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            variants={item}
-            className={`rounded-lg py-20 px-20 shadow-lg text-white text-center ${step.bgColor}`}
-            >
-            <div className="flex justify-center mb-4">{step.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-            <p className="text-sm">{step.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.4 }}
+    >
+      {steps.map((step, index) => (
+        <motion.div
+          key={index}
+          variants={item}
+          className={`rounded-md py-20 px-10 shadow-lg text-center ${step.bgColor}`}
+        >
+          <div className="flex justify-center mb-4">{step.icon}</div>
+          <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+          <p className="text-sm">{step.description}</p>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }
