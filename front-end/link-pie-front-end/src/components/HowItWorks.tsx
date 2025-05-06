@@ -7,7 +7,7 @@ const steps = [
     title: "SIGN UP",
     description: "Create an account as an artist or a fan",
     icon: <Person fontSize="large" sx={{ color: '#fff' }} />,
-    bgColor: "bg-pink-600",
+    bgColor: "bg-pink-500",
   },
   {
     title: "UPLOAD OR UNLOCK",
@@ -46,7 +46,7 @@ const item = {
 export default function HowItWorksSection(){
   return (
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-6"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -56,7 +56,7 @@ export default function HowItWorksSection(){
           <motion.div
             key={index}
             variants={item}
-            className={`rounded-md py-20 px-20 shadow-md text-white text-center ${step.bgColor}`}
+            className={`rounded-lg py-20 px-20 shadow-lg text-white text-center ${step.bgColor}`}
             >
             <div className="flex justify-center mb-4">{step.icon}</div>
             <h3 className="text-xl font-semibold mb-2">{step.title}</h3>

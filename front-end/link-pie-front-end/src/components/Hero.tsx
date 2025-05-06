@@ -6,7 +6,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
   return (
-    <div className="h-full relative flex items-center text-left px-40 bg-indigo-600 text-white gap-x-10">
+    <div className="h-full relative flex items-center text-left px-36 bg-indigo-600 text-white gap-x-6">
       {/* Left Content Section */}
       <div className="w-full md:w-1/2">
         <div className="z-10 space-y-3">
@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
         </div>
 
         <div className="mt-5">
-          <div className="w-full bg-transparent space-y-4">
+          <div className="w-full bg-transparent space-y-3">
             <h2 className="text-xl">
               Creators. Fans.<br/>
               No Middlemen 🤝

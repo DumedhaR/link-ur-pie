@@ -39,7 +39,7 @@ function ResponsiveAppBar() {
     <AppBar position="sticky" elevation={3} sx={{ top: 0, zIndex: 1100,backgroundColor: 'oklch(58.5% 0.233 277.117)' }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          {/* <Typography
+          <Typography
             variant="h6"
             noWrap
             component="a"
@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
             }}
           >
             LinkPi
-          </Typography> */}
+          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

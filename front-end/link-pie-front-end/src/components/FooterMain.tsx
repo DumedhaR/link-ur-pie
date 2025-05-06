@@ -7,7 +7,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
   return (
   <footer className="text-white py-12" style={{backgroundColor:'oklch(58.5% 0.233 277.117)'}}>
-    <div className="container mx-auto mt-16 capitalize">
+    <div className="container mx-auto mt-32 capitalize">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-4">
           {logoSrc && <img src={logoSrc} alt="LUP Logo" className="w-16 h-16" />}
@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
         </ul>
       </div>
       <hr className="border-t-1 mx-auto" />
-      <div className="mt-8 text-center text-sm">
+      <div className="mt-6 text-center text-sm">
         &copy; {new Date().getFullYear()} LinkPi. All rights reserved.
       </div>
     </div>
