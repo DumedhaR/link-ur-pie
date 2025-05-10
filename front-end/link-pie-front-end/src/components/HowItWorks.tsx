@@ -5,24 +5,24 @@ import { Person, CloudUpload, LockOpen, Favorite } from "@mui/icons-material";
 const steps = [
   {
     title: "SIGN UP",
-    description: "Create an account as an artist or a fan",
+    description: "Create an account as an creator or a fan",
     icon: (
       <Box className="bg-indigo-500 p-3 rounded-full">
         <Person fontSize="large" sx={{ color: '#fff' }} />
       </Box>
     ),
-    bgColor: "bg-indigo-200 text-indigo-800",
+    bgColor: "bg-indigo-100 text-indigo-800",
   },
   {
     title: "UPLOAD OR UNLOCK",
-    description: "Artists upload content. Fans unlock exclusive works.",
+    description: "Creators upload, Fans unlock contents.",
     icon: (
       <Box className="bg-blue-500 p-3 rounded-full flex gap-1">
         <CloudUpload sx={{ color: '#fff' }} />
         <LockOpen sx={{ color: '#fff' }} />
       </Box>
     ),
-    bgColor: "bg-blue-200 text-blue-800",
+    bgColor: "bg-blue-100 text-blue-800",
   },
   {
     title: "CONNECT",
@@ -32,7 +32,7 @@ const steps = [
         <Favorite fontSize="large" sx={{ color: '#fff' }} />
       </Box>
     ),
-    bgColor: "bg-violet-200 text-violet-800",
+    bgColor: "bg-violet-100 text-violet-800",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function HowItWorksSection() {
         <motion.div
           key={index}
           variants={item}
-          className={`rounded-md py-20 px-10 shadow-lg text-center ${step.bgColor}`}
+          className={`rounded-md py-25 px-5 shadow-lg text-center ${step.bgColor}`}
         >
           <div className="flex justify-center mb-4">{step.icon}</div>
           <h3 className="text-xl font-semibold mb-2">{step.title}</h3>

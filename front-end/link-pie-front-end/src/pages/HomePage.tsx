@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </section>
-      <section className="how-it-works-section px-4 md:px-36 pt-20 pb-24 bg-white">
+      <section className="how-it-works-section px-4 md:px-36 pt-19 pb-24 bg-white">
           <h2 className="text-3xl md:text-3xl font-bold text-gray-800 text-center mb-12 capitalize">How it works</h2>
           <HowItWorks/>
       </section>

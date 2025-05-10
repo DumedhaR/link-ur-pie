@@ -16,7 +16,7 @@ const JoinNow: React.FC = () => {
             className="w-48 h-48"
           />
         </div>
-        <button className="w-3/4 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-3xl transition-all duration-200 shadow-md">
+        <button className="w-1/2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-3xl transition-all duration-200 shadow-md">
           Create My Account
         </button>
       </div>
