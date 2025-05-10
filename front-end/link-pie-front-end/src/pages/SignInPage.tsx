@@ -5,7 +5,7 @@ export default function SignInPage() {
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
       <div className="bg-gray-100 flex items-center justify-center">
         <img
-          src="/cover4.png"
+          src="/g.png"
           alt="Visual"
           className="w-full h-full object-cover"
         />
