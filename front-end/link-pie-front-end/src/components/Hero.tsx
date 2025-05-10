@@ -38,8 +38,8 @@ const Hero: React.FC<HeroProps> = ({ CoverImg }) => {
 
       {/* Right Image Section */}
       <div className="relative w-full md:w-10/20 h-full md:h-14/20 flex justify-center items-center bg-violet-500 rounded-[50%]">
-        <div className="relative w-full md:w-19/20 h-full flex justify-center items-center bg-blue-500 rounded-[50%]">
-        <div className="w-19/20 h-full rounded-[50%] overflow-hidden shadow-lg">
+        <div className="relative w-full md:w-28/30 h-full flex justify-center items-center bg-blue-500 rounded-[50%]">
+        <div className="w-28/30 h-full rounded-[50%] overflow-hidden shadow-lg">
           <img
             src={CoverImg}
             alt="Cover"
