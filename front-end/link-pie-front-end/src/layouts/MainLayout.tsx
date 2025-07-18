@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import ResponsiveAppBar from "../components/NavBarMain";
 import Footer from "../components/FooterMain";
 import { Outlet } from 'react-router-dom';

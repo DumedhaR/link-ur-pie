@@ -36,7 +36,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" elevation={3} sx={{ top: 0, zIndex: 1100, backgroundColor: 'oklch(58.5% 0.233 277.117)' }}>
+    <AppBar position="sticky" elevation={6} sx={{ 
+      top: 0, zIndex: 1100, backgroundColor: 'var(--color-background)', 
+      color: 'var(--primary-foreground)', 
+       }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -121,7 +124,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', textTransform: 'capitalize' }}
+                sx={{ my: 2, color: 'inherit', display: 'block', textTransform: 'capitalize' }}
               >
                 {page}
               </Button>

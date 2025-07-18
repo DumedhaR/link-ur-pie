@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from "@/components/ui/button"
+import Typography from '@mui/material/Typography';
 
 interface FooterProps {
   logoSrc?: string | null; // optional and can be null
@@ -7,12 +7,29 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
   return (
-  <footer className="text-white py-12" style={{backgroundColor:'oklch(58.5% 0.233 277.117)'}}>
- <Button>Click me</Button>
+  <footer className="text-white py-12" style={{backgroundColor: 'var(--color-background)', color: 'var(--primary-foreground)', }}>
     <div className="container mx-auto mt-32 capitalize">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-4">
-          {logoSrc && <img src={logoSrc} alt="LUP Logo" className="w-16 h-16" />}
+          {logoSrc? 
+          <img src={logoSrc} alt="LUP Logo" className="w-16 h-16" /> : 
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.1rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            LinkPi
+          </Typography>
+        }
         </div>
         <ul className="flex space-x-4" role="navigation">
           <li><a href="#" className="hover:underline" aria-label="About Us">About</a></li>
