@@ -7,6 +7,7 @@ const images = [
   '/slide1.jpg',
   '/slide2.jpg',
   '/slide3.jpg',
+  '/slide4.jpg',
 ];
 
 export default function FadeSlider() {
@@ -20,6 +21,7 @@ export default function FadeSlider() {
                 <img 
                 src={src} 
                 alt= {`slide${index}`} 
+                className="w-full h-full object-cover"
                 />
             </div>
             ) )}
