@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import GoogleLoginButton from "../components/SignIn";
 
 export default function SignInPage() {

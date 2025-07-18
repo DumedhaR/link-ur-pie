@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Hero from "../components/Hero";
 import FeatureRowNew from "../components/FeatureRowNew";
 import HowItWorks from "../components/HowItWorks";

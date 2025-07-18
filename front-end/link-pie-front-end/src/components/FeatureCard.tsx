@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -12,7 +13,7 @@ interface FeatureCardProps {
   Route: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({CoverImg, Heading, Desc, Route}) => {
+const FeatureCard = ({CoverImg, Heading, Desc, Route}: FeatureCardProps) => {
    const navigate = useNavigate();
 
   const handleClick = () => {

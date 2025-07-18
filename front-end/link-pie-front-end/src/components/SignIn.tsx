@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useState } from 'react';

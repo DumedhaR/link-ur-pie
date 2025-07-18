@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { Person, CloudUpload, LockOpen, Favorite } from "@mui/icons-material";

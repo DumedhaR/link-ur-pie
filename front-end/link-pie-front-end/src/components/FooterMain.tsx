@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from "@/components/ui/button"
 
 interface FooterProps {
   logoSrc?: string | null; // optional and can be null
@@ -7,6 +8,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
   return (
   <footer className="text-white py-12" style={{backgroundColor:'oklch(58.5% 0.233 277.117)'}}>
+ <Button>Click me</Button>
     <div className="container mx-auto mt-32 capitalize">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-4">
