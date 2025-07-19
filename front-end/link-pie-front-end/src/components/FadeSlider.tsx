@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-
+import Fade from 'embla-carousel-fade';
 
 const images = [
   '/slide1.jpg',
@@ -11,7 +11,7 @@ const images = [
 ];
 
 export default function FadeSlider() {
-    const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
+    const [emblaRef] = useEmblaCarousel({ loop: true }, [Fade(), Autoplay({ delay: 5000, stopOnInteraction: false })]);
 
     return(
     <div className="embla w-full h-full" ref={emblaRef}>
@@ -21,7 +21,7 @@ export default function FadeSlider() {
                 <img 
                 src={src} 
                 alt= {`slide${index}`} 
-                className="w-full h-full object-cover"
+                className="embla__slide__img w-full h-full"
                 />
             </div>
             ) )}

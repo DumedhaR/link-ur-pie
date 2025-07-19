@@ -40,7 +40,7 @@ import FadeSlider from "@/components/FadeSlider";
 const HomePage: React.FC = () => {
   return (
     <div>
-      <section className="hero-section h-[calc(100vh-64px)]">
+      <section className="hero-section" style={{ marginTop: 0 }}>
         <FadeSlider/>
       </section>
       {/* <section className='feature-section px-4 md:px-36 pt-20 pb-24'>

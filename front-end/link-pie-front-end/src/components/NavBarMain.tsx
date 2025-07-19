@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,6 +18,20 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY === 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -36,12 +49,21 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" elevation={6} sx={{ 
-      top: 0, zIndex: 1100, backgroundColor: 'var(--color-background)', 
-      color: 'var(--primary-foreground)', 
-       }}>
+    <AppBar
+      position="fixed"
+      elevation={isTop ? 0 : 6}
+      sx={{
+        top: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: isTop ? 'transparent' : 'var(--color-background)',
+        color: 'var(--primary-foreground)',
+        boxShadow: isTop ? 'none' : undefined,
+        transition: 'background-color 0.5s ease, box-shadow 0.5s ease',
+      }}
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{height:'80px'}}>
           <Typography
             variant="h6"
             noWrap
@@ -52,7 +74,6 @@ function ResponsiveAppBar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -105,7 +126,6 @@ function ResponsiveAppBar() {
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontWeight: 700,
-              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}

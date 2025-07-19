@@ -43,12 +43,17 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     margin: 0 auto;
     min-height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
+    overscroll-behavior: none;
 }
 
 @theme inline {
@@ -138,9 +143,26 @@ body {
 }
 .embla__container {
   display: flex;
+  position: relative;
+  touch-action: pan-y pinch-zoom;
+}
+.embla__slide__img {
+  display: block;
+  object-fit: cover;
 }
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: absolute;
+  inset: 0;
+}
+
+.embla__slide--visible {
+  opacity: 1;
   position: relative;
+}
+.hero-section {
+  height: 100vh;
 }
