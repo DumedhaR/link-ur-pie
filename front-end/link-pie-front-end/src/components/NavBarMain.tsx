@@ -70,9 +70,7 @@ function ResponsiveAppBar() {
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -110,19 +108,18 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize' }}>{page}</Typography>
+                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize', fontSize: '1rem' }}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
           <Typography
-            variant="h5"
+            variant="h6"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontWeight: 700,
@@ -144,7 +141,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'inherit', display: 'block', textTransform: 'capitalize' }}
+                sx={{ my: 6, color: 'inherit', display: 'block', textTransform: 'capitalize', fontSize: '1rem' }}
               >
                 {page}
               </Button>
@@ -175,7 +172,7 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize' }}>{setting}</Typography>
+                  <Typography sx={{ textAlign: 'center', textTransform: 'capitalize', fontSize: '1rem' }}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

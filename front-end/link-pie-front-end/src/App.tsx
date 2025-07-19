@@ -10,19 +10,19 @@ function App() {
 
    useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.33,
+      duration: 0.3,
       easing: (t) => t
     })
 
     function raf(time : number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf)
+    requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy()
+      lenis.destroy();
     }
   }, [])
 

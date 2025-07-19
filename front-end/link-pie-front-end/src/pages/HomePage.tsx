@@ -3,7 +3,7 @@
 // import FeatureRowNew from "../components/FeatureRowNew";
 // import HowItWorks from "../components/HowItWorks";
 // import JoinNow from "../components/JoinNow";
-import FadeSlider from "@/components/FadeSlider";
+import HeroFadeSlider from "@/components/HeroFadeSlider";
 
 // const features = [
 //   {
@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <section className="hero-section" style={{ marginTop: 0 }}>
-        <FadeSlider/>
+        <HeroFadeSlider/>
       </section>
       {/* <section className='feature-section px-4 md:px-36 pt-20 pb-24'>
         <h2 className="text-3xl md:text-3xl font-bold text-gray-800 text-center mb-12 capitalize">What We Offer</h2>
