@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface Feature {
   title: string;
@@ -15,7 +14,7 @@ interface FeatureCardProps {
 }
 
 function FeatureRow({ feature }: FeatureCardProps) {
-  const headingVariants = {
+  const headingVariants: Variants = {
     hidden: { scale: 0.9, opacity: 0 },
     visible: {
       scale: 1,
@@ -24,7 +23,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
     },
   };
 
-  const artistVariants = {
+  const artistVariants: Variants = {
     hidden: { x: -100, opacity: 0 },
     visible: {
       x: 0,
@@ -33,7 +32,7 @@ function FeatureRow({ feature }: FeatureCardProps) {
     },
   };
 
-  const fanVariants = {
+  const fanVariants: Variants = {
     hidden: { x: 100, opacity: 0 },
     visible: {
       x: 0,

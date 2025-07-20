@@ -1,11 +1,10 @@
-import React from 'react';
 import Typography from '@mui/material/Typography';
 
 interface FooterProps {
-  logoSrc?: string | null; // optional and can be null
+  logoSrc?: string | null; 
 }
 
-const Footer: React.FC<FooterProps> = ({ logoSrc }) => {
+const Footer = ({ logoSrc }: FooterProps ) => {
   return (
   <footer className="w-full text-white py-12" style={{backgroundColor: 'var(--color-background)', color: 'var(--primary-foreground)', }}>
     <div className="px-20 mx-auto mt-18 capitalize">

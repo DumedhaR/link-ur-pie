@@ -1,9 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
-// import Hero from "../components/Hero";
-// import FeatureRowNew from "../components/FeatureRowNew";
-// import HowItWorks from "../components/HowItWorks";
-// import JoinNow from "../components/JoinNow";
 import HeroFadeSlider from "@/components/HeroFadeSlider";
+import BuiltForCreators from "@/components/BuilForCreator";
 
 // const features = [
 //   {
@@ -37,27 +33,15 @@ import HeroFadeSlider from "@/components/HeroFadeSlider";
 
 // const HeroImage: string = "/cover5.png"; 
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <div>
       <section className="hero-section" style={{ marginTop: 0 }}>
         <HeroFadeSlider/>
       </section>
-      {/* <section className='feature-section px-4 md:px-36 pt-20 pb-24'>
-        <h2 className="text-3xl md:text-3xl font-bold text-gray-800 text-center mb-12 capitalize">What We Offer</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feature, index) => (
-            <FeatureRowNew key={index} feature={feature} />
-          ))}
-        </div>
-      </section> */}
-      {/* <section className="how-it-works-section px-4 md:px-36 pt-19 pb-24 bg-white">
-          <h2 className="text-3xl md:text-3xl font-bold text-gray-800 text-center mb-12 capitalize">How it works</h2>
-          <HowItWorks/>
+      <section className='feature-section'>
+        <BuiltForCreators/>
       </section>
-      <section className="min-h-screen flex items-center justify-center px-4 py-12 md:px-36">
-          <JoinNow/>
-      </section> */}
     </div>
   );
 }

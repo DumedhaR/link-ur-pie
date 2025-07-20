@@ -13,19 +13,19 @@ const images = [
 
 const headers = [
   {
-    heading: 'Share Creativity with the World',
+    heading: 'Share creativity with the world',
     sub: 'We empowers artists to share, sell, and grow with their fans directly.',
   },
   {
-    heading: 'Support the Creators You Love',
+    heading: 'Support the creators you love',
     sub: 'Help creators make more of what you love by backing their passion.',
   },
   {
-    heading: 'Unlock Exclusive Content',
+    heading: 'Unlock exclusive content',
     sub: 'Get behind-the-scenes access, perks, and digital downloads.',
   },
   {
-    heading: 'Join the Community',
+    heading: 'Join the community',
     sub: 'Be part of something meaningful.',
   },
 ];

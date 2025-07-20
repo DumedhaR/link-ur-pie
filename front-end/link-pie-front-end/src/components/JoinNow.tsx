@@ -1,6 +1,5 @@
-import React from 'react';
 
-const JoinNow: React.FC = () => {
+const JoinNow = () => {
   return (
       <div className="max-w-md text-center flex flex-col justify-center items-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
