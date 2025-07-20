@@ -13,11 +13,11 @@ const images = [
 
 const headers = [
   {
-    heading: 'Share Creativity to World',
+    heading: 'Share Creativity with the World',
     sub: 'We empowers artists to share, sell, and grow with their fans directly.',
   },
   {
-    heading: 'Support Creators',
+    heading: 'Support the Creators You Love',
     sub: 'Help creators make more of what you love by backing their passion.',
   },
   {
@@ -65,11 +65,11 @@ export default function HeroFadeSlider() {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-5" />
+      <div className="absolute inset-0 bg-black/25 z-5" />
 
       {/* Heading block */}
       <div className="absolute inset-0 z-10 flex items-center px-10 md:px-20">
-         <div className="relative max-w-xl text-white overflow-visible text-left">
+         <div className="relative max-w-3xl text-white overflow-visible text-left">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -79,7 +79,7 @@ export default function HeroFadeSlider() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-3">
+              <h1 className="text-4xl md:text-7xl font-semibold mb-3">
                 {headers[currentIndex].heading}
               </h1>
               <p className="text-lg md:text-xl">{headers[currentIndex].sub}</p>
