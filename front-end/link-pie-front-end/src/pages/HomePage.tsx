@@ -1,5 +1,5 @@
 import HeroFadeSlider from "@/components/HeroFadeSlider";
-import BuiltForCreators from "@/components/BuilForCreator";
+import BuiltForCreators from "@/components/BuiltForCreator";
 
 // const features = [
 //   {

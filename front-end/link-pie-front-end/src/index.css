@@ -137,11 +137,6 @@ body {
   }
 }
 
-.embla {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
 .embla__container {
   display: flex;
   position: relative;
@@ -166,4 +161,16 @@ body {
 }
 .hero-section {
   height: 100vh;
+}
+
+.embla__scroll__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__scroll__slide {
+transform: translate3d(0, 0, 0);
+flex: 0 0 100;
+min-width: 0;
+position: relative;
 }
