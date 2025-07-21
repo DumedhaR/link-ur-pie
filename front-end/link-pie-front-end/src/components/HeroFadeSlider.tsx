@@ -13,7 +13,7 @@ const images = [
 
 const headers = [
   {
-    heading: 'Share creativity with the world',
+    heading: 'Link your creativity to the world',
     sub: 'We empowers artists to share, sell, and grow with their fans directly.',
   },
   {
@@ -26,7 +26,7 @@ const headers = [
   },
   {
     heading: 'Join the community',
-    sub: 'Be part of something meaningful.',
+    sub: 'Share your thoughts and be part of something meaningful.',
   },
 ];
 
