@@ -117,12 +117,12 @@ export default function FloatingImages() {
       </div>
 
       {/* Top Heading */}
-      <h1 className="absolute top-26 left-20 max-w-2xl text-5xl z-20 pointer-events-none text-left">
+      <h1 className="absolute top-25 left-20 max-w-2xl text-5xl z-20 pointer-events-none text-left">
         We let creators link all their social accounts, downloadable files, and media in one place.
       </h1>
 
       {/* Bottom Heading */}
-      <h2 className="absolute bottom-26 right-20 max-w-sm text-xl z-20 pointer-events-none text-right">
+      <h2 className="absolute bottom-25 right-20 max-w-sm text-xl z-20 pointer-events-none text-right">
         Grow your audience, share anywhere, and stay in control. Your content, your rules.
       </h2>
     </div>

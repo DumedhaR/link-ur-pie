@@ -4,7 +4,7 @@ const images = ["/creator1.jpg", "/creator2.jpg", "/creator3.jpg", "/creator7.jp
 export default function BuiltForCreators (){
 
     return (
-    <div className="relative bg-[#f5f5f5] py-26 px-6 sm:px-12 md:px-20 overflow-hidden text-center flex flex-col items-center">
+    <div className="relative bg-[#f5f5f5] py-25 px-6 sm:px-12 md:px-20 overflow-hidden text-center flex flex-col items-center">
       {/* Heading */}
       <h2 className="text-[3rem] sm:text-[4rem] md:text-6xl font-semibold leading-none text-gray-800">
         <span className="block">Built for Rising Creators.</span>
