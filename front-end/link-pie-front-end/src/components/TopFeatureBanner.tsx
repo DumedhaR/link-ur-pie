@@ -103,7 +103,7 @@ export default function FloatingImages() {
   return (
     <div
       ref={containerRef}
-      className="relative py-20 overflow-visible w-full min-h-[600px] flex flex-col font-semibold items-center text-[#9ab5ff]"
+      className="relative py-20 overflow-visible w-full min-h-[600px] flex flex-col font-semibold items-center text-[#9ab5f0]"
     >
       {/* Light Blue BG */}
       <div className="absolute inset-0 -z-20 bg-black" />
