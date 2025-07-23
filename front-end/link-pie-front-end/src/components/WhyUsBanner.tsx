@@ -31,7 +31,7 @@ interface ImageConfig extends FloatingImageProps {
   id: number;
 }
 
-export default function FloatingImages() {
+export default function WhyUsSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerSize, setContainerSize] = useState<ContainerSize>({
     width: 0,
@@ -55,8 +55,8 @@ export default function FloatingImages() {
   useEffect(() => {
     if (!containerSize.width || !containerSize.height) return;
 
-    const marginTop = 300;
-    const maxY = containerSize.height * 0.5;
+    const marginTop = 325;
+    const maxY = containerSize.height * 0.56;
     const spacingX = containerSize.width / (NUM_IMAGES + 1);
 
     const sizeMin = 140;
@@ -103,7 +103,7 @@ export default function FloatingImages() {
   return (
     <div
       ref={containerRef}
-      className="relative py-20 overflow-visible w-full min-h-[600px] flex flex-col font-semibold items-center text-[#9ab5f0]"
+      className="relative py-20 overflow-visible w-full min-h-[650px] flex flex-col font-semibold items-center text-[#9ab5f0]"
     >
       {/* Light Blue BG */}
       <div className="absolute inset-0 -z-20 bg-black" />

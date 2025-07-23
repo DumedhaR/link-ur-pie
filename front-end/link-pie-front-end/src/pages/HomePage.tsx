@@ -1,6 +1,6 @@
 import HeroFadeSlider from "@/components/HeroFadeSlider";
 import BuiltForCreators from "@/components/BuiltForCreators";
-import TopFeatureBanner from "@/components/TopFeatureBanner";
+import WhyUsSection from "@/components/WhyUsBanner";
 
 const HomePage = () => {
   return (
@@ -12,7 +12,7 @@ const HomePage = () => {
         <BuiltForCreators/>
       </section>
       <section>
-        <TopFeatureBanner/>
+        <WhyUsSection/>
       </section>
     </div>
   );
