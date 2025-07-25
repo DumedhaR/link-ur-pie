@@ -1,7 +1,7 @@
 
 const images = ["/creator1.jpg", "/creator2.jpg", "/creator3.jpg", "/creator7.jpg"]
       
-export default function BuiltForCreators (){
+export default function CreatorsIntro(){
 
     return (
     <div className="relative bg-[#f5f5f5] py-25 px-6 sm:px-12 md:px-20 overflow-hidden text-center flex flex-col items-center">
