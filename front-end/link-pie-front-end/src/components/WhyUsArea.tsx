@@ -43,7 +43,7 @@ export default function WhyUsArea() {
   useEffect(() => {
     if (!containerSize.width || !containerSize.height) return;
 
-    const marginTop = 350;
+    const marginTop = 375;
     const maxY = containerSize.height * 0.6;
     const spacingX = containerSize.width / (localImages.length + 1);
 
@@ -80,10 +80,10 @@ export default function WhyUsArea() {
   return (
     <div
       ref={containerRef}
-      className="relative py-20 overflow-visible w-full min-h-[700px] flex flex-col font-semibold items-center text-[#9ab5f0]"
+      className="relative py-20 overflow-visible w-full min-h-[750px] flex flex-col font-semibold items-center text-[#9aeffe]"
     >
       {/* BG Color Layer */}
-      <div className="absolute inset-0 -z-20 bg-black" />
+      <div className="absolute inset-0 -z-20 animated-gradient" />
 
       {/* Floating Images Layer */}
       <div className="absolute inset-0 pointer-events-none -z-10">

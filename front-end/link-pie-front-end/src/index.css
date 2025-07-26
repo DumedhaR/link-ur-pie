@@ -136,6 +136,23 @@ body {
     @apply text-foreground;
   }
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #1c0742, #060408, #0a0a15, #090640);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
 
 .embla__container {
   display: flex;

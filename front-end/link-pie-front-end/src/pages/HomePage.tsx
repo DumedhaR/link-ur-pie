@@ -1,6 +1,7 @@
 import HeroFadeSlider from "@/components/HeroFadeSlider";
 import CreatorsIntro from "@/components/CreatorsIntro";
 import WhyUsArea from "@/components/WhyUsArea";
+// import Test from "@/components/test";
 
 const HomePage = () => {
   return (
