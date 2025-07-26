@@ -80,7 +80,7 @@ export default function WhyUsArea() {
   return (
     <div
       ref={containerRef}
-      className="relative py-20 overflow-visible w-full min-h-[750px] flex flex-col font-semibold items-center text-[#9aeffe]"
+      className="relative py-20 overflow-visible w-full min-h-[750px] flex flex-col font-semibold items-center text-primary-foreground"
     >
       {/* BG Color Layer */}
       <div className="absolute inset-0 -z-20 animated-gradient" />
