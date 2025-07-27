@@ -7,8 +7,8 @@ const localImages: string[] = [
   "/img1.jpg",
   "/img2.jpg",
   "/img3.jpg",
-  "/img4.jpg",
-  "/img5.jpg",
+  "/img6.jpg",
+  "/img7.jpg",
 ];
 
 interface ContainerSize {
@@ -47,7 +47,7 @@ export default function WhyUsArea() {
     const maxY = containerSize.height * 0.6;
     const spacingX = containerSize.width / (localImages.length + 1);
 
-    const sizeMin = 140;
+    const sizeMin = 150;
     const sizeMax = 220;
 
     const imgs: FloatingImage[] = localImages.map((src, i) => {
@@ -94,7 +94,7 @@ export default function WhyUsArea() {
       </div>
 
       {/* Top Heading */}
-      <h1 className="absolute top-25 left-20 max-w-2xl text-5xl z-20 pointer-events-none text-left">
+      <h1 className="absolute top-25 left-20 max-w-3xl text-5xl z-20 pointer-events-none text-left">
         We let creators link all their social accounts, downloadable files, and media in one place.
       </h1>
 

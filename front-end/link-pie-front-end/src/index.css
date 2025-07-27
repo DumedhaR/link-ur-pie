@@ -136,24 +136,32 @@ body {
     @apply text-foreground;
   }
 }
+.animated-gradient {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 138, 0, 0.5), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(229, 46, 113, 0.5), transparent 60%),
+    linear-gradient(135deg, #3a16da,
+      #7a65ee,
+      #b77cff,
+      #ff6eb4);
+  background-size: 600% 600%;
+  background-blend-mode: screen;
+  animation: gradientShift 15s ease infinite;
+}
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
-
-.animated-gradient {
-  background: linear-gradient(-45deg, #090640,#0a0a15, #060408,#1c0742);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
-}
-
 .embla__container {
   display: flex;
   position: relative;
