@@ -138,13 +138,13 @@ body {
 }
 .animated-gradient {
   background:
-    radial-gradient(circle at 30% 30%, rgba(255, 138, 0, 0.5), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(229, 46, 113, 0.5), transparent 60%),
-    linear-gradient(135deg, #3a16da,
-      #7a65ee,
-      #b77cff,
-      #ff6eb4);
-  background-size: 600% 600%;
+    radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.5), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(229, 46, 120, 0.5), transparent 60%),
+    linear-gradient(135deg, #3915dc,
+      #725bf5,
+      #b375fe,
+      #ff66b0);
+  background-size: 300% 300%;
   background-blend-mode: screen;
   animation: gradientShift 15s ease infinite;
 }
