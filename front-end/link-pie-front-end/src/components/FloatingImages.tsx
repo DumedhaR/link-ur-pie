@@ -35,7 +35,7 @@ export default function FloatingImages({ src, x, y, size, delay }: FloatingImage
     <motion.img
       src={src}
       alt=""
-      className="absolute rounded-xl object-cover shadow-md opacity-80"
+      className="absolute rounded-xl object-cover shadow-lg opacity-80"
       style={{
         width: size,
         height: size,

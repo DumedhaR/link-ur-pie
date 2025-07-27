@@ -136,15 +136,16 @@ body {
     @apply text-foreground;
   }
 }
+
 .animated-gradient {
   background:
     radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.5), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(229, 46, 120, 0.5), transparent 60%),
-    linear-gradient(135deg, #3915dc,
+    radial-gradient(circle at 70% 70%, rgba(229, 46, 118, 0.5), transparent 60%),
+    linear-gradient(135deg, #3613d2,
       #725bf5,
       #b375fe,
-      #ff66b0);
-  background-size: 300% 300%;
+      #ed5fa4);
+  background-size: 150% 150%;
   background-blend-mode: screen;
   animation: gradientShift 15s ease infinite;
 }
@@ -162,6 +163,7 @@ body {
     background-position: 0% 50%;
   }
 }
+
 .embla__container {
   display: flex;
   position: relative;
