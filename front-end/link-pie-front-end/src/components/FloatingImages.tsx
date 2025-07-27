@@ -14,8 +14,8 @@ export default function FloatingImages({ src, x, y, size, delay }: FloatingImage
 
       while (isMounted) {
         await controls.start({
-          x: getRandomFloat(-size * 0.1, size * 0.1),
-          y: getRandomFloat(-size * 0.1, size * 0.1),
+          x: getRandomFloat(-size * 0.08, size * 0.08),
+          y: getRandomFloat(-size * 0.08, size * 0.08),
           transition: {
             duration: getRandomFloat(4, 7),
             ease: "easeInOut",
