@@ -1,106 +1,35 @@
-import { useEffect, useState, useRef } from "react";
-import { getRandomFloat } from "@/utils/mathOp";
-import FloatingImages from "./FloatingImages";
-import { FloatingImage } from "@/types/types";
-
-const localImages: string[] = [
-  "/img1.jpg",
-  "/img2.jpg",
-  "/img3.jpg",
-  "/img6.jpg",
-  "/img7.jpg",
-];
-
-interface ContainerSize {
-  width: number;
-  height: number;
-}
 
 export default function WhyUsArea() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [containerSize, setContainerSize] = useState<ContainerSize>({
-    width: 0,
-    height: 0,
-  });
-  const [images, setImages] = useState<FloatingImage[]>([]);
-  const [allLoaded, setAllLoaded] = useState(false);
-  
-  // Set container size on mount and resize.
-  useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setContainerSize({ width: rect.width, height: rect.height });
-      }
-    };
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
-  // Making sure images are preloaded and 
-  // generate their random positions after container size is set.
-  useEffect(() => {
-    if (!containerSize.width || !containerSize.height) return;
-
-    const marginTop = 375;
-    const maxY = containerSize.height * 0.6;
-    const spacingX = containerSize.width / (localImages.length + 1);
-
-    const sizeMin = 150;
-    const sizeMax = 220;
-
-    const imgs: FloatingImage[] = localImages.map((src, i) => {
-      return {
-        x: spacingX * (i + 1),
-        y: getRandomFloat(marginTop, maxY),
-        size: getRandomFloat(sizeMin, sizeMax),
-        delay: getRandomFloat(0, 2),
-        src: src,
-      }
-    });
-
-    setImages(imgs);
-
-    let loaded = 0;
-
-    imgs.forEach(({ src }) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = img.onerror = () => {
-        loaded++;
-        if (loaded === imgs.length) {
-          setAllLoaded(true);
-        }
-      };
-    });
-
-  }, [containerSize]);
-
   return (
-    <div
-      ref={containerRef}
-      className="relative py-20 overflow-visible w-full min-h-[750px] flex flex-col font-semibold items-center text-primary-foreground"
-    >
-      {/* BG Color Layer */}
-      <div className="absolute inset-0 -z-20 animated-gradient" />
+    <div className="relative w-full min-h-[100vh] flex flex-col font-semibold items-center text-primary-foreground overflow-hidden">
+      
+      {/* Parallax Background */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/img1.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
 
-      {/* Floating Images Layer */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        {allLoaded &&
-          images.map((props, index) => (
-            <FloatingImages key={index} {...props} />
-          ))}
-      </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Top Heading */}
-      <h1 className="absolute top-25 left-20 max-w-3xl text-5xl z-20 pointer-events-none text-left">
-        We let creators link all their social accounts, downloadable files, and media in one place.
+      <h1 className="absolute top-28 left-20 max-w-xl text-6xl z-20 text-left text-white pointer-events-none">
+        Your Audience Everywhere
       </h1>
 
       {/* Bottom Heading */}
-      <h2 className="absolute bottom-25 right-20 max-w-sm text-xl z-20 pointer-events-none text-right">
-        Grow your audience, share anywhere, and stay in control. Your content, your rules.
+      <h1 className="absolute bottom-28 right-20 max-w-md text-6xl text-right z-20 text-white pointer-events-none">
+        You link here
+      </h1>
+
+      {/* Subheading */}
+      <h2 className="absolute bottom-28 left-20 max-w-xl text-lg z-20 text-left text-white font-normal leading-relaxed pointer-events-none">
+        We let creators link their social accounts, downloadable files, and media in one place. Grow your audience, share anywhere, and stay in control. Your content, your rules.
       </h2>
     </div>
   );

@@ -1,7 +1,7 @@
 import HeroFadeSlider from "@/components/HeroFadeSlider";
 import CreatorsIntro from "@/components/CreatorsIntro";
 import WhyUsArea from "@/components/WhyUsArea";
-// import Test from "@/components/test";
+import PlatFormOverView from "@/components/PlatFormOverView";
 
 const HomePage = () => {
   return (
@@ -13,7 +13,10 @@ const HomePage = () => {
         <CreatorsIntro/>
       </section>
       <section className='why-us-section'>
-        <WhyUsArea/>
+       <WhyUsArea/>
+      </section>
+      <section className='overview-section'>
+       <PlatFormOverView/>
       </section>
     </div>
   );

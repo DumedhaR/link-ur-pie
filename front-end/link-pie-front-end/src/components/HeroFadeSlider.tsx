@@ -65,7 +65,7 @@ export default function HeroFadeSlider() {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/25 z-5" />
+      <div className="absolute inset-0 bg-black/20 z-5" />
 
       {/* Heading block */}
       <div className="absolute inset-0 z-10 flex items-center px-10 md:px-20">

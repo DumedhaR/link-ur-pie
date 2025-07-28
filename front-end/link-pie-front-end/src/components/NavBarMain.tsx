@@ -56,7 +56,7 @@ function ResponsiveAppBar() {
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: isTop ? 'transparent' : 'var(--color-background)',
+        backgroundColor: isTop ? 'transparent' : 'var(--color-foreground)',
         color: 'var(--primary-foreground)',
         boxShadow: isTop ? 'none' : undefined,
         transition: 'background-color 0.5s ease, box-shadow 0.5s ease',

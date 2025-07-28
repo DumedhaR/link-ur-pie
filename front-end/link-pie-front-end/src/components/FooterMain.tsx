@@ -6,7 +6,7 @@ interface FooterProps {
 
 const Footer = ({ logoSrc }: FooterProps ) => {
   return (
-  <footer className="w-full text-white py-12 mt-1" style={{backgroundColor: 'var(--color-background)', color: 'var(--primary-foreground)', }}>
+  <footer className="w-full text-white py-12 mt-1" style={{backgroundColor: 'var(--color-foreground)', color: 'var(--primary-foreground)', }}>
     <div className="px-20 mx-auto mt-18 capitalize">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-4">
