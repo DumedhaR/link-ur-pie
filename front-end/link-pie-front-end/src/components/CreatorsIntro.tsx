@@ -20,11 +20,11 @@ export default function CreatorsIntro() {
         values your creativity.
       </p>
       {/* Creator Images with Labels */}
-      <div className="relative mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto max-w-6xl">
+      <div className="relative mt-14 grid grid-cols-2 md:grid-cols-4 gap-5 mx-auto max-w-6xl">
         {images.map(({ src, label }, i) => (
           <div
             key={i}
-            className="relative w-full aspect-[2/3] overflow-hidden rounded-lg shadow-md"
+            className="relative w-full md:aspect-[2/3] aspect-[3/4] overflow-hidden rounded-lg shadow-md"
           >
             <img
               src={src}
