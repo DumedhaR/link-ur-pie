@@ -1,4 +1,5 @@
-import { FaArrowDown } from "react-icons/fa";
+import { useState } from "react";
+import { FaArrowDown, FaHeart } from "react-icons/fa";
 import {
   Card,
   CardContent,
@@ -111,7 +112,7 @@ const CardProfile = () => (
       </div>
       <Button
         variant="outline"
-        className="bg-[#2a2a2a] border-none text-white w-full flex justify-center py-5 hover:bg-[#2a2a2a] hover:text-white"
+        className="bg-[#2a2a2a] border-none text-white w-full flex shadow-md justify-center cursor-pointer py-5 hover:bg-[#2a2a2a] hover:text-white"
       >
         Edit
       </Button>
@@ -119,46 +120,67 @@ const CardProfile = () => (
   </Card>
 );
 
-const CardMedia = () => (
-  <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
-    <CardContent className="flex flex-col w-full">
-      <div className="relative w-full overflow-hidden">
-           <Avatar className="w-12 h-12 absolute top-4 left-4 z-10 ring-2 ring-[#2a2a2a]">
-          <AvatarImage
-            className="object-cover"
-            src="/morty.png"
-            alt="Morty Smith"
-          />
-          <AvatarFallback>MS</AvatarFallback>
-        </Avatar>
-        <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md p-4 rounded-full text-white">
-          <FiPlay className="w-6 h-6" />
-        </button>
-        <img
-        src='/video1.jpg'
-        alt='tumb'
-        className="w-full h-full object-cover"
-        /> 
-      </div>
-      <div className="flex flex-col mt-3">
-        <h2 className="text-md font-medium text-white">Midnight Run (80s Mix)</h2>
-        <p className="text-sm text-gray-400">Morty Smith</p>
-        <div className="flex flex-row text-sm text-gray-400 items-center">
-          <span>268 views</span>
-          <span className="mx-1 text-xs">•</span>
-          <span>4 comments</span>
-          <span className="mx-1 text-xs">•</span>
-          <span>1 hour ago</span>
-        </div>
-         <div className="text-white text-sm mt-2">
-          <p>Just finished this track inspired by synthwave and the feeling of drifting through time, 
-            let me know if you feel the same.</p>
-        </div>
-      </div>
-    </CardContent>
-  </Card>
-);
+const CardMedia = () => {
+  const [liked, setLiked] = useState(false);
+  const [likes, setLikes] = useState(204);
 
+  const toggleLike = () => {
+    const newLiked = !liked;
+    setLiked(newLiked);
+    setLikes(perv => perv + (newLiked ? 1 : -1));
+  };
+  return (
+    <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
+      <CardContent className="flex flex-col w-full">
+        <div className="relative w-full overflow-hidden">
+            <Avatar className="w-12 h-12 absolute top-4 left-4 z-10 ring-2 ring-[#2a2a2a]">
+            <AvatarImage
+              className="object-cover"
+              src="/morty.png"
+              alt="Morty Smith"
+            />
+            <AvatarFallback>MS</AvatarFallback>
+          </Avatar>
+          <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md p-4 rounded-full text-white">
+            <FiPlay className="w-6 h-6" />
+          </button>
+          <img
+          src='/video1.jpg'
+          alt='tumb'
+          className="w-full h-full object-cover"
+          /> 
+        </div>
+        <div className="flex flex-col mt-3">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-md font-medium text-white">Midnight Run (80s Mix)</h2>
+              <p className="text-sm text-gray-400">Morty Smith</p>
+              <div className="flex flex-row text-sm text-gray-400 items-center">
+                <span>268 views</span>
+                <span className="mx-1 text-xs">•</span>
+                <span>4 comments</span>
+                <span className="mx-1 text-xs">•</span>
+                <span>1 hour ago</span>
+              </div>
+            </div>
+            <Button 
+              className={`flex items-center cursor-pointer shadow-md gap-1 bg-[#2a2a2a] rounded-full hover:bg-[#2a2a2a] transition
+              ${liked ? "text-pink-500" : "text-white hover:text-gray-400"}` }
+              onClick={toggleLike}>
+              <FaHeart className="w-4 h-4 " />
+              <span className="text-sm">{likes}</span>
+            </Button>
+          </div>
+          <div className="text-white text-sm mt-2">
+            <p>Just finished this track inspired by synthwave and the feeling of drifting through time, 
+              let me know if you feel the same.</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+} 
 const ProductCard = ({ title, price }) => (
   <div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
     <h4 className="text-white text-sm font-semibold">{title}</h4>
