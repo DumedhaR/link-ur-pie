@@ -137,6 +137,10 @@ body {
   }
 }
 
+.my-box-blue {
+  @apply bg-blue-100 text-blue-800 border border-blue-300;
+}
+
 .animated-gradient {
   background:
     radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.5), transparent 60%),
@@ -188,16 +192,4 @@ body {
 }
 .hero-section {
   height: 100vh;
-}
-
-.embla__scroll__container {
-  display: flex;
-  touch-action: pan-y pinch-zoom;
-}
-
-.embla__scroll__slide {
-transform: translate3d(0, 0, 0);
-flex: 0 0 100;
-min-width: 0;
-position: relative;
 }

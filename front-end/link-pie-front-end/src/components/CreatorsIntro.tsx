@@ -7,7 +7,7 @@ const images = [
 
 export default function CreatorsIntro() {
   return (
-    <div className="relative pt-28 px-6 sm:px-12 md:px-20 overflow-hidden text-center flex flex-col items-center">
+    <div className="relative pt-28 px-6 sm:px-12 lg:px-20 overflow-hidden text-center flex flex-col items-center">
       {/* Heading */}
       <h2 className="text-[3rem] sm:text-[4rem] md:text-6xl font-semibold leading-none">
         <span className="block">Built for rising creators</span>
@@ -20,7 +20,7 @@ export default function CreatorsIntro() {
         values your creativity.
       </p>
       {/* Creator Images with Labels */}
-      <div className="relative mt-14 grid grid-cols-2 md:grid-cols-4 gap-5 mx-auto max-w-6xl">
+      <div className="relative mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mx-auto max-w-6xl">
         {images.map(({ src, label }, i) => (
           <div
             key={i}

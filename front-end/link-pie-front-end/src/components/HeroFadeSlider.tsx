@@ -68,7 +68,7 @@ export default function HeroFadeSlider() {
       <div className="absolute inset-0 bg-black/20 z-5" />
 
       {/* Heading block */}
-      <div className="absolute inset-0 z-10 flex items-center px-10 md:px-20">
+      <div className="absolute inset-0 z-10 flex items-center px-8 sm:px-12 lg:px-20">
          <div className="relative max-w-3xl text-white overflow-visible text-left">
           <AnimatePresence mode="wait">
             <motion.div
@@ -79,7 +79,7 @@ export default function HeroFadeSlider() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <h1 className="text-4xl md:text-7xl font-semibold mb-3">
+              <h1 className="text-5xl md:text-7xl font-semibold mb-3">
                 {headers[currentIndex].heading}
               </h1>
               <p className="text-lg md:text-xl">{headers[currentIndex].sub}</p>

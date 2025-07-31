@@ -8,10 +8,34 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { Button } from "./ui/button";
 import { FiPlay } from "react-icons/fi";
+import ImgSlider from "./ui/imgSlider";
+import { EmblaOptionsType } from 'embla-carousel';
+
+
+const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg"];
+const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
+
+const videoData: CardMediaProps = {
+  src: ["/video1.jpg",],
+  type: "video",
+  title: "Midnight Run (80s Mix)",
+  desc: "Just finished this track inspired by synthwave and the feeling of drifting through time, let me know what you think.",
+  creator: "Morty Smith",
+  proImg: "/morty.png",
+};
+
+const imgData: CardMediaProps = {
+  src: slids,
+  type: "slider",
+  title: "Seven Seas",
+  desc: "Hi guys, checkout my new digital art collection.",
+  creator: "Jessica Rose",
+  proImg: "/rose.jpg",
+};
 
 export default function Overview() {
   return (
-    <div className="text-white pt-26 pb-28 px-6 md:px-20 relative overflow-hidden">
+    <div className="text-white pt-26 pb-28 px-6 sm:px-12 lg:px-20 relative overflow-hidden">
 
       {/* Overview Section 1 */}
       <div className="max-w-6xl mx-auto text-center">
@@ -24,14 +48,26 @@ export default function Overview() {
         </p>
 
        {/* Account Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mt-12 justify-items-center items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-5 mt-12 items-start">
+          
+        <div className="md:col-span-1 justify-items-center">
           <CardProfile />
+        </div>
+
+        <div className="md:col-span-1 justify-items-center">
           <CardSocials />
-          <CardMedia />
-      </div>
+        </div>
 
-      </div>
+        <div className="md:col-span-2 md:row-span-2 justify-items-center">
+          <CardMedia {...videoData} />
+        </div>
 
+        <div className="md:col-span-2 justify-items-center">
+          <CardMedia {...imgData} />
+        </div>
+      </div>
+     
+      </div>
       {/* Arrow */}
       <div className="flex justify-center my-14">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
@@ -120,7 +156,16 @@ const CardProfile = () => (
   </Card>
 );
 
-const CardMedia = () => {
+interface CardMediaProps {
+  src: string[];
+  type: 'slider' | 'video';
+  title?: string;
+  desc?: string;
+  creator: string;
+  proImg: string;
+}
+
+const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) => {
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(204);
 
@@ -133,33 +178,42 @@ const CardMedia = () => {
     <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
       <CardContent className="flex flex-col w-full">
         <div className="relative w-full overflow-hidden">
-            <Avatar className="w-12 h-12 absolute top-4 left-4 z-10 ring-2 ring-[#2a2a2a]">
+            <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/70">
             <AvatarImage
               className="object-cover"
-              src="/morty.png"
-              alt="Morty Smith"
+              src={proImg}
+              alt={creator}
             />
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
-          <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md p-4 rounded-full text-white">
+          {type === 'video' ? (
+            <div>
+            <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md 
+            cursor-pointer p-4 rounded-full text-white">
             <FiPlay className="w-6 h-6" />
           </button>
-          <img
-          src='/video1.jpg'
+            <img
+          src={src[0]}
           alt='tumb'
           className="w-full h-full object-cover"
           /> 
+          </div>
+          ) : (
+            <div className="w-full h-full overflow-hidden">
+              <ImgSlider options={OPTIONS} slides={slids}/>
+            </div>
+          )} 
         </div>
         <div className="flex flex-col mt-3">
           <div className="flex justify-between items-start">
             <div>
-              <h2 className="text-md font-medium text-white">Midnight Run (80s Mix)</h2>
-              <p className="text-sm text-gray-400">Morty Smith</p>
+              <h2 className="text-md font-medium text-white">{title}</h2>
+              <p className="text-sm text-gray-400 cursor-pointer">{creator}</p>
               <div className="flex flex-row text-sm text-gray-400 items-center">
                 <span>268 views</span>
                 <span className="mx-1 text-xs">•</span>
-                <span>4 comments</span>
-                <span className="mx-1 text-xs">•</span>
+                {/* <span className="hidden sm:inline">4 comments</span>
+                <span className="mx-1 text-xs hidden sm:inline">•</span> */}
                 <span>1 hour ago</span>
               </div>
             </div>
@@ -172,18 +226,24 @@ const CardMedia = () => {
             </Button>
           </div>
           <div className="text-white text-sm mt-2">
-            <p>Just finished this track inspired by synthwave and the feeling of drifting through time, 
-              let me know if you feel the same.</p>
+            <p>{desc}</p>
           </div>
         </div>
       </CardContent>
     </Card>
   );
-
 } 
-const ProductCard = ({ title, price }) => (
-  <div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
+
+interface ProductCardProps {
+  title: string,
+  price: string 
+}
+
+const ProductCard = ({ title, price } : ProductCardProps) => {
+return (<div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
     <h4 className="text-white text-sm font-semibold">{title}</h4>
     <p className="text-blue-400 mt-2 font-bold">{price}</p>
   </div>
 );
+}
+
