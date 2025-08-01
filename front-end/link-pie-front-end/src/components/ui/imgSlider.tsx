@@ -1,21 +1,27 @@
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
+import { useCallback, useEffect, useRef } from 'react'
+import {
+  EmblaCarouselType,
+  EmblaEventType,
+} from 'embla-carousel'
 import {
   PrevButton,
   NextButton,
   usePrevNextButtons
-} from './EmblaCarouselArrowButtons'
+} from './sliderArrowButtons'
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay';
 import '../../styles/slider.css';
 
-type PropType = {
+type ImgSliderProp = {
   slides: string[]
-  options?: EmblaOptionsType
 }
 
-const ImgSlider: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
+const TWEEN_FACTOR_BASE = 0.2
+
+const ImgSlider = ({ slides }:  ImgSliderProp ) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: false, align: "center"}, [Autoplay({ delay: 5000, stopOnInteraction: false })])
+  const tweenFactor = useRef(0)
+  const tweenNodes = useRef<HTMLElement[]>([])
 
   const {
     prevBtnDisabled,
@@ -24,27 +30,105 @@ const ImgSlider: React.FC<PropType> = (props) => {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi)
 
+  const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
+    tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
+      return slideNode.querySelector('.embla__parallax__layer') as HTMLElement
+    })
+  }, [])
+
+  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
+  }, [])
+  const tweenParallax = useCallback(
+  (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+    const engine = emblaApi.internalEngine()
+    const scrollProgress = emblaApi.scrollProgress()
+    const slidesInView = emblaApi.slidesInView()
+    const isScrollEvent = eventName === 'scroll'
+
+    emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+      let diffToTarget = scrollSnap - scrollProgress
+      const slidesInSnap = engine.slideRegistry[snapIndex]
+
+      slidesInSnap.forEach((slideIndex) => {
+        if (isScrollEvent && !slidesInView.includes(slideIndex)) return
+
+        if (engine.options.loop) {
+          engine.slideLooper.loopPoints.forEach((loopItem) => {
+            const target = loopItem.target()
+
+            if (slideIndex === loopItem.index && target !== 0) {
+              const sign = Math.sign(target)
+
+              if (sign === -1) {
+                diffToTarget = scrollSnap - (1 + scrollProgress)
+              }
+              if (sign === 1) {
+                diffToTarget = scrollSnap + (1 - scrollProgress)
+              }
+            }
+          })
+        }
+
+        const translate = diffToTarget * (-1 * tweenFactor.current) * 100
+        const tweenNode = tweenNodes.current[slideIndex]
+
+        tweenNode.style.transform = `translateX(${translate}%)`
+
+       const opacity = 1 - Math.min(Math.abs(diffToTarget * 3), 0.2)
+        tweenNode.style.opacity = opacity.toString()
+      })
+    })
+  },
+  []
+)
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    setTweenNodes(emblaApi)
+    setTweenFactor(emblaApi)
+    tweenParallax(emblaApi)
+
+    emblaApi
+      .on('reInit', setTweenNodes)
+      .on('reInit', setTweenFactor)
+      .on('reInit', tweenParallax)
+      .on('scroll', tweenParallax)
+      .on('slideFocus', tweenParallax)
+  }, [emblaApi, tweenParallax])
+
   return (
     <div className="embl w-full">
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="overflow-hidden px-2" ref={emblaRef}>
         <div className="embla__con">
           {slides.map((src,i) => (
             <div className="embla__slid" key={i}>
-              <img src={src} className='w-full h-full object-cover'/>
+              <div className="embla__parallax rounded-md">
+                <div className="embla__parallax__layer">
+                  <img src={src} className='w-full h-full object-cover embla__parallax__img'/>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="embla__controls z-10 bottom-4 left-4">
-        <div className="embla__buttons">
-          <div className='rounded-full border-2 border-[#2c2c2c]/70 bg-white/10 hover:bg-white/25 backdrop-blur-sm cursor-pointer'>
-            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          </div>
-          <div className='rounded-full border-2 border-[#2c2c2c]/70 bg-white/10 hover:bg-white/25 backdrop-blur-sm cursor-pointe'>
-            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-         </div>
+      <div className="absolute top-1/2 inset-x-0 z-10 px-4 flex justify-between items-center -translate-y-1/2">
+        <div className="pointer-events-auto">
+          <PrevButton
+            onClick={onPrevButtonClick}
+            disabled={prevBtnDisabled}
+            className="w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-white/30 md:bg-transparent md:hover:bg-white/40 text-white"
+          />
         </div>
-      </div>
+        <div className="pointer-events-auto">
+          <NextButton
+            onClick={onNextButtonClick}
+            disabled={nextBtnDisabled}
+            className="w-10 h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center bg-white/30 md:bg-transparent md:hover:bg-white/40 text-white"
+          />
+        </div>
+     </div>
     </div>
   )
 }

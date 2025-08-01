@@ -9,11 +9,8 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { Button } from "./ui/button";
 import { FiPlay } from "react-icons/fi";
 import ImgSlider from "./ui/imgSlider";
-import { EmblaOptionsType } from 'embla-carousel';
-
 
 const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg"];
-const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
 
 const videoData: CardMediaProps = {
   src: ["/video1.jpg",],
@@ -39,7 +36,7 @@ export default function Overview() {
 
       {/* Overview Section 1 */}
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-[3rem] sm:text-[4rem] md:text-6xl font-semibold leading-none">
+        <h2 className="text-5xl md:text-6xl font-semibold leading-none">
           <span className="block"> One platform. Endless ways</span>
           <span className="block">to share your creativity.</span>
         </h2>
@@ -48,7 +45,7 @@ export default function Overview() {
         </p>
 
        {/* Account Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-5 mt-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-5 mt-14 items-start">
           
         <div className="md:col-span-1 justify-items-center">
           <CardProfile />
@@ -199,8 +196,8 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
           /> 
           </div>
           ) : (
-            <div className="w-full h-full overflow-hidden">
-              <ImgSlider options={OPTIONS} slides={slids}/>
+            <div className="w-full h-full">
+              <ImgSlider slides={slids}/>
             </div>
           )} 
         </div>

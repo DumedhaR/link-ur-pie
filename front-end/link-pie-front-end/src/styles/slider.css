@@ -2,6 +2,7 @@
     margin: auto;
     --slide-height: 19rem;
     --slide-size: 100%;
+    --slide-spacing: 0.5rem;
     position: relative;
 }
 
@@ -10,25 +11,13 @@
     will-change: transform;
     position: relative;
     transition: transform 0.3s ease;
+    margin-left: calc(var(--slide-spacing) * -1);
 }
 
 .embla__slid {
-    flex: 0 0 100%;
+    flex: 0 0 80%;
     min-width: 0;
-    /* padding: 0 1rem; */
-        /* keeps slider away from card edge */
-    gap: 1rem;
-}
-
-.embla__slid__number {
-    height: var(--slide-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: bold;
-    color: white;
-    background: #111;
+    padding-left: var(--slide-spacing);
 }
 
 .embla__controls {
@@ -76,4 +65,24 @@
 .embla__button__svg {
     width: 25%;
     height: 25%;
+}
+
+.embla__parallax {
+    height: 100%;
+    overflow: hidden;
+}
+
+.embla__parallax__layer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+}
+
+.embla__parallax__img {
+    max-width: none;
+    flex: 0 0 calc(115% + (var(--slide-spacing) * 2));
+    object-fit: cover;
 }

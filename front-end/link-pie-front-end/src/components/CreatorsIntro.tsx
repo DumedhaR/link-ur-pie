@@ -9,7 +9,7 @@ export default function CreatorsIntro() {
   return (
     <div className="relative pt-28 px-6 sm:px-12 lg:px-20 overflow-hidden text-center flex flex-col items-center">
       {/* Heading */}
-      <h2 className="text-[3rem] sm:text-[4rem] md:text-6xl font-semibold leading-none">
+      <h2 className="text-5xl md:text-6xl font-semibold leading-none">
         <span className="block">Built for rising creators</span>
         <span className="block">Driven by passion, purpose.</span>
       </h2>
