@@ -1,15 +1,10 @@
-import { useCallback, useEffect, useRef } from 'react'
-import {
-  EmblaCarouselType,
-  EmblaEventType,
-} from 'embla-carousel'
-import {
-  PrevButton,
-  NextButton,
-  usePrevNextButtons
-} from './sliderArrowButtons'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay';
+import { useCallback, useEffect, useRef } from 'react';
+import { EmblaCarouselType, EmblaEventType } from 'embla-carousel';
+import { PrevButton, NextButton, usePrevNextButtons } from './sliderArrowButtons';
+import { DotButton, useDotButton } from './sliderDoteButton';
+// import { SelectedSnapDisplay, useSelectedSnapDisplay } from './sliderSnaps';
+import useEmblaCarousel from 'embla-carousel-react';
+// import Autoplay from 'embla-carousel-autoplay';
 import '../../styles/slider.css';
 
 type ImgSliderProp = {
@@ -19,16 +14,19 @@ type ImgSliderProp = {
 const TWEEN_FACTOR_BASE = 0.2
 
 const ImgSlider = ({ slides }:  ImgSliderProp ) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: true, align: "center"}, [Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true })])
-  const tweenFactor = useRef(0)
-  const tweenNodes = useRef<HTMLElement[]>([])
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: true, align: "center"});
+  const tweenFactor = useRef(0);
+  const tweenNodes = useRef<HTMLElement[]>([]);
 
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick
-  } = usePrevNextButtons(emblaApi)
+  } = usePrevNextButtons(emblaApi);
+
+  // const { selectedSnap, snapCount } = useSelectedSnapDisplay(emblaApi);
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
     tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
@@ -129,6 +127,23 @@ const ImgSlider = ({ slides }:  ImgSliderProp ) => {
           />
         </div>
      </div>
+     <div className="absolute embla__dots z-10 bottom-4 left-1/2 transform -translate-x-1/2">
+          {scrollSnaps.map((_, index) => (
+            <DotButton
+              key={index}
+              onClick={() => onDotButtonClick(index)}
+              className={'embla__dot'.concat(
+                index === selectedIndex ? ' embla__dot--selected' : ''
+              )}
+            />
+          ))}
+        </div>
+     {/* <div className='flex absolute top-4 right-4 z-10 bg-white rounded-sm text-sm px-1 items-center'>
+        <SelectedSnapDisplay
+          selectedSnap={selectedSnap}
+          snapCount={snapCount}
+        />
+      </div> */}
     </div>
   )
 }
