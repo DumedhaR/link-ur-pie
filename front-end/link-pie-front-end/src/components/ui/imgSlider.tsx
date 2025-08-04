@@ -99,7 +99,7 @@ const ImgSlider = ({ slides }:  ImgSliderProp ) => {
   return (
     <div className="embl w-full">
       <div className="overflow-hidden px-2" ref={emblaRef}>
-        <div className="embla__con">
+        <div className="embla__con aspect-[3/2]">
           {slides.map((src,i) => (
             <div className="embla__slid" key={i}>
               <div className="embla__parallax">

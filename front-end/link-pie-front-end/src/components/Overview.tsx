@@ -9,7 +9,7 @@ import { FaVideo, FaImage } from "react-icons/fa"
 import ImgSlider from "./ui/imgSlider";
 import { getRandomBetween } from "@/utils/mathOp";
 
-const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg"];
+const slids = ["/slider1.jpg", "/slider4.jpg", "/slider3.jpg", "/slider2.jpg" ];
 
 const videoData: CardMediaProps = {
   src: ["/video1.jpg",],
