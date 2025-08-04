@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { FaArrowDown, FaHeart } from "react-icons/fa";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { Button } from "./ui/button";
 import { FiPlay } from "react-icons/fi";
+import { FaVideo, FaImage } from "react-icons/fa"
 import ImgSlider from "./ui/imgSlider";
+import { getRandomBetween } from "@/utils/mathOp";
 
 const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg"];
 
@@ -164,18 +163,18 @@ interface CardMediaProps {
 
 const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) => {
   const [liked, setLiked] = useState(false);
-  const [likes, setLikes] = useState(204);
+  const [likes, setLikes] = useState(getRandomBetween(50, 200));
 
   const toggleLike = () => {
     const newLiked = !liked;
     setLiked(newLiked);
-    setLikes(perv => perv + (newLiked ? 1 : -1));
+    setLikes(prev => prev + (newLiked ? 1 : -1));
   };
   return (
     <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
       <CardContent className="flex flex-col w-full">
         <div className="relative w-full overflow-hidden">
-            <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/70">
+            <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/80">
             <AvatarImage
               className="object-cover"
               src={proImg}
@@ -184,21 +183,29 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
           {type === 'video' ? (
-            <div>
+            <>
             <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md 
             cursor-pointer p-4 rounded-full text-white">
             <FiPlay className="w-6 h-6" />
-          </button>
+            </button>
+            <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm">
+              <FaVideo className="w-3 h-3 text-background"/>
+            </div>
             <img
           src={src[0]}
           alt='tumb'
           className="w-full h-full object-cover"
           /> 
-          </div>
+          </>
           ) : (
+            <>
+            <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
+              <FaImage className="w-3 h-3 text-background"/>
+            </div>
             <div className="w-full h-full">
               <ImgSlider slides={slids}/>
             </div>
+            </>
           )} 
         </div>
         <div className="flex flex-col mt-3">
@@ -209,9 +216,7 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
               <div className="flex flex-row text-sm text-gray-400 items-center">
                 <span>268 views</span>
                 <span className="mx-1 text-xs">•</span>
-                {/* <span className="hidden sm:inline">4 comments</span>
-                <span className="mx-1 text-xs hidden sm:inline">•</span> */}
-                <span>1 hour ago</span>
+                <span>2 hour ago</span>
               </div>
             </div>
             <Button 

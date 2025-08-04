@@ -19,7 +19,7 @@ type ImgSliderProp = {
 const TWEEN_FACTOR_BASE = 0.2
 
 const ImgSlider = ({ slides }:  ImgSliderProp ) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: false, align: "center"}, [Autoplay({ delay: 5000, stopOnInteraction: false })])
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: true, align: "center"}, [Autoplay({ delay: 6000, stopOnInteraction: true, stopOnMouseEnter: true })])
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
 
@@ -104,7 +104,7 @@ const ImgSlider = ({ slides }:  ImgSliderProp ) => {
         <div className="embla__con">
           {slides.map((src,i) => (
             <div className="embla__slid" key={i}>
-              <div className="embla__parallax rounded-md">
+              <div className="embla__parallax">
                 <div className="embla__parallax__layer">
                   <img src={src} className='w-full h-full object-cover embla__parallax__img'/>
                 </div>
