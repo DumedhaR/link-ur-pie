@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { FaArrowDown, FaHeart } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { Button } from "./ui/button";
-import { FiPlay } from "react-icons/fi";
-import { FaVideo, FaImage } from "react-icons/fa"
+import { Badge } from "@/components/ui/badge";
+import { FiPlay, FiHeart, FiEye, FiLayers } from "react-icons/fi";
+import { FaVideo, FaImage, FaBookOpen, FaArrowDown, FaHeart, FaFacebookF, FaInstagram, FaTiktok, FaYoutube} from "react-icons/fa"
 import ImgSlider from "./ui/imgSlider";
-import { getRandomBetween } from "@/utils/mathOp";
+import { getRandomBetween } from "@/utils/mathUtils";
+import { trimTextByWords } from "@/utils/textUtils";
 
 const slids = ["/slider1.jpg", "/slider4.jpg", "/slider3.jpg", "/slider2.jpg" ];
 
@@ -22,11 +22,23 @@ const videoData: CardMediaProps = {
 
 const imgData: CardMediaProps = {
   src: slids,
-  type: "slider",
+  type: "image",
   title: "Seven Seas",
   desc: "Hi guys, checkout my new digital art collection.",
   creator: "Jessica Rose",
   proImg: "/rose.jpg",
+};
+
+const storyData: CardDocsProps = {
+  cover: "/story.jpg",
+  type: "story",
+  title: "Behind Her Screen",
+  summary: `Maya is a lonely teenage girl living on the edge. Clever, beautiful, sharp-tongued, and two-faced by design. Online, she becomes anyone. Behind the screen, she crafts illusions, 
+            manipulates emotions, and cashes in, treating strangers like pawns in her digital game. But her latest mark isn’t like the rest. He’s kind. Genuine. And worst of all, he sees her. 
+            As blurred feelings crack her carefully built facade, Maya slips into something terrifyingly real. But just as she lets her guard down, the trap snaps shut. Someone has been watching. 
+            Someone who knows her secrets. Someone who’s been waiting`,
+  creator: "Kevil Max",
+  proImg: "/kavil.jpg",
 };
 
 export default function Overview() {
@@ -58,8 +70,12 @@ export default function Overview() {
           <CardMedia {...videoData} />
         </div>
 
-        <div className="md:col-span-2 justify-items-center">
+        <div className="md:col-span-2 md:row-span-2 justify-items-center">
           <CardMedia {...imgData} />
+        </div>
+
+        <div className="md:col-span-2 md:row-span-2 justify-items-center">
+          <CardDocs {...storyData} />
         </div>
       </div>
      
@@ -154,7 +170,7 @@ const CardProfile = () => (
 
 interface CardMediaProps {
   src: string[];
-  type: 'slider' | 'video';
+  type: 'image' | 'video';
   title?: string;
   desc?: string;
   creator: string;
@@ -171,7 +187,7 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
     setLikes(prev => prev + (newLiked ? 1 : -1));
   };
   return (
-    <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
+    <Card className="w-full h-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
       <CardContent className="flex flex-col w-full">
         <div className="relative w-full overflow-hidden">
             <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/80">
@@ -184,27 +200,27 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
           </Avatar>
           {type === 'video' ? (
             <>
-            <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md 
-            cursor-pointer p-4 rounded-full text-white">
-            <FiPlay className="w-6 h-6" />
-            </button>
-            <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm">
-              <FaVideo className="w-3 h-3 text-background"/>
-            </div>
-            <img
-          src={src[0]}
-          alt='tumb'
-          className="w-full h-full object-cover"
-          /> 
-          </>
+              <button className="absolute bottom-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md 
+              cursor-pointer p-4 rounded-full text-white">
+              <FiPlay className="w-6 h-6" />
+              </button>
+              <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm">
+                <FaVideo className="w-3 h-3 text-background"/>
+              </div>
+              <img
+              src={src[0]}
+              alt='tumb'
+              className="w-full h-full object-cover"
+              /> 
+            </>
           ) : (
             <>
-            <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
-              <FaImage className="w-3 h-3 text-background"/>
-            </div>
-            <div className="w-full h-full">
-              <ImgSlider slides={slids}/>
-            </div>
+              <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
+                <FaImage className="w-3 h-3 text-background"/>
+              </div>
+              <div className="w-full h-full">
+                <ImgSlider slides={src}/>
+              </div>
             </>
           )} 
         </div>
@@ -236,9 +252,79 @@ const CardMedia = ({src, type, title, desc, creator, proImg} : CardMediaProps) =
   );
 } 
 
+interface CardDocsProps {
+  cover: string;
+  type: 'document' | 'story';
+  title?: string;
+  summary: string;
+  creator: string;
+  proImg: string;
+}
+
+const CardDocs = ({cover, type, title, summary, creator, proImg} : CardDocsProps) => {
+
+  const trimmedSummary = trimTextByWords(summary, 75);
+
+  return (
+    <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
+      <CardContent className="flex flex-row w-full gap-5">
+        <div className="relative w-2/5 overflow-hidden">
+            <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/80">
+            <AvatarImage
+              className="object-cover"
+              src={proImg}
+              alt={creator}
+            />
+            <AvatarFallback>MS</AvatarFallback>
+          </Avatar>
+          {type === 'story' ? (
+            <>
+              <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm">
+                <FaBookOpen className="w-3 h-3 text-background"/>
+              </div>
+              <div className="w-full h-full aspect-[4/6] rounded-l-lg overflow-hidden">
+              <img src={cover} alt="thumb" className="w-full h-full object-cover" />
+            </div> 
+            </>
+          ) : (
+            <></>
+          )} 
+        </div>
+        <div className="flex flex-col w-3/5 gap-1 py-2">
+          <h2 className="text-md font-medium text-white cursor-pointer">{title}</h2>
+          <p className="text-sm text-gray-400 cursor-pointer">{creator}</p>
+          <div className="flex flex-row text-sm text-gray-400 items-center gap-4">
+            <div className="flex items-center gap-1">
+              <FiEye className="w-4 h-4 " />
+              <span>268</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <FiHeart className="w-4 h-4 " />
+              <span className="text-sm">321</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <FiLayers className="w-4 h-4 " />
+              <span>10 parts</span>
+            </div>
+          </div>
+          <div className="text-white text-sm">
+            <p>{trimmedSummary}<span className="text-gray-400"> ...more</span></p>
+          </div>
+          <div className="flex flex-wrap gap-1 text-sm text-gray-400 items-center mt-2 mb-1">
+              <Badge variant="default">dark romance</Badge>
+              <Badge variant="secondary">obsession</Badge>
+              <Badge variant="destructive">revenge</Badge>
+              <Badge variant="outline">5+</Badge>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+} 
+
 interface ProductCardProps {
-  title: string,
-  price: string 
+  title: string;
+  price: string;
 }
 
 const ProductCard = ({ title, price } : ProductCardProps) => {

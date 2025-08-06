@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { getRandomFloat } from "@/utils/mathOp";
+import { getRandomFloat } from "@/utils/mathUtils";
 import FloatingImages from "../FloatingImages";
 import { FloatingImage } from "@/types/types";
 

@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect} from "react";
-import { getRandomFloat } from "@/utils/mathOp";
+import { getRandomFloat } from "@/utils/mathUtils";
 import { FloatingImage } from "@/types/types";
 
 export default function FloatingImages({ src, x, y, size, delay }: FloatingImage) {
