@@ -4,18 +4,18 @@ import Overview from "@/components/Overview";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-28">
       <section className="hero-section" style={{ marginTop: 0 }}>
-        <HeroFadeSlider/>
+        <HeroFadeSlider />
       </section>
-      <section className='greet-section'>
-        <CreatorsIntro/>
+      <section className="greet-section">
+        <CreatorsIntro />
       </section>
-      <section className='overview-section'>
-      <Overview/>
+      <section className="overview-section">
+        <Overview />
       </section>
     </div>
   );
-}
+};
 
 export default HomePage;
