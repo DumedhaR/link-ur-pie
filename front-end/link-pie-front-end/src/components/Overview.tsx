@@ -18,6 +18,7 @@ import {
 import ImgSlider from "./ui/imgSlider";
 import { getRandomBetween } from "@/utils/mathUtils";
 import { trimTextByWords } from "@/utils/textUtils";
+import WaveAudioPlayer from "./ui/waveAudioPlayer";
 
 const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg", "/slider2.jpg"];
 
@@ -76,9 +77,7 @@ export default function Overview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-14 items-start justify-items-center">
           <CardProfile />
-
           <CardSocials />
-
           <div className="w-full h-full lg:col-span-2 lg:row-span-2">
             <CardMedia {...videoData} />
           </div>
@@ -88,9 +87,11 @@ export default function Overview() {
           <div className="w-full h-full lg:col-span-2 lg:row-span-2">
             <CardMedia {...podcastData} />
           </div>
-
           <div className="w-full md:col-span-2 lg:row-span-2">
             <CardDocs {...storyData} />
+          </div>
+          <div className="w-full md:col-span-2">
+            <WaveAudioPlayer />
           </div>
         </div>
       </div>
@@ -138,27 +139,25 @@ export default function Overview() {
 
 const CardSocials = () => (
   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
-    <CardContent>
-      <div className="flex flex-col gap-1 text-white text-2xl">
-        <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-          <FaFacebookF className="text-xl text-blue-500" />
-          <span className="text-sm">Facebook</span>
-        </div>
+    <CardContent className="flex flex-col gap-1 text-white text-2xl">
+      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+        <FaFacebookF className="text-xl text-blue-500" />
+        <span className="text-sm">Facebook</span>
+      </div>
 
-        <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-          <FaInstagram className="text-xl text-pink-500" />
-          <span className="text-sm">Instagram</span>
-        </div>
+      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+        <FaInstagram className="text-xl text-pink-500" />
+        <span className="text-sm">Instagram</span>
+      </div>
 
-        <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-          <FaTiktok className="text-xl text-black" />
-          <span className="text-sm">TikTok</span>
-        </div>
+      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+        <FaTiktok className="text-xl text-black" />
+        <span className="text-sm">TikTok</span>
+      </div>
 
-        <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-          <FaYoutube className="text-xl text-red-500" />
-          <span className="text-sm">YouTube</span>
-        </div>
+      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+        <FaYoutube className="text-xl text-red-500" />
+        <span className="text-sm">YouTube</span>
       </div>
     </CardContent>
   </Card>
