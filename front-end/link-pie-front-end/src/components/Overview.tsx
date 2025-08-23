@@ -19,6 +19,7 @@ import ImgSlider from "./ui/imgSlider";
 import { getRandomBetween } from "@/utils/mathUtils";
 import { trimTextByWords } from "@/utils/textUtils";
 import WaveAudioPlayer from "./ui/waveAudioPlayer";
+import { AudioPlayerProp } from "@/types/types";
 
 const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg", "/slider2.jpg"];
 
@@ -61,6 +62,13 @@ const storyData: CardDocsProps = {
   proImg: "/kavil.jpg",
 };
 
+const audioData: AudioPlayerProp = {
+  src: "/demo_track_avicii.wav",
+  songName: "Rock Bottom",
+  coverArt: "/cover_art.jpg",
+  artist: "Morty Smith",
+};
+
 export default function Overview() {
   return (
     <div className="text-white pb-28 px-6 sm:px-12 lg:px-18 relative overflow-hidden">
@@ -91,7 +99,7 @@ export default function Overview() {
             <CardDocs {...storyData} />
           </div>
           <div className="w-full md:col-span-2">
-            <WaveAudioPlayer />
+            <WaveAudioPlayer {...audioData} />
           </div>
         </div>
       </div>
