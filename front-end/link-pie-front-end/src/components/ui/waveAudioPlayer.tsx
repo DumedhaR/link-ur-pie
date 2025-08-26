@@ -1,9 +1,17 @@
-import { useRef, useCallback, useState, useEffect } from "react";
+import { useRef, useCallback, useState, useEffect, ChangeEvent } from "react";
 import { useWavesurfer } from "@wavesurfer/react";
-import { FiHeart, FiEye } from "react-icons/fi";
-import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import {
+  FaPlay,
+  FaPause,
+  FaVolumeUp,
+  FaVolumeMute,
+  FaStop,
+  FaHeart,
+} from "react-icons/fa";
 import { AudioPlayerProp } from "@/types/types";
-import { ChangeEvent } from "react";
+import { Badge } from "@/components/ui/badge";
+import { getRandomBetween } from "@/utils/mathUtils";
+import { Button } from "./button";
 
 const formatTime = (seconds: number) =>
   [seconds / 60, seconds % 60]
@@ -21,6 +29,8 @@ const WaveAudioPlayer = ({
   const [volume, setVolume] = useState(1);
   const [showVolume, setShowVolume] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const [likes, setLikes] = useState(getRandomBetween(50, 200));
 
   const toggleMute = () => {
     if (!isMuted) {
@@ -44,7 +54,7 @@ const WaveAudioPlayer = ({
 
   const { wavesurfer, isPlaying, currentTime } = useWavesurfer({
     container: containerRef,
-    height: 90,
+    height: 95,
     waveColor: "#707171ff",
     progressColor: "#3ae9baff",
     barWidth: 2,
@@ -71,66 +81,92 @@ const WaveAudioPlayer = ({
     wavesurfer?.playPause();
   }, [wavesurfer]);
 
+  const onStop = () => {
+    wavesurfer?.stop();
+  };
+
+  const toggleLike = () => {
+    const newLiked = !liked;
+    setLiked(newLiked);
+    setLikes((prev) => prev + (newLiked ? 1 : -1));
+  };
+
   return (
     <div className="flex flex-col w-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] p-5 gap-5 text-sm">
-      <div className="flex gap-4">
-        <div className="flex flex-col flex-2">
+      <div className="flex gap-5">
+        <div className="flex flex-col flex-2 pt-3">
           <div className="flex flex-col gap-1 flex-1">
             <h1 className="text-md font-semibold text-white">
               {`${artist} - ${songName} (Original Mix)`}
             </h1>
             <p className="text-sm text-gray-400 cursor-pointer">{artist}</p>
-            <div className="flex flex-row text-sm text-gray-400 items-center gap-4">
-              <div className="flex items-center gap-1">
-                <FiEye className="w-4 h-4 " />
-                <span>654</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FiHeart className="w-4 h-4 " />
-                <span className="text-sm">311</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="text-sm">2 days ago</span>
-              </div>
+            <div className="flex flex-row text-sm text-gray-400 items-center">
+              <span>268 streams</span>
+              <span className="mx-1 text-xs">•</span>
+              <span>1 day ago</span>
+            </div>
+            <div className="flex flex-wrap gap-1 text-sm text-gray-400 items-center mt-2.5 mb-1">
+              <Badge variant="default">edm</Badge>
+              <Badge variant="secondary">house</Badge>
+              <Badge variant="destructive">dance</Badge>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={onPlayPause}
-              className="bg-[#2a2a2a] rounded-full p-4 shadow-lg hover:text-gray-400 cursor-pointer"
-            >
-              {isPlaying ? (
-                <FaPause className="w-6 h-6" />
-              ) : (
-                <FaPlay className="pl-1 w-6 h-6" />
-              )}
-            </button>
-            <div
-              className="relative"
-              onMouseEnter={() => setShowVolume(true)}
-              onMouseLeave={() => setShowVolume(false)}
-            >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
               <button
-                onClick={toggleMute}
-                className="bg-[#2a2a2a] rounded-full p-2 shadow-md hover:text-gray-400 cursor-pointer"
+                onClick={onStop}
+                className="bg-[#2a2a2a] rounded-full p-2 shadow-lg hover:text-gray-400 cursor-pointer"
               >
-                {isMuted ? (
-                  <FaVolumeMute className="w-4 h-4" />
+                <FaStop className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={onPlayPause}
+                className="bg-[#2a2a2a] rounded-full p-4 shadow-lg hover:text-gray-400 cursor-pointer"
+              >
+                {isPlaying ? (
+                  <FaPause className="w-6 h-6" />
                 ) : (
-                  <FaVolumeUp className="w-4 h-4" />
+                  <FaPlay className="pl-1 w-6 h-6" />
                 )}
               </button>
-              {showVolume && (
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.01"
-                  value={volume}
-                  onChange={handleChangeVolume}
-                  className="w-24 accent-[#3ae9baff] cursor-pointer"
-                />
-              )}
+              <div
+                className="flex gap-1"
+                onMouseEnter={() => setShowVolume(true)}
+                onMouseLeave={() => setShowVolume(false)}
+              >
+                <button
+                  onClick={toggleMute}
+                  className="bg-[#2a2a2a] rounded-full p-2 shadow-md hover:text-gray-400 cursor-pointer"
+                >
+                  {isMuted ? (
+                    <FaVolumeMute className="w-4 h-4" />
+                  ) : (
+                    <FaVolumeUp className="w-4 h-4" />
+                  )}
+                </button>
+                {showVolume && (
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={volume}
+                    onChange={handleChangeVolume}
+                    className="w-20 accent-[#3ae9baff] cursor-pointer"
+                  />
+                )}
+              </div>
+            </div>
+            <div>
+              <Button
+                className={`flex items-center cursor-pointer shadow-md gap-1 bg-[#2a2a2a] rounded-full hover:bg-[#2a2a2a] transition
+              ${liked ? "text-[#3ae9baff]" : "text-white hover:text-gray-400"}`}
+                onClick={toggleLike}
+              >
+                <FaHeart className="w-4 h-4" />
+                <span className="text-sm">{likes}</span>
+              </Button>
             </div>
           </div>
         </div>

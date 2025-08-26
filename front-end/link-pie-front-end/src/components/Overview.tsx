@@ -65,7 +65,7 @@ const storyData: CardDocsProps = {
 const audioData: AudioPlayerProp = {
   src: "/demo_track_avicii.wav",
   songName: "Rock Bottom",
-  coverArt: "/cover_art.jpg",
+  coverArt: "/cover_art_1.png",
   artist: "Morty Smith",
 };
 
