@@ -10,6 +10,9 @@ export interface AudioPlayerProp {
   src: string;
   songName: string;
   coverArt: string;
-  artist: string;
+  artist: {
+    name: string;
+    avatar: string;
+  };
   genre?: string[];
 }

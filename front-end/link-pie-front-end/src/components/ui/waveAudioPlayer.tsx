@@ -97,18 +97,22 @@ const WaveAudioPlayer = ({
         <div className="flex flex-col flex-2 pt-3">
           <div className="flex flex-col gap-1 flex-1">
             <h1 className="text-md font-semibold text-white">
-              {`${artist} - ${songName} (Original Mix)`}
+              {`${artist.name} - ${songName} (Original Mix)`}
             </h1>
-            <p className="text-sm text-gray-400 cursor-pointer">{artist}</p>
+            <p className="text-sm text-gray-400 cursor-pointer">
+              {artist.name}
+            </p>
             <div className="flex flex-row text-sm text-gray-400 items-center">
               <span>268 streams</span>
               <span className="mx-1 text-xs">•</span>
               <span>1 day ago</span>
             </div>
-            <div className="flex flex-wrap gap-1 text-sm text-gray-400 items-center mt-2.5 mb-1">
-              <Badge variant="default">edm</Badge>
-              <Badge variant="secondary">house</Badge>
-              <Badge variant="destructive">dance</Badge>
+            <div className="flex justify-between">
+              <div className="flex flex-wrap gap-1 text-sm text-gray-400 items-center mt-2.5 mb-1">
+                <Badge variant="default">edm</Badge>
+                <Badge variant="secondary">house</Badge>
+                <Badge variant="destructive">dance</Badge>
+              </div>
             </div>
           </div>
           <div className="flex items-center justify-between">
@@ -159,14 +163,18 @@ const WaveAudioPlayer = ({
               </div>
             </div>
             <div>
-              <Button
-                className={`flex items-center cursor-pointer shadow-md gap-1 bg-[#2a2a2a] rounded-full hover:bg-[#2a2a2a] transition
+              <div className="flex gap-0.5">
+                <Button
+                  className={`flex items-center cursor-pointer shadow-md bg-[#2a2a2a] rounded-l-full hover:bg-[#2a2a2a] transition
               ${liked ? "text-[#3ae9baff]" : "text-white hover:text-gray-400"}`}
-                onClick={toggleLike}
-              >
-                <FaHeart className="w-4 h-4" />
-                <span className="text-sm">{likes}</span>
-              </Button>
+                  onClick={toggleLike}
+                >
+                  <FaHeart className="w-4 h-4" />
+                </Button>
+                <div className="flex bg-[#2a2a2a] items-center shadow-md px-2 rounded-r-full">
+                  <span className="text-sm mr-1 pb-0.5">{likes}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

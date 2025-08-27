@@ -66,7 +66,10 @@ const audioData: AudioPlayerProp = {
   src: "/demo_track_avicii.wav",
   songName: "Rock Bottom",
   coverArt: "/cover_art_1.png",
-  artist: "Morty Smith",
+  artist: {
+    name: "Morty Smith",
+    avatar: "/morty.png",
+  },
 };
 
 export default function Overview() {
