@@ -14,6 +14,8 @@ import {
   FaInstagram,
   FaTiktok,
   FaYoutube,
+  FaSpotify,
+  FaGlobe,
 } from "react-icons/fa";
 import ImgSlider from "./ui/imgSlider";
 import { getRandomBetween } from "@/utils/mathUtils";
@@ -65,7 +67,7 @@ const storyData: CardDocsProps = {
 const audioData: AudioPlayerProp = {
   src: "/demo_track_avicii.wav",
   songName: "Rock Bottom",
-  coverArt: "/cover_art_1.png",
+  coverArt: "/cover_art1.png",
   artist: {
     name: "Morty Smith",
     avatar: "/morty.png",
@@ -87,21 +89,22 @@ export default function Overview() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-14 items-start justify-items-center">
-          <CardProfile />
-          <CardSocials />
-          <div className="w-full h-full lg:col-span-2 lg:row-span-2">
+          <div className="w-full h-full w-full h-full lg:col-span-2">
+            <CreatorProfileCard />
+          </div>
+          <div className="w-full h-full lg:col-span-2">
             <CardMedia {...videoData} />
           </div>
-          <div className="w-full h-full lg:col-span-2 lg:row-span-2">
+          <div className="w-full h-full lg:col-span-2 lg:row-span-1">
             <CardMedia {...imgData} />
           </div>
-          <div className="w-full h-full lg:col-span-2 lg:row-span-2">
+          <div className="w-full h-full lg:col-span-2 lg:row-span-1">
             <CardMedia {...podcastData} />
           </div>
-          <div className="w-full md:col-span-2 lg:row-span-2">
+          <div className="w-full h-full md:col-span-2 lg:row-span-1">
             <CardDocs {...storyData} />
           </div>
-          <div className="w-full md:col-span-2">
+          <div className="w-full h-full md:col-span-2 lg:row-span-1">
             <WaveAudioPlayer {...audioData} />
           </div>
         </div>
@@ -148,56 +151,56 @@ export default function Overview() {
   );
 }
 
-const CardSocials = () => (
-  <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
-    <CardContent className="flex flex-col gap-1 text-white text-2xl">
-      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-        <FaFacebookF className="text-xl text-blue-500" />
-        <span className="text-sm">Facebook</span>
-      </div>
+// const CardSocials = () => (
+//   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
+//     <CardContent className="flex flex-col gap-1 text-white text-2xl">
+//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+//         <FaFacebookF className="text-xl text-blue-500" />
+//         <span className="text-sm">Facebook</span>
+//       </div>
 
-      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-        <FaInstagram className="text-xl text-pink-500" />
-        <span className="text-sm">Instagram</span>
-      </div>
+//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+//         <FaInstagram className="text-xl text-pink-500" />
+//         <span className="text-sm">Instagram</span>
+//       </div>
 
-      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-        <FaTiktok className="text-xl text-black" />
-        <span className="text-sm">TikTok</span>
-      </div>
+//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+//         <FaTiktok className="text-xl text-black" />
+//         <span className="text-sm">TikTok</span>
+//       </div>
 
-      <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-        <FaYoutube className="text-xl text-red-500" />
-        <span className="text-sm">YouTube</span>
-      </div>
-    </CardContent>
-  </Card>
-);
+//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
+//         <FaYoutube className="text-xl text-red-500" />
+//         <span className="text-sm">YouTube</span>
+//       </div>
+//     </CardContent>
+//   </Card>
+// );
 
-const CardProfile = () => (
-  <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-center shadow-md border border-[#2a2a2a]">
-    <CardContent className="flex flex-col items-center w-full">
-      <Avatar className="w-20 h-20 mb-3 ring-3 ring-[#2a2a2a]">
-        <AvatarImage
-          className="object-cover"
-          src="/morty.png"
-          alt="Morty Smith"
-        />
-        <AvatarFallback>MS</AvatarFallback>
-      </Avatar>
-      <div className="text-white mb-4">
-        <h2 className="text-lg font-medium">Morty Smith</h2>
-        <p className="text-sm text-gray-400">Musician</p>
-      </div>
-      <Button
-        variant="outline"
-        className="bg-[#2a2a2a] border-none text-white w-full flex shadow-md justify-center cursor-pointer py-5 hover:bg-[#2a2a2a] hover:text-white"
-      >
-        Edit
-      </Button>
-    </CardContent>
-  </Card>
-);
+// const CardProfile = () => (
+//   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-center shadow-md border border-[#2a2a2a]">
+//     <CardContent className="flex flex-col items-center w-full">
+//       <Avatar className="w-20 h-20 mb-3 ring-3 ring-[#2a2a2a]">
+//         <AvatarImage
+//           className="object-cover"
+//           src="/morty.png"
+//           alt="Morty Smith"
+//         />
+//         <AvatarFallback>MS</AvatarFallback>
+//       </Avatar>
+//       <div className="text-white mb-4">
+//         <h2 className="text-lg font-medium">Morty Smith</h2>
+//         <p className="text-sm text-gray-400">Musician</p>
+//       </div>
+//       <Button
+//         variant="outline"
+//         className="bg-[#2a2a2a] border-none text-white w-full flex shadow-md justify-center cursor-pointer py-5 hover:bg-[#2a2a2a] hover:text-white"
+//       >
+//         Edit
+//       </Button>
+//     </CardContent>
+//   </Card>
+// );
 
 interface CardMediaProps {
   src: string[];
@@ -307,8 +310,8 @@ const CardDocs = ({
   proImg,
 }: CardDocsProps) => {
   return (
-    <Card className="bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
-      <CardContent className="flex flex-col md:flex-row w-full gap-3 md:gap-5">
+    <Card className="w-full h-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] md:col-span-2">
+      <CardContent className="flex flex-col md:flex-row w-full h-full gap-3 md:gap-5">
         <div className="relative flex-2 overflow-hidden">
           <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
             <AvatarImage className="object-cover" src={proImg} alt={creator} />
@@ -366,6 +369,96 @@ const CardDocs = ({
     </Card>
   );
 };
+const CreatorProfileCard = () => (
+  <Card className="w-full bg-[#1a1a1a] rounded-2xl shadow-lg border border-[#2a2a2a] overflow-hidden">
+    <CardContent className="flex flex-col gap-5 text-white">
+      <div className="flex md:items-start gap-4">
+        <Avatar className="w-13 h-13 ring-3 ring-[#2a2a2a]">
+          <AvatarImage
+            className="object-cover"
+            src="/morty.png"
+            alt="Morty Smith"
+          />
+          <AvatarFallback>MS</AvatarFallback>
+        </Avatar>
+        <div className="flex flex-col text-left">
+          <h2 className="text-md font-semibold text-white cursor-pointer">
+            Morty Smith
+          </h2>
+          <p className="text-sm text-gray-400 mb-2">Musician · Composer</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col text-left gap-5">
+        <div>
+          <h3 className="text-md font-medium mb-3">Recent Works</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+              <img
+                src="/video1.jpg"
+                alt="Video 1"
+                className="w-full h-24 object-cover rounded-md mb-1"
+              />
+              <p className="text-sm text-gray-300 truncate">
+                Music Video - Midnight Run
+              </p>
+            </div>
+            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+              <img
+                src="/cover_art2.jpg"
+                alt="Artwork 1"
+                className="w-full h-24 object-cover rounded-md mb-1"
+              />
+              <p className="text-sm text-gray-300 truncate">
+                Single - Sunset Dreams
+              </p>
+            </div>
+            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+              <img
+                src="/cover_art1.png"
+                alt="Song 1"
+                className="w-full h-24 object-contain rounded-md mb-1 bg-white"
+              />
+              <p className="text-sm text-gray-300 truncate">
+                Single - Rock Bottom
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-md font-medium mb-3">Find Me On</h3>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaGlobe className="text-lg text-green-400" />
+              <span className="text-sm">Official Website</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaSpotify className="text-lg text-green-500" />
+              <span className="text-sm">Listen on Spotify</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaYoutube className="text-lg text-red-500" />
+              <span className="text-sm">Watch on YouTube</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaInstagram className="text-lg text-pink-500" />
+              <span className="text-sm">Instagram</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaTiktok className="text-lg text-white" />
+              <span className="text-sm">TikTok</span>
+            </div>
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+              <FaFacebookF className="text-lg text-blue-500" />
+              <span className="text-sm">Facebook</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
 
 interface ProductCardProps {
   title: string;

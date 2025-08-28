@@ -94,6 +94,13 @@ const WaveAudioPlayer = ({
   return (
     <div className="flex flex-col w-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] p-5 gap-5 text-sm">
       <div className="flex gap-5">
+        <div className="flex-1 rounded-r-lg overflow-hidden min-w-50 min-h-50">
+          <img
+            src={coverArt}
+            alt="cover-art"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="flex flex-col flex-2 pt-3">
           <div className="flex flex-col gap-1 flex-1">
             <h1 className="text-md font-semibold text-white">
@@ -157,33 +164,24 @@ const WaveAudioPlayer = ({
                     step="0.01"
                     value={volume}
                     onChange={handleChangeVolume}
-                    className="w-20 accent-[#3ae9baff] cursor-pointer"
+                    className="w-18 accent-[#3ae9baff] cursor-pointer"
                   />
                 )}
               </div>
             </div>
-            <div>
-              <div className="flex gap-0.5">
-                <Button
-                  className={`flex items-center cursor-pointer shadow-md bg-[#2a2a2a] rounded-l-full hover:bg-[#2a2a2a] transition
+            <div className="flex gap-0.5">
+              <Button
+                className={`flex items-center cursor-pointer shadow-md bg-[#2a2a2a] rounded-l-full hover:bg-[#2a2a2a] transition
               ${liked ? "text-[#3ae9baff]" : "text-white hover:text-gray-400"}`}
-                  onClick={toggleLike}
-                >
-                  <FaHeart className="w-4 h-4" />
-                </Button>
-                <div className="flex bg-[#2a2a2a] items-center shadow-md px-2 rounded-r-full">
-                  <span className="text-sm mr-1 pb-0.5">{likes}</span>
-                </div>
+                onClick={toggleLike}
+              >
+                <FaHeart className="w-4 h-4" />
+              </Button>
+              <div className="flex bg-[#2a2a2a] items-center shadow-md px-2 rounded-r-full">
+                <span className="text-sm mr-1 pb-0.5">{likes}</span>
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex-1 rounded-r-lg overflow-hidden min-w-50 min-h-50">
-          <img
-            src={coverArt}
-            alt="cover-art"
-            className="w-full h-full object-cover"
-          />
         </div>
       </div>
       <div ref={containerRef} className="relative cursor-pointer text-[11px]">
