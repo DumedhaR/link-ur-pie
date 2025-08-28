@@ -373,7 +373,7 @@ const CreatorProfileCard = () => (
   <Card className="w-full bg-[#1a1a1a] rounded-2xl shadow-lg border border-[#2a2a2a] overflow-hidden">
     <CardContent className="flex flex-col gap-5 text-white">
       <div className="flex md:items-start gap-4">
-        <Avatar className="w-13 h-13 ring-3 ring-[#2a2a2a]">
+        <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
           <AvatarImage
             className="object-cover"
             src="/morty.png"
@@ -381,7 +381,7 @@ const CreatorProfileCard = () => (
           />
           <AvatarFallback>MS</AvatarFallback>
         </Avatar>
-        <div className="flex flex-col text-left">
+        <div className="flex flex-col text-left mt-1">
           <h2 className="text-md font-semibold text-white cursor-pointer">
             Morty Smith
           </h2>
@@ -399,7 +399,7 @@ const CreatorProfileCard = () => (
                 alt="Video 1"
                 className="w-full h-24 object-cover rounded-md mb-1"
               />
-              <p className="text-sm text-gray-300 truncate">
+              <p className="text-xs text-gray-300 truncate">
                 Music Video - Midnight Run
               </p>
             </div>
@@ -409,7 +409,7 @@ const CreatorProfileCard = () => (
                 alt="Artwork 1"
                 className="w-full h-24 object-cover rounded-md mb-1"
               />
-              <p className="text-sm text-gray-300 truncate">
+              <p className="text-xs text-gray-300 truncate">
                 Single - Sunset Dreams
               </p>
             </div>
@@ -419,7 +419,7 @@ const CreatorProfileCard = () => (
                 alt="Song 1"
                 className="w-full h-24 object-contain rounded-md mb-1 bg-white"
               />
-              <p className="text-sm text-gray-300 truncate">
+              <p className="text-xs text-gray-300 truncate">
                 Single - Rock Bottom
               </p>
             </div>

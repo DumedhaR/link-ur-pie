@@ -54,7 +54,7 @@ const WaveAudioPlayer = ({
 
   const { wavesurfer, isPlaying, currentTime } = useWavesurfer({
     container: containerRef,
-    height: 95,
+    height: 100,
     waveColor: "#707171ff",
     progressColor: "#3ae9baff",
     barWidth: 2,
