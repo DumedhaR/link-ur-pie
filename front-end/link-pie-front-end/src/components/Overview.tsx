@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "./ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FiPlay, FiHeart, FiEye, FiLayers } from "react-icons/fi";
 import {
@@ -9,7 +7,6 @@ import {
   FaImage,
   FaBookOpen,
   FaArrowDown,
-  FaHeart,
   FaFacebookF,
   FaInstagram,
   FaTiktok,
@@ -18,10 +15,10 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 import ImgSlider from "./ui/imgSlider";
-import { getRandomBetween } from "@/utils/mathUtils";
 import { trimTextByWords } from "@/utils/textUtils";
 import WaveAudioPlayer from "./ui/waveAudioPlayer";
 import { AudioPlayerProp } from "@/types/types";
+import ToggleLikeButton from "./ui/toggleLikeButton";
 
 const slids = ["/slider1.jpg", "/slider3.jpg", "/slider4.jpg", "/slider2.jpg"];
 
@@ -219,18 +216,10 @@ const CardMedia = ({
   creator,
   proImg,
 }: CardMediaProps) => {
-  const [liked, setLiked] = useState(false);
-  const [likes, setLikes] = useState(getRandomBetween(50, 200));
-
-  const toggleLike = () => {
-    const newLiked = !liked;
-    setLiked(newLiked);
-    setLikes((prev) => prev + (newLiked ? 1 : -1));
-  };
   return (
     <Card className="w-full h-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] ">
       <CardContent className="flex h-full flex-col w-full gap-3">
-        <div className="relative w-full flex-1 overflow-hidden">
+        <div className="relative w-full flex-1 overflow-hidden aspect-[5/3]">
           <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
             <AvatarImage className="object-cover" src={proImg} alt={creator} />
             <AvatarFallback>MS</AvatarFallback>
@@ -274,14 +263,7 @@ const CardMedia = ({
                 <span>2 hour ago</span>
               </div>
             </div>
-            <Button
-              className={`flex items-center cursor-pointer shadow-md gap-1 bg-[#2a2a2a] rounded-full hover:bg-[#2a2a2a] transition
-              ${liked ? "text-pink-500" : "text-white hover:text-gray-400"}`}
-              onClick={toggleLike}
-            >
-              <FaHeart className="w-4 h-4 " />
-              <span className="text-sm">{likes}</span>
-            </Button>
+            <ToggleLikeButton />
           </div>
           <div className="text-white text-sm mt-2">
             <p>{desc}</p>
@@ -370,10 +352,10 @@ const CardDocs = ({
   );
 };
 const CreatorProfileCard = () => (
-  <Card className="w-full bg-[#1a1a1a] rounded-2xl shadow-lg border border-[#2a2a2a] overflow-hidden">
+  <Card className="w-full bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
     <CardContent className="flex flex-col gap-5 text-white">
       <div className="flex md:items-start gap-4">
-        <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
+        <Avatar className="w-13 h-13 ring-3 ring-[#2a2a2a]">
           <AvatarImage
             className="object-cover"
             src="/morty.png"
@@ -393,31 +375,31 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-3">Recent Works</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
               <img
                 src="/video1.jpg"
                 alt="Video 1"
-                className="w-full h-24 object-cover rounded-md mb-1"
+                className="w-full h-24 object-cover mb-1"
               />
               <p className="text-xs text-gray-300 truncate">
                 Music Video - Midnight Run
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
               <img
                 src="/cover_art2.jpg"
                 alt="Artwork 1"
-                className="w-full h-24 object-cover rounded-md mb-1"
+                className="w-full h-24 object-cover mb-1"
               />
               <p className="text-xs text-gray-300 truncate">
                 Single - Sunset Dreams
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-lg p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
               <img
                 src="/cover_art1.png"
                 alt="Song 1"
-                className="w-full h-24 object-contain rounded-md mb-1 bg-white"
+                className="w-full h-24 object-contain mb-1 bg-white "
               />
               <p className="text-xs text-gray-300 truncate">
                 Single - Rock Bottom
@@ -429,27 +411,27 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-3">Find Me On</h3>
           <div className="grid grid-cols-2 gap-2">
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
               <span className="text-sm">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
               <span className="text-sm">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
               <span className="text-sm">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
               <span className="text-sm">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaTiktok className="text-lg text-white" />
               <span className="text-sm">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-lg border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
               <span className="text-sm">Facebook</span>
             </div>

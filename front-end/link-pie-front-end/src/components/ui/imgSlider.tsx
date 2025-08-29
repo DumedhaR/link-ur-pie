@@ -106,16 +106,16 @@ const ImgSlider = ({ slides }: ImgSliderProp) => {
   }, [emblaApi, tweenParallax]);
 
   return (
-    <div className="embl w-full">
+    <div className="embl w-full h-full">
       <div className="overflow-hidden px-2" ref={emblaRef}>
         <div className="embla__con">
           {slides.map((src, i) => (
             <div className="embla__slid" key={i}>
-              <div className="embla__parallax">
+              <div className="embla__parallax ">
                 <div className="embla__parallax__layer">
                   <img
                     src={src}
-                    className="w-full h-full object-cover embla__parallax__img"
+                    className="w-full h-full embla__parallax__img"
                   />
                 </div>
               </div>
