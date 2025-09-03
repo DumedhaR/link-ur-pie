@@ -40,14 +40,14 @@ const imgData: CardMediaProps = {
   proImg: "/rose.jpg",
 };
 
-const podcastData: CardMediaProps = {
-  src: ["podcast1.jpg"],
-  type: "podcast",
-  title: "Vodcast EP09 - Dark Truth of Modern Tech",
-  desc: "Exploring the hidden truths and impacts of modern technology. Join with us to dives deep into the tech world.",
-  creator: "Rick Sanchez",
-  proImg: "/ricky.jpg",
-};
+// const podcastData: CardMediaProps = {
+//   src: ["podcast1.jpg"],
+//   type: "podcast",
+//   title: "Vodcast EP09 - Dark Truth of Modern Tech",
+//   desc: "Exploring the hidden truths and impacts of modern technology. Join with us to dives deep into the tech world.",
+//   creator: "Rick Sanchez",
+//   proImg: "/ricky.jpg",
+// };
 
 const storyData: CardDocsProps = {
   cover: "/story.jpg",
@@ -80,24 +80,21 @@ export default function Overview() {
           <span className="block"> One platform. Endless ways</span>
           <span className="block">to share your creativity.</span>
         </h2>
-        <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base pt-6">
+        <p className="text-gray-400 max-w-xl mx-auto text-lg pt-6">
           Link your social accounts, host downloadable files, and showcase your
           content — all in one place, your way.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-14 items-start justify-items-center">
-          <div className="w-full h-full w-full h-full lg:col-span-2">
-            <CreatorProfileCard />
-          </div>
           <div className="w-full h-full lg:col-span-2">
             <CardMedia {...videoData} />
           </div>
           <div className="w-full h-full lg:col-span-2 lg:row-span-1">
             <CardMedia {...imgData} />
           </div>
-          <div className="w-full h-full lg:col-span-2 lg:row-span-1">
+          {/* <div className="w-full h-full lg:col-span-2 lg:row-span-1">
             <CardMedia {...podcastData} />
-          </div>
+          </div> */}
           <div className="w-full h-full md:col-span-2 lg:row-span-1">
             <CardDocs {...storyData} />
           </div>
@@ -106,25 +103,40 @@ export default function Overview() {
           </div>
         </div>
       </div>
+
       {/* Arrow */}
-      <div className="flex justify-center my-14">
+      <div className="flex justify-center my-15">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
       </div>
 
       {/* Overview Section 2 */}
-      <div className="max-w-3xl mx-auto text-center space-y-6">
-        <h3 className="text-2xl md:text-3xl font-semibold">
-          Share your content
-        </h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {["Video", "Resources", "Recourses", "Podcast"].map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]"
-            >
-              {item}
-            </div>
-          ))}
+      <div className="flex max-w-6xl justify-between mx-auto">
+        <div className="text-left max-w-md mt-4">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-6">
+            Build Your <br />
+            Creator Hub
+          </h3>
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg">
+            <li>
+              Easily link all your social channels, personal websites, and
+              content in one smart page
+            </li>
+            <li>
+              Host and share your content and downloadable media files securely,
+              controlling access based on your rules
+            </li>
+            <li>
+              Use your Creator Hub as a smart virtual space, add it as a link in
+              bio on your social accounts, and centralize all your work
+            </li>
+            <li>
+              Customize your virtual space and decide what to showcase with your
+              unique style
+            </li>
+          </ul>
+        </div>
+        <div className="">
+          <CreatorProfileCard />
         </div>
       </div>
 
@@ -352,10 +364,10 @@ const CardDocs = ({
   );
 };
 const CreatorProfileCard = () => (
-  <Card className="w-full bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
-    <CardContent className="flex flex-col gap-5 text-white">
+  <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+    <CardContent className="flex flex-col gap-4 text-white">
       <div className="flex md:items-start gap-4">
-        <Avatar className="w-13 h-13 ring-3 ring-[#2a2a2a]">
+        <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
           <AvatarImage
             className="object-cover"
             src="/morty.png"
@@ -371,11 +383,11 @@ const CreatorProfileCard = () => (
         </div>
       </div>
 
-      <div className="flex flex-col text-left gap-5">
+      <div className="flex flex-col text-left gap-4">
         <div>
           <h3 className="text-md font-medium mb-3">Recent Works</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
               <img
                 src="/video1.jpg"
                 alt="Video 1"
@@ -385,7 +397,7 @@ const CreatorProfileCard = () => (
                 Music Video - Midnight Run
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
               <img
                 src="/cover_art2.jpg"
                 alt="Artwork 1"
@@ -395,11 +407,11 @@ const CreatorProfileCard = () => (
                 Single - Sunset Dreams
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer hover:bg-[#333]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
               <img
                 src="/cover_art1.png"
                 alt="Song 1"
-                className="w-full h-24 object-contain mb-1 bg-white "
+                className="w-full h-24 object-contain mb-1 bg-[#3ae9baff]"
               />
               <p className="text-xs text-gray-300 truncate">
                 Single - Rock Bottom
@@ -411,27 +423,27 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-3">Find Me On</h3>
           <div className="grid grid-cols-2 gap-2">
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
               <span className="text-sm">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
               <span className="text-sm">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
               <span className="text-sm">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
               <span className="text-sm">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaTiktok className="text-lg text-white" />
               <span className="text-sm">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] hover:bg-[#2a2a2a] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
               <span className="text-sm">Facebook</span>
             </div>
