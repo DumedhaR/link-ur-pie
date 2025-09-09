@@ -105,18 +105,18 @@ export default function Overview() {
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-15">
+      <div className="flex justify-center my-14">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
       </div>
 
       {/* Overview Section 2 */}
-      <div className="flex max-w-6xl justify-between mx-auto">
-        <div className="text-left max-w-md mt-4">
-          <h3 className="text-3xl md:text-5xl font-semibold mb-6">
+      <div className="flex max-w-6xl mx-auto gap-16">
+        <div className="text-left mt-8 flex-1">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
             Build Your <br />
             Creator Hub
           </h3>
-          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg">
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
             <li>
               Easily link all your social channels, personal websites, and
               content in one smart page
@@ -135,25 +135,45 @@ export default function Overview() {
             </li>
           </ul>
         </div>
-        <div className="">
+        <div className="flex-1">
           <CreatorProfileCard />
         </div>
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center my-14">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
       </div>
 
       {/* Overview Section 3 */}
-      <div className="max-w-4xl mx-auto text-center space-y-6">
-        <h3 className="text-2xl md:text-3xl font-semibold">
-          Sell digital products
-        </h3>
-        <div className="flex flex-wrap justify-center gap-6">
-          <ProductCard title="E-book" price="$9" />
-          <ProductCard title="Album.zip" price="$5" />
-          <ProductCard title="Photo Pack" price="$15" />
+      <div className="flex max-w-6xl mx-auto gap-16">
+        <div className="flex-1">
+          <CreatorProfileCard />
+        </div>
+        <div className="text-left mt-8 flex-1">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
+            Turn Your Content
+            <br />
+            into Revenue
+          </h3>
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
+            <li>
+              Control how your content is accessed. Let people pay to access it
+              or download files, all under your terms.
+            </li>
+            <li>
+              Everything has value. You set the price for your work and get paid
+              exactly what you ask for.
+            </li>
+            <li>
+              Manage your content and track revenue, downloads, views, and
+              feedback easily with our creator tools.
+            </li>
+            <li>
+              Keep full ownership of your work and the income it generates,
+              without middlemen cuts.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -365,7 +385,7 @@ const CardDocs = ({
 };
 const CreatorProfileCard = () => (
   <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
-    <CardContent className="flex flex-col gap-4 text-white">
+    <CardContent className="flex flex-col gap-5 text-white">
       <div className="flex md:items-start gap-4">
         <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
           <AvatarImage
@@ -383,10 +403,10 @@ const CreatorProfileCard = () => (
         </div>
       </div>
 
-      <div className="flex flex-col text-left gap-4">
+      <div className="flex flex-col text-left gap-5">
         <div>
-          <h3 className="text-md font-medium mb-3">Recent Works</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <h3 className="text-md font-medium mb-4">Recent Works</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
               <img
                 src="/video1.jpg"
@@ -404,7 +424,7 @@ const CreatorProfileCard = () => (
                 className="w-full h-24 object-cover mb-1"
               />
               <p className="text-xs text-gray-300 truncate">
-                Single - Sunset Dreams
+                Music Video - Sunset Dreams
               </p>
             </div>
             <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
@@ -421,31 +441,31 @@ const CreatorProfileCard = () => (
         </div>
 
         <div>
-          <h3 className="text-md font-medium mb-3">Find Me On</h3>
-          <div className="grid grid-cols-2 gap-2">
+          <h3 className="text-md font-medium mb-4">Find Me On</h3>
+          <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
-              <span className="text-sm">Official Website</span>
+              <span className="text-xs">Official Website</span>
             </div>
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
-              <span className="text-sm">Listen on Spotify</span>
+              <span className="text-xs">Listen on Spotify</span>
             </div>
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
-              <span className="text-sm">Watch on YouTube</span>
+              <span className="text-xs">Watch on YouTube</span>
             </div>
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
-              <span className="text-sm">Instagram</span>
+              <span className="text-xs">Instagram</span>
             </div>
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaTiktok className="text-lg text-white" />
-              <span className="text-sm">TikTok</span>
+              <span className="text-xs">TikTok</span>
             </div>
             <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
-              <span className="text-sm">Facebook</span>
+              <span className="text-xs">Facebook</span>
             </div>
           </div>
         </div>
@@ -454,16 +474,16 @@ const CreatorProfileCard = () => (
   </Card>
 );
 
-interface ProductCardProps {
-  title: string;
-  price: string;
-}
+// interface ProductCardProps {
+//   title: string;
+//   price: string;
+// }
 
-const ProductCard = ({ title, price }: ProductCardProps) => {
-  return (
-    <div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
-      <h4 className="text-white text-sm font-semibold">{title}</h4>
-      <p className="text-blue-400 mt-2 font-bold">{price}</p>
-    </div>
-  );
-};
+// const ProductCard = ({ title, price }: ProductCardProps) => {
+//   return (
+//     <div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
+//       <h4 className="text-white text-sm font-semibold">{title}</h4>
+//       <p className="text-blue-400 mt-2 font-bold">{price}</p>
+//     </div>
+//   );
+// };
