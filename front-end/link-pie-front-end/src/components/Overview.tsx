@@ -79,7 +79,8 @@ const productData: ProductCardProps = {
   cover: "/product1.png",
   creator: "Jessica Rose",
   proImg: "/rose.jpg",
-  type: "Pay",
+  unlockType: "Pay",
+  accessType: "Download",
 };
 
 export default function Overview() {
@@ -130,19 +131,19 @@ export default function Overview() {
           <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
             <li>
               Easily link all your social channels, personal websites, and
-              content in one smart page
+              content in one smart page.
             </li>
             <li>
               Host and share your content and downloadable media files securely,
-              controlling access based on your rules
+              controlling access based on your rules.
             </li>
             <li>
               Use your Creator Hub as a smart virtual space, add it as a link in
-              bio on your social accounts, and centralize all your work
+              bio on your social accounts, and centralize all your work.
             </li>
             <li>
               Customize your virtual space and decide what to showcase with your
-              unique style
+              unique style.
             </li>
           </ul>
         </div>
@@ -492,34 +493,39 @@ interface ProductCardProps {
   cover: string;
   creator: string;
   proImg: string;
-  type: "Pay" | "Social";
+  unlockType: "Pay" | "Social";
+  accessType: "Download" | "Watch" | "Listen" | "Read";
 }
 
 const ProductCard = ({
   title,
   price,
-  desc,
   cover,
   creator,
   proImg,
-  type,
+  unlockType,
+  accessType,
 }: ProductCardProps) => {
   return (
     <Card className=" bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
       <CardContent className="flex flex-col gap-4 text-white">
-        <div className="relative w-full overflow-hidden aspect-[5/4]">
+        <div className="relative w-full overflow-hidden aspect-[4/3]">
           <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
             <AvatarImage className="object-cover" src={proImg} alt={creator} />
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
-          <div className="flex absolute bottom-4 right-4 z-10 bg-white/10 backdrop-blur-md cursor-pointer p-3 rounded-md text-white gap-1">
-            <FaLock className="w-5 h-5" />
+          <div className="flex absolute bottom-4 right-4 z-10 bg-white/10 backdrop-blur-md cursor-pointer px-3 py-2 rounded-md text-white gap-1 items-center">
+            <FaLock className="w-4 h-4" />
             <span>Locked</span>
           </div>
           <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
             <FaImage className="w-3 h-3 text-background" />
           </div>
-          <img src={cover} alt="tumb" className="w-full h-full" />
+          <img
+            src={cover}
+            alt="tumb"
+            className="w-full h-full object-cover object-top"
+          />
         </div>
         <div className="flex flex-col text-left gap-4">
           <div className="flex items-start flex-col">
@@ -539,16 +545,26 @@ const ProductCard = ({
               <div className="flex items-center gap-1">23 August</div>
             </div>
           </div>
-          <div className="flex text-white justify-between items-start">
-            <p className="text-lg font-bold">{price}$</p>
+          {unlockType === "Pay" ? (
+            <div className="flex text-white justify-between items-center">
+              <p className="text-lg font-bold">{price}$</p>
+              <button
+                className="flex font-semibold w-fit bg-white/10 hover:bg-white/20 backdrop-blur-md 
+              cursor-pointer p-3 rounded-md text-white gap-2 items-center"
+              >
+                <FaDownload className="w-4 h-4" />
+                <span>Buy to {accessType}</span>
+              </button>
+            </div>
+          ) : (
             <button
-              className="flex font-semibold w-fit bg-white/10 hover:bg-white/20 backdrop-blur-md 
-              cursor-pointer p-3 rounded-md text-white gap-2"
+              className="flex font-semibold w-fit self-end bg-white/10 hover:bg-white/20 backdrop-blur-md 
+              cursor-pointer p-3 rounded-md text-white gap-2 items-center"
             >
-              <FaDownload className="w-5 h-5" />
-              <span>Buy to Unlock</span>
+              <FaInstagram className="w-5 h-5" />
+              <span>Follow to {accessType}</span>
             </button>
-          </div>
+          )}
         </div>
       </CardContent>
     </Card>
