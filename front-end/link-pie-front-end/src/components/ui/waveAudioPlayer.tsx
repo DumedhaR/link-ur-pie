@@ -120,7 +120,6 @@ const WaveAudioPlayer = ({
               >
                 <FaStop className="w-4 h-4" />
               </button>
-
               <button
                 onClick={onPlayPause}
                 className="bg-[#2a2a2a] rounded-full p-4 shadow-lg hover:text-gray-400 cursor-pointer"
