@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { FiPlay, FiHeart, FiEye, FiLayers } from "react-icons/fi";
+import { FiPlay, FiHeart, FiEye, FiLayers, FiImage } from "react-icons/fi";
 import {
   FaVideo,
   FaImage,
@@ -13,6 +13,8 @@ import {
   FaYoutube,
   FaSpotify,
   FaGlobe,
+  FaLock,
+  FaDownload,
 } from "react-icons/fa";
 import ImgSlider from "./ui/imgSlider";
 import { trimTextByWords } from "@/utils/textUtils";
@@ -69,6 +71,15 @@ const audioData: AudioPlayerProp = {
     name: "Morty Smith",
     avatar: "/morty.png",
   },
+};
+
+const productData: ProductCardProps = {
+  title: "Summer Time Vibes - Wallapapers & Image Collection",
+  price: "10",
+  cover: "/product1.png",
+  creator: "Jessica Rose",
+  proImg: "/rose.jpg",
+  type: "Pay",
 };
 
 export default function Overview() {
@@ -147,8 +158,8 @@ export default function Overview() {
 
       {/* Overview Section 3 */}
       <div className="flex max-w-6xl mx-auto gap-16">
-        <div className="flex-1">
-          <CreatorProfileCard />
+        <div className="flex-1 ">
+          <ProductCard {...productData} />
         </div>
         <div className="text-left mt-8 flex-1">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
@@ -474,16 +485,72 @@ const CreatorProfileCard = () => (
   </Card>
 );
 
-// interface ProductCardProps {
-//   title: string;
-//   price: string;
-// }
+interface ProductCardProps {
+  title: string;
+  price?: string;
+  desc?: string;
+  cover: string;
+  creator: string;
+  proImg: string;
+  type: "Pay" | "Social";
+}
 
-// const ProductCard = ({ title, price }: ProductCardProps) => {
-//   return (
-//     <div className="bg-[#1a1a1a] px-6 py-4 rounded-lg w-40 text-center border border-[#2a2a2a]">
-//       <h4 className="text-white text-sm font-semibold">{title}</h4>
-//       <p className="text-blue-400 mt-2 font-bold">{price}</p>
-//     </div>
-//   );
-// };
+const ProductCard = ({
+  title,
+  price,
+  desc,
+  cover,
+  creator,
+  proImg,
+  type,
+}: ProductCardProps) => {
+  return (
+    <Card className=" bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+      <CardContent className="flex flex-col gap-4 text-white">
+        <div className="relative w-full overflow-hidden aspect-[5/4]">
+          <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
+            <AvatarImage className="object-cover" src={proImg} alt={creator} />
+            <AvatarFallback>MS</AvatarFallback>
+          </Avatar>
+          <div className="flex absolute bottom-4 right-4 z-10 bg-white/10 backdrop-blur-md cursor-pointer p-3 rounded-md text-white gap-1">
+            <FaLock className="w-5 h-5" />
+            <span>Locked</span>
+          </div>
+          <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
+            <FaImage className="w-3 h-3 text-background" />
+          </div>
+          <img src={cover} alt="tumb" className="w-full h-full" />
+        </div>
+        <div className="flex flex-col text-left gap-4">
+          <div className="flex items-start flex-col">
+            <h2 className="text-md font-medium text-white">{title}</h2>
+            <p className="text-sm text-gray-400 cursor-pointer mb-1">
+              {creator}
+            </p>
+            <div className="flex flex-row text-sm text-gray-400 items-center gap-4">
+              <div className="flex items-center gap-1">
+                <FiImage className="w-4 h-4" />
+                <span>10</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <FiHeart className="w-4 h-4" />
+                <span className="text-sm">311</span>
+              </div>
+              <div className="flex items-center gap-1">23 August</div>
+            </div>
+          </div>
+          <div className="flex text-white justify-between items-start">
+            <p className="text-lg font-bold">{price}$</p>
+            <button
+              className="flex font-semibold w-fit bg-white/10 hover:bg-white/20 backdrop-blur-md 
+              cursor-pointer p-3 rounded-md text-white gap-2"
+            >
+              <FaDownload className="w-5 h-5" />
+              <span>Buy to Unlock</span>
+            </button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
