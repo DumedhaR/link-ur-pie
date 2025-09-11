@@ -74,10 +74,10 @@ const audioData: AudioPlayerProp = {
 };
 
 const productDataImage: ProductCardProps = {
-  title: "Summer Time Vibes - Image Collection",
+  title: "Whispers of the Stars - Image Collection",
   price: 10,
   quantity: 10,
-  cover: "/product3.png",
+  cover: "/product10.png",
   creator: "Jessica Rose",
   proImg: "/rose.jpg",
   contentType: "Image",
@@ -87,7 +87,7 @@ const productDataImage: ProductCardProps = {
 
 const productDataVideo: ProductCardProps = {
   title: "Whispers of the Green Forest EP03",
-  cover: "/product4.webp",
+  cover: "/product4.png",
   creator: "Anton Jole",
   proImg: "/Anton.jpg",
   contentType: "Video",
@@ -141,7 +141,7 @@ export default function Overview() {
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-14">
+      <div className="flex justify-center my-12">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
       </div>
 
@@ -177,13 +177,13 @@ export default function Overview() {
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-14">
+      <div className="flex justify-center my-12">
         <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
       </div>
 
       {/* Overview Section 3 */}
       <div className="flex mx-auto gap-16 items-center">
-        <div className="flex-1 grid grid-cols-7 items-start gap-4 relative">
+        <div className="flex-1 grid grid-cols-7 items-start gap-5 relative">
           {/* First Card */}
           <div className="row-span-2 col-span-3 place-self-center z-20 -translate-y-6">
             <ProductCard {...productDataAudio} />
@@ -201,7 +201,7 @@ export default function Overview() {
         </div>
 
         {/* Text Section */}
-        <div className="text-left mt-8 flex-1 items-center">
+        <div className="text-left mt-8 flex-1 pb-18">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
             Turn Your Content
             <br />
@@ -230,32 +230,6 @@ export default function Overview() {
     </div>
   );
 }
-
-// const CardSocials = () => (
-//   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
-//     <CardContent className="flex flex-col gap-1 text-white text-2xl">
-//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-//         <FaFacebookF className="text-xl text-blue-500" />
-//         <span className="text-sm">Facebook</span>
-//       </div>
-
-//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-//         <FaInstagram className="text-xl text-pink-500" />
-//         <span className="text-sm">Instagram</span>
-//       </div>
-
-//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-//         <FaTiktok className="text-xl text-black" />
-//         <span className="text-sm">TikTok</span>
-//       </div>
-
-//       <div className="flex items-center gap-2 cursor-pointer bg-[#1c1c1c] px-6 py-3 rounded-lg text-sm border border-[#2c2c2c]">
-//         <FaYoutube className="text-xl text-red-500" />
-//         <span className="text-sm">YouTube</span>
-//       </div>
-//     </CardContent>
-//   </Card>
-// );
 
 // const CardProfile = () => (
 //   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-center shadow-md border border-[#2a2a2a]">
@@ -494,27 +468,27 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Find Me On</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
               <span className="text-sm">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
               <span className="text-sm">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
               <span className="text-sm">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
               <span className="text-sm">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaTiktok className="text-lg text-white" />
               <span className="text-sm">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
               <span className="text-sm">Facebook</span>
             </div>
@@ -567,7 +541,7 @@ const ProductCard = ({
           </Avatar>
           <div
             className="flex absolute bottom-3 right-3 z-10 bg-white/10 backdrop-blur-md cursor-pointer p-2 
-          rounded-sm text-white gap-1.5 items-center text-xs"
+          rounded-md text-white gap-1.5 items-center text-xs"
           >
             <FaLock className="w-3 h-3" />
             <span>Locked</span>
@@ -578,7 +552,7 @@ const ProductCard = ({
             ) : contentType === "Video" ? (
               <FaVideo className="w-2.5 h-2.5 text-background" />
             ) : contentType === "Audio" ? (
-              <FaMusic className="w-2 h-2.5 text-background" />
+              <FaMusic className="w-2.5 h-2.5 text-background" />
             ) : (
               <FaBookOpen className="w-2.5 h-2.5 text-background" />
             )}
