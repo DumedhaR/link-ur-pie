@@ -1,10 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { FiPlay, FiHeart, FiEye, FiLayers, FiImage } from "react-icons/fi";
+import { FiPlay, FiHeart, FiEye, FiLayers, FiFile } from "react-icons/fi";
 import {
   FaVideo,
   FaImage,
+  FaMusic,
   FaBookOpen,
   FaArrowDown,
   FaFacebookF,
@@ -72,12 +73,36 @@ const audioData: AudioPlayerProp = {
   },
 };
 
-const productData: ProductCardProps = {
-  title: "Summer Time Vibes - Wallapapers & Image Collection",
-  price: "10",
+const productDataImage: ProductCardProps = {
+  title: "Summer Time Vibes - Image Collection",
+  price: 10,
+  quantity: 10,
   cover: "/product3.png",
   creator: "Jessica Rose",
   proImg: "/rose.jpg",
+  contentType: "Image",
+  unlockType: "Pay",
+  accessType: "Download",
+};
+
+const productDataVideo: ProductCardProps = {
+  title: "Whispers of the Green Forest EP03",
+  cover: "/product4.webp",
+  creator: "Anton Jole",
+  proImg: "/Anton.jpg",
+  contentType: "Video",
+  unlockType: "Subscription",
+  accessType: "Unlock",
+};
+
+const productDataAudio: ProductCardProps = {
+  title: "Heart is King (Retro 80s Mix)",
+  price: 15,
+  quantity: 1,
+  contentType: "Audio",
+  cover: "/product2.jpg",
+  creator: "Morty Smith",
+  proImg: "/morty.png",
   unlockType: "Pay",
   accessType: "Download",
 };
@@ -121,8 +146,8 @@ export default function Overview() {
       </div>
 
       {/* Overview Section 2 */}
-      <div className="flex max-w-6xl mx-auto gap-16">
-        <div className="text-left mt-8 flex-1">
+      <div className="flex max-w-6xl mx-auto gap-16 items-center">
+        <div className="text-left flex-1">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
             Build Your <br />
             Creator Hub
@@ -157,19 +182,32 @@ export default function Overview() {
       </div>
 
       {/* Overview Section 3 */}
-      <div className="flex max-w-6xl mx-auto gap-16">
-        <div className="flex-1">
-          <div className="max-w-sm">
-            <ProductCard {...productData} />
+      <div className="flex mx-auto gap-16 items-center">
+        <div className="flex-1 grid grid-cols-7 items-start gap-4 relative">
+          {/* First Card */}
+          <div className="row-span-2 col-span-3 place-self-center z-20 -translate-y-6">
+            <ProductCard {...productDataAudio} />
+          </div>
+
+          {/* Second Card overlapping */}
+          <div className="col-span-4 z-30">
+            <ProductCard {...productDataVideo} />
+          </div>
+
+          {/* Third Card overlapping */}
+          <div className="col-span-4 z-10">
+            <ProductCard {...productDataImage} />
           </div>
         </div>
-        <div className="text-left mt-8 flex-1">
+
+        {/* Text Section */}
+        <div className="text-left mt-8 flex-1 items-center">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
             Turn Your Content
             <br />
             into Revenue
           </h3>
-          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl pr-5">
             <li>
               Control how your content is accessed. Let people pay to access it
               or download files, all under your terms.
@@ -456,29 +494,29 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Find Me On</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
-              <span className="text-xs">Official Website</span>
+              <span className="text-sm">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
-              <span className="text-xs">Listen on Spotify</span>
+              <span className="text-sm">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
-              <span className="text-xs">Watch on YouTube</span>
+              <span className="text-sm">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
-              <span className="text-xs">Instagram</span>
+              <span className="text-sm">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaTiktok className="text-lg text-white" />
-              <span className="text-xs">TikTok</span>
+              <span className="text-sm">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#1c1c1c] px-4 py-3 rounded-sm border border-[#2c2c2c] cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
-              <span className="text-xs">Facebook</span>
+              <span className="text-sm">Facebook</span>
             </div>
           </div>
         </div>
@@ -489,41 +527,61 @@ const CreatorProfileCard = () => (
 
 interface ProductCardProps {
   title: string;
-  price?: string;
+  price?: number;
   desc?: string;
+  quantity?: number;
   cover: string;
   creator: string;
   proImg: string;
-  unlockType: "Pay" | "Social";
-  accessType: "Download" | "Watch" | "Listen" | "Read";
+  contentType: "Video" | "Audio" | "Docs" | "Image";
+  unlockType: "Pay" | "Social" | "Subscription";
+  accessType: "Download" | "Unlock";
 }
 
 const ProductCard = ({
   title,
   price,
+  quantity,
   cover,
   creator,
   proImg,
+  contentType,
   unlockType,
   accessType,
 }: ProductCardProps) => {
   return (
-    <Card className=" bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+    <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
       <CardContent className="flex flex-col gap-4 text-white">
-        <div className="relative w-full overflow-hidden rounded-sm">
-          <Avatar className="w-10 h-10 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
+        <div
+          className={`relative w-full overflow-hidden rounded-sm ${
+            contentType === "Image"
+              ? "aspect-[4/3]"
+              : contentType === "Video"
+                ? "aspect-[5/3]"
+                : "aspect-[1/1]"
+          }`}
+        >
+          <Avatar className="w-10 h-10 absolute top-3 left-3 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
             <AvatarImage className="object-cover" src={proImg} alt={creator} />
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
           <div
-            className="flex absolute bottom-4 right-4 z-10 bg-white/10 backdrop-blur-md cursor-pointer 
-          p-2 rounded-sm text-white gap-1.5 items-center text-xs"
+            className="flex absolute bottom-3 right-3 z-10 bg-white/10 backdrop-blur-md cursor-pointer p-2 
+          rounded-sm text-white gap-1.5 items-center text-xs"
           >
             <FaLock className="w-3 h-3" />
             <span>Locked</span>
           </div>
-          <div className="absolute bg-white bottom-4 left-4 p-1 rounded-sm shadow-sm z-20">
-            <FaImage className="w-2.5 h-2.5 text-background" />
+          <div className="absolute bg-white bottom-3 left-3 p-1 rounded-sm shadow-sm z-20">
+            {contentType === "Image" ? (
+              <FaImage className="w-2.5 h-2.5 text-background" />
+            ) : contentType === "Video" ? (
+              <FaVideo className="w-2.5 h-2.5 text-background" />
+            ) : contentType === "Audio" ? (
+              <FaMusic className="w-2 h-2.5 text-background" />
+            ) : (
+              <FaBookOpen className="w-2.5 h-2.5 text-background" />
+            )}
           </div>
           <img
             src={cover}
@@ -531,42 +589,64 @@ const ProductCard = ({
             className="w-full h-full object-cover object-top"
           />
         </div>
-        <div className="flex flex-col text-left gap-4">
+        <div className="flex flex-col text-left gap-3">
           <div className="flex items-start flex-col">
-            <h2 className="text-sm font-medium text-white">{title}</h2>
+            <h2 className="text-sm font-medium text-white mb-0.5">{title}</h2>
             <p className="text-xs text-gray-400 cursor-pointer mb-1">
               {creator}
             </p>
             <div className="flex flex-row text-xs text-gray-400 items-center gap-3">
               <div className="flex items-center gap-1">
-                <FiImage className="w-3 h-3" />
-                <span>10</span>
+                {accessType === "Download" ? (
+                  <>
+                    <FiFile className="w-3 h-3" />
+                    <span>{quantity}</span>
+                  </>
+                ) : (
+                  <>
+                    <FiEye className="w-3 h-3" />
+                    <span>51k</span>
+                  </>
+                )}
               </div>
+
               <div className="flex items-center gap-1">
                 <FiHeart className="w-3 h-3" />
-                <span className="text-xs">311</span>
+                <span>311</span>
               </div>
               <div className="flex items-center gap-1">23 August</div>
             </div>
           </div>
           {unlockType === "Pay" ? (
             <div className="flex text-white justify-between items-center">
-              <p className="text-md font-bold">{price}$</p>
+              <p className="text-md font-bold text-green-300">{price}$</p>
               <button
-                className="flex text-sm font-medium w-fit bg-white/10 hover:bg-white/20 backdrop-blur-md 
-              cursor-pointer p-3 rounded-md text-white gap-2 items-center shadow-md"
+                className="flex text-sm font-medium w-fit bg-white/10 backdrop-blur-md 
+              cursor-pointer p-2.5 rounded-md text-white gap-2 items-center shadow-md"
               >
-                <span>Buy to {accessType}</span>
+                <span>Buy to Unlock</span>
               </button>
             </div>
-          ) : (
+          ) : unlockType === "Social" ? (
             <button
-              className="flex text-sm font-medium w-fit self-end bg-white/10 hover:bg-white/20 backdrop-blur-md 
-              cursor-pointer p-3 rounded-md text-white gap-2 items-center shadow-md"
+              className="flex text-sm font-medium w-fit self-end bg-white/10 backdrop-blur-md 
+              cursor-pointer p-2.5 rounded-md text-white gap-2 items-center shadow-md"
             >
               <FaInstagram className="w-5 h-5" />
-              <span>Follow to {accessType}</span>
+              <span>Follow to Unlock</span>
             </button>
+          ) : (
+            <div className="flex text-white justify-between items-center">
+              <p className="text-sm font-semibold text-green-300">
+                Members Only
+              </p>
+              <button
+                className="flex text-sm font-medium w-fit bg-white/10 backdrop-blur-md 
+              cursor-pointer p-2.5 rounded-md text-white gap-2 items-center shadow-md"
+              >
+                <span>Sub to Unlock</span>
+              </button>
+            </div>
           )}
         </div>
       </CardContent>
