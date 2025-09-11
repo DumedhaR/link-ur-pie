@@ -142,7 +142,7 @@ export default function Overview() {
 
       {/* Arrow */}
       <div className="flex justify-center my-12">
-        <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
+        <FaArrowDown className="text-gray-500 animate-bounce" size={22} />
       </div>
 
       {/* Overview Section 2 */}
@@ -178,7 +178,7 @@ export default function Overview() {
 
       {/* Arrow */}
       <div className="flex justify-center my-12">
-        <FaArrowDown className="text-gray-500 animate-bounce" size={20} />
+        <FaArrowDown className="text-gray-500 animate-bounce" size={22} />
       </div>
 
       {/* Overview Section 3 */}
@@ -201,7 +201,7 @@ export default function Overview() {
         </div>
 
         {/* Text Section */}
-        <div className="text-left mt-8 flex-1 pb-18">
+        <div className="text-left mt-8 flex-1 pb-16">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
             Turn Your Content
             <br />
