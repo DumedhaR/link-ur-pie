@@ -148,7 +148,7 @@ export default function Overview() {
       {/* Overview Section 2 */}
       <div className="flex max-w-6xl mx-auto gap-16 items-center">
         <div className="text-left flex-1">
-          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-8">
             Build Your <br />
             Creator Hub
           </h3>
@@ -202,7 +202,7 @@ export default function Overview() {
 
         {/* Text Section */}
         <div className="text-left mt-8 flex-1 pb-16">
-          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-8">
             Turn Your Content
             <br />
             into Revenue
@@ -236,7 +236,7 @@ export default function Overview() {
       <div className="flex max-w-6xl mx-auto gap-16 items-center">
         {/* Text Section */}
         <div className="text-left flex-1">
-          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-8">
             Turn Views into
             <br />
             Followers and Subscribers
@@ -682,7 +682,7 @@ const SocialUnlocker = () => {
             backgroundImage: 'url("/cover_art.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "blur(64px) brightness(0.33)",
+            filter: "blur(70px) brightness(0.33)",
           }}
         />
         <div className="relative z-50 w-full flex items-center justify-center pt-8">
