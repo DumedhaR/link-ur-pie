@@ -182,7 +182,7 @@ export default function Overview() {
       </div>
 
       {/* Overview Section 3 */}
-      <div className="flex mx-auto gap-16 items-center max-w-7xl">
+      <div className="flex mx-auto gap-16 items-center max-w-6xl">
         <div className="flex-1 grid grid-cols-7 items-start gap-5 relative">
           {/* First Card */}
           <div className="row-span-2 col-span-3 place-self-center z-20 -translate-y-6">
@@ -207,7 +207,7 @@ export default function Overview() {
             <br />
             into Revenue
           </h3>
-          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl pr-5">
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
             <li>
               Control how your content is accessed. Let people pay to access it
               or download files, all under your terms.
@@ -233,7 +233,7 @@ export default function Overview() {
       </div>
 
       {/* Overview Section 4 */}
-      <div className="flex max-w-6xl mx-auto gap-16">
+      <div className="flex max-w-6xl mx-auto gap-16 items-center">
         {/* Text Section */}
         <div className="text-left flex-1">
           <h3 className="text-3xl md:text-5xl font-semibold mb-7">
@@ -241,32 +241,32 @@ export default function Overview() {
             <br />
             Followers and Subscribers
           </h3>
-          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl pr-5">
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl">
             <li>
               Not all content has to be free or paid. Host files on our platform
               and let fans unlock them through social interactions.
             </li>
             <li>
-              Going viral doesn&apos;t guarantee new fans. Social unlocks give
-              viewers an incentive to follow or subscribe to your accounts while
-              downloading your remixes, art, or stories.
+              Add unlock links to your posts on other platforms, such as in
+              descriptions or comments, allowing fans to download content files
+              once they complete the required actions.
             </li>
             <li>
-              Share unlock links with your posts on other platforms, such as in
-              descriptions or comments, so fans can access downloads after
-              completing the required social action.
+              Going viral, having millions of views, doesn&apos;t always
+              guarantee new fans. Social unlocks give viewers an incentive to
+              follow or subscribe to your account.
             </li>
             <li>
-              Currently supported: Instagram, TikTok, and YouTube, with more
-              platforms coming soon.
+              Currently supported: Instagram, TikTok, YouTube, and spotify with
+              more platforms coming soon.
             </li>
           </ul>
         </div>
 
         <div className="flex-1">
           {/* First Card */}
-          <div className="max-w-sm">
-            <ProductCard {...productDataAudio} />
+          <div className="max-w-xl">
+            <SocialUnlocker />
           </div>
         </div>
       </div>
@@ -475,7 +475,7 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Recent Works</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
               <img
                 src="/video1.jpg"
                 alt="Video 1"
@@ -485,7 +485,7 @@ const CreatorProfileCard = () => (
                 Music Video - Midnight Run
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
               <img
                 src="/cover_art2.jpg"
                 alt="Artwork 1"
@@ -495,7 +495,7 @@ const CreatorProfileCard = () => (
                 Music Video - Sunset Dreams
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
               <img
                 src="/cover_art1.png"
                 alt="Song 1"
@@ -513,27 +513,27 @@ const CreatorProfileCard = () => (
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaGlobe className="text-lg text-green-400" />
-              <span className="text-sm">Official Website</span>
+              <span className="text-xs">Official Website</span>
             </div>
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaSpotify className="text-lg text-green-500" />
-              <span className="text-sm">Listen on Spotify</span>
+              <span className="text-xs">Listen on Spotify</span>
             </div>
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaYoutube className="text-lg text-red-500" />
-              <span className="text-sm">Watch on YouTube</span>
+              <span className="text-xs">Watch on YouTube</span>
             </div>
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaInstagram className="text-lg text-pink-500" />
-              <span className="text-sm">Instagram</span>
+              <span className="text-xs">Instagram</span>
             </div>
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaTiktok className="text-lg text-white" />
-              <span className="text-sm">TikTok</span>
+              <span className="text-xs">TikTok</span>
             </div>
             <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
               <FaFacebookF className="text-lg text-blue-500" />
-              <span className="text-sm">Facebook</span>
+              <span className="text-xs">Facebook</span>
             </div>
           </div>
         </div>
@@ -578,7 +578,7 @@ const ProductCard = ({
                 : "aspect-[1/1]"
           }`}
         >
-          <Avatar className="w-10 h-10 absolute top-3 left-3 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
+          <Avatar className="w-9 h-9 absolute top-3 left-3 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
             <AvatarImage className="object-cover" src={proImg} alt={creator} />
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
@@ -665,6 +665,57 @@ const ProductCard = ({
               </button>
             </div>
           )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const SocialUnlocker = () => {
+  return (
+    <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+      <CardContent className="relative flex flex-col gap-5 text-white items-center justify-center">
+        {/* Blurred Background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("/cover_art.jpg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(64px) brightness(0.33)",
+          }}
+        />
+        <div className="relative z-50 w-full flex items-center justify-center pt-8">
+          <div className="flex flex-col items-center">
+            <img
+              src="/cover_art1.png"
+              alt="Cover Art"
+              className="w-56 h-56 rounded-lg shadow-lg"
+            />
+            <h1 className="text-white mt-6 text-2xl font-bold">
+              Content Title
+            </h1>
+          </div>
+        </div>
+        <div className="px-20 relative z-50">
+          <p className="mb-7 text-center">
+            Please complete at least 2 steps below to download the file.
+          </p>
+          {/* Actions */}
+          <div className="flex flex-col gap-4 w-full text-sm pb-8 px-4">
+            <button className="flex items-center justify-center gap-3 bg-green-500 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+              <FaSpotify className="text-xl" />
+              <span className="font-medium">Follow on Spotify</span>
+            </button>
+            <button className="flex items-center justify-center gap-3 bg-red-600 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+              <FaYoutube className="text-xl" />
+              <span className="font-medium">Subscribe on YouTube</span>
+            </button>
+            <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-orange-500 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+              <FaInstagram className="text-xl" />
+              <span className="font-medium">Follow on Instagram</span>
+            </button>
+          </div>
         </div>
       </CardContent>
     </Card>
