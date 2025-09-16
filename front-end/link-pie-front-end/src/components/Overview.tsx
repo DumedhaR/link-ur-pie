@@ -142,7 +142,7 @@ export default function Overview() {
 
       {/* Arrow */}
       <div className="flex justify-center my-12">
-        <FaArrowDown className="text-gray-500 animate-bounce" size={22} />
+        <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
       </div>
 
       {/* Overview Section 2 */}
@@ -178,11 +178,11 @@ export default function Overview() {
 
       {/* Arrow */}
       <div className="flex justify-center my-12">
-        <FaArrowDown className="text-gray-500 animate-bounce" size={22} />
+        <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
       </div>
 
       {/* Overview Section 3 */}
-      <div className="flex mx-auto gap-16 items-center">
+      <div className="flex mx-auto gap-16 items-center max-w-7xl">
         <div className="flex-1 grid grid-cols-7 items-start gap-5 relative">
           {/* First Card */}
           <div className="row-span-2 col-span-3 place-self-center z-20 -translate-y-6">
@@ -225,6 +225,49 @@ export default function Overview() {
               without middlemen cuts.
             </li>
           </ul>
+        </div>
+      </div>
+      {/* Arrow */}
+      <div className="flex justify-center my-12">
+        <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
+      </div>
+
+      {/* Overview Section 4 */}
+      <div className="flex max-w-6xl mx-auto gap-16">
+        {/* Text Section */}
+        <div className="text-left flex-1">
+          <h3 className="text-3xl md:text-5xl font-semibold mb-7">
+            Turn Views into
+            <br />
+            Followers and Subscribers
+          </h3>
+          <ul className="list-disc list-outside pl-5 space-y-6 text-left text-lg max-w-xl pr-5">
+            <li>
+              Not all content has to be free or paid. Host files on our platform
+              and let fans unlock them through social interactions.
+            </li>
+            <li>
+              Going viral doesn&apos;t guarantee new fans. Social unlocks give
+              viewers an incentive to follow or subscribe to your accounts while
+              downloading your remixes, art, or stories.
+            </li>
+            <li>
+              Share unlock links with your posts on other platforms, such as in
+              descriptions or comments, so fans can access downloads after
+              completing the required social action.
+            </li>
+            <li>
+              Currently supported: Instagram, TikTok, and YouTube, with more
+              platforms coming soon.
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex-1">
+          {/* First Card */}
+          <div className="max-w-sm">
+            <ProductCard {...productDataAudio} />
+          </div>
         </div>
       </div>
     </div>
@@ -563,7 +606,7 @@ const ProductCard = ({
             className="w-full h-full object-cover object-top"
           />
         </div>
-        <div className="flex flex-col text-left gap-3">
+        <div className="flex flex-col text-left gap-3.5">
           <div className="flex items-start flex-col">
             <h2 className="text-sm font-medium text-white mb-0.5">{title}</h2>
             <p className="text-xs text-gray-400 cursor-pointer mb-1">
