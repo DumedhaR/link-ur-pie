@@ -1,24 +1,40 @@
+import { FaUserAstronaut } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 const JoinNow = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/signin");
+  };
+
   return (
-      <div className="max-w-md text-center flex flex-col justify-center items-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Create Your Creator Account Now
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Join a platform built for artists, musicians, and creators. Start sharing, selling, and growing — all in one place.
-        </p>
-        <div className="flex justify-center mb-6">
-          <img
-            src="/S1.png"
-            alt="Create Account Illustration"
-            className="w-48 h-48"
-          />
-        </div>
-        <button className="w-1/2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-3xl transition-all duration-200 shadow-md">
-          Create My Account
+    <div
+      className="w-full min-h-screen flex justify-center items-center text-center text-white"
+      style={{
+        backgroundImage: 'url("/fan2.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="flex flex-col justify-center items-center bg-white/94 text-black rounded-4xl p-14 shadow-sm">
+        <FaUserAstronaut className="w-12 h-12 mb-4" />
+        <h1 className="text-3xl font-semibold mb-10">Start Your Journey</h1>
+        <button
+          className="bg-black text-white font-semibold py-3 px-24 rounded-full shadow-md cursor-pointer"
+          onClick={handleGetStarted}
+        >
+          Get started
         </button>
+        <p className="mt-4 text-gray-600">
+          Already have an account?{" "}
+          <Link to={"/signin"} className="text-blue-600 font-medium">
+            Login
+          </Link>
+        </p>
       </div>
+    </div>
   );
 };
 

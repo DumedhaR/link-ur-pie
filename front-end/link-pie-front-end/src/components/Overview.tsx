@@ -109,7 +109,7 @@ const productDataAudio: ProductCardProps = {
 
 export default function Overview() {
   return (
-    <div className="text-white pb-28 px-6 sm:px-12 lg:px-18 relative overflow-hidden">
+    <div className="text-white px-6 sm:px-12 lg:px-18 relative overflow-hidden">
       {/* Overview Section 1 */}
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-semibold leading-none">
@@ -475,7 +475,7 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Recent Works</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-sm">
               <img
                 src="/video1.jpg"
                 alt="Video 1"
@@ -485,7 +485,7 @@ const CreatorProfileCard = () => (
                 Music Video - Midnight Run
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-sm">
               <img
                 src="/cover_art2.jpg"
                 alt="Artwork 1"
@@ -495,7 +495,7 @@ const CreatorProfileCard = () => (
                 Music Video - Sunset Dreams
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-sm">
               <img
                 src="/cover_art1.png"
                 alt="Song 1"
@@ -511,27 +511,27 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Find Me On</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaGlobe className="text-lg text-green-400" />
               <span className="text-xs">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaSpotify className="text-lg text-green-500" />
               <span className="text-xs">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaYoutube className="text-lg text-red-500" />
               <span className="text-xs">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaInstagram className="text-lg text-pink-500" />
               <span className="text-xs">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaTiktok className="text-lg text-white" />
               <span className="text-xs">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-sm">
               <FaFacebookF className="text-lg text-blue-500" />
               <span className="text-xs">Facebook</span>
             </div>
@@ -704,17 +704,23 @@ const SocialUnlocker = () => {
           </p>
           {/* Actions */}
           <div className="flex flex-col gap-4 w-full text-sm pb-8 px-4">
-            <button className="flex items-center justify-center gap-3 bg-green-500 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+            <button className="flex items-center justify-center gap-3 bg-green-500 py-3 rounded-full shadow-lg">
               <FaSpotify className="text-xl" />
               <span className="font-medium">Follow on Spotify</span>
             </button>
-            <button className="flex items-center justify-center gap-3 bg-red-600 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+            <button className="flex items-center justify-center gap-3 bg-red-600 py-3 rounded-full shadow-lg">
               <FaYoutube className="text-xl" />
               <span className="font-medium">Subscribe on YouTube</span>
             </button>
-            <button className="flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-orange-500 py-3 rounded-full shadow-lg hover:opacity-90 transition">
+            <button
+              className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium"
+              style={{
+                backgroundImage:
+                  "linear-gradient(45deg, #fa7e1e, #d62976, #962fbf, #4f5bd5)",
+              }}
+            >
               <FaInstagram className="text-xl" />
-              <span className="font-medium">Follow on Instagram</span>
+              <span>Follow on Instagram</span>
             </button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import HeroFadeSlider from "@/components/HeroFadeSlider";
 import CreatorsIntro from "@/components/CreatorsIntro";
 import Overview from "@/components/Overview";
+import JoinNow from "@/components/JoinNow";
 
 const HomePage = () => {
   return (
@@ -11,8 +12,11 @@ const HomePage = () => {
       <section className="greet-section">
         <CreatorsIntro />
       </section>
-      <section className="overview-section">
+      <section className="overview-section pb-24">
         <Overview />
+      </section>
+      <section className="join-now">
+        <JoinNow />
       </section>
     </div>
   );

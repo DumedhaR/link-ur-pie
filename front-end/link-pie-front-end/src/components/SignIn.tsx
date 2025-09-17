@@ -1,7 +1,6 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
-import { useState } from 'react';
+import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useState } from "react";
 
 interface GoogleUser {
   name: string;
@@ -17,7 +16,11 @@ export default function GoogleLoginButton() {
     <div className="p-4 text-center">
       {user ? (
         <div>
-          <img src={user.picture} alt="User" className="w-16 h-16 rounded-full mx-auto" />
+          <img
+            src={user.picture}
+            alt="User"
+            className="w-16 h-16 rounded-full mx-auto"
+          />
           <h2 className="text-lg mt-2">{user.name}</h2>
           <p className="text-sm text-gray-500">{user.email}</p>
           <button
@@ -34,23 +37,25 @@ export default function GoogleLoginButton() {
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {
-              const decoded: GoogleUser = jwtDecode(credentialResponse.credential);
+              const decoded: GoogleUser = jwtDecode(
+                credentialResponse.credential
+              );
               console.log("Decoded Google User", decoded);
 
-              // Send token to backend if needed
+              // Send token to backend
               // fetch('/api/auth/google', { method: 'POST', body: JSON.stringify({ token: credentialResponse.credential }) })
 
               setUser(decoded);
             }
           }}
           onError={() => {
-            console.log('Login Failed');
+            console.log("Login Failed");
           }}
-          theme="outline"  // Change the theme (default or outline)
-          size="large"      // Set button size (small, medium, large)
+          theme="outline" // Change the theme (default or outline)
+          size="large" // Set button size (small, medium, large)
           text="signin_with" // Customize the button text (default: 'Sign in with Google')
-          shape="circle"    // Set button shape (circle or pill)
-          width="full"      // Makes the button full widthy
+          shape="circle" // Set button shape (circle or pill)
+          width="full" // Makes the button full widthy
         />
       )}
     </div>
