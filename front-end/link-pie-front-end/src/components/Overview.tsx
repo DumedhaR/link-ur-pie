@@ -141,7 +141,7 @@ export default function Overview() {
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center my-16">
         <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
       </div>
 
@@ -177,7 +177,7 @@ export default function Overview() {
       </div>
 
       {/* Arrow */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center my-16">
         <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
       </div>
 
@@ -228,7 +228,7 @@ export default function Overview() {
         </div>
       </div>
       {/* Arrow */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center my-16">
         <FaArrowDown className="text-gray-500 animate-bounce" size={21} />
       </div>
 
@@ -475,7 +475,7 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Recent Works</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
               <img
                 src="/video1.jpg"
                 alt="Video 1"
@@ -485,7 +485,7 @@ const CreatorProfileCard = () => (
                 Music Video - Midnight Run
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
               <img
                 src="/cover_art2.jpg"
                 alt="Artwork 1"
@@ -495,7 +495,7 @@ const CreatorProfileCard = () => (
                 Music Video - Sunset Dreams
               </p>
             </div>
-            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a]">
+            <div className="bg-[#2a2a2a] rounded-sm p-2 cursor-pointer border border-[#2a2a2a] shadow-md">
               <img
                 src="/cover_art1.png"
                 alt="Song 1"
@@ -511,27 +511,27 @@ const CreatorProfileCard = () => (
         <div>
           <h3 className="text-md font-medium mb-4">Find Me On</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaGlobe className="text-lg text-green-400" />
               <span className="text-xs">Official Website</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaSpotify className="text-lg text-green-500" />
               <span className="text-xs">Listen on Spotify</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaYoutube className="text-lg text-red-500" />
               <span className="text-xs">Watch on YouTube</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaInstagram className="text-lg text-pink-500" />
               <span className="text-xs">Instagram</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaTiktok className="text-lg text-white" />
               <span className="text-xs">TikTok</span>
             </div>
-            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer">
+            <div className="flex items-center gap-3 bg-[#2a2a2a] px-4 py-3 rounded-sm cursor-pointer shadow-md">
               <FaFacebookF className="text-lg text-blue-500" />
               <span className="text-xs">Facebook</span>
             </div>
@@ -673,31 +673,32 @@ const ProductCard = ({
 
 const SocialUnlocker = () => {
   return (
-    <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
-      <CardContent className="relative flex flex-col gap-5 text-white items-center justify-center">
-        {/* Blurred Background */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'url("/cover_art.jpg")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(70px) brightness(0.33)",
-          }}
-        />
-        <div className="relative z-50 w-full flex items-center justify-center pt-8">
+    <Card className="relative bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'url("/cover_art.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          filter: "blur(40px) brightness(0.50)",
+        }}
+      />
+      <div className="absolute z-20 inset-0 bg-black/50" />
+      <CardContent className="relative z-40 flex flex-col gap-5 text-white items-center justify-center">
+        <div className="w-full flex items-center justify-center pt-8">
           <div className="flex flex-col items-center">
             <img
               src="/cover_art1.png"
               alt="Cover Art"
-              className="w-56 h-56 rounded-lg shadow-lg"
+              className="w-52 h-52 rounded-lg shadow-lg"
             />
             <h1 className="text-white mt-6 text-2xl font-bold">
               Content Title
             </h1>
           </div>
         </div>
-        <div className="px-20 relative z-50">
+        <div className="px-20">
           <p className="mb-7 text-center">
             Please complete at least 2 steps below to download the file.
           </p>
