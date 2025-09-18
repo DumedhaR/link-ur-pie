@@ -12,7 +12,7 @@ const HomePage = () => {
       <section className="greet-section">
         <CreatorsIntro />
       </section>
-      <section className="overview-section pb-26">
+      <section className="overview-section pb-18">
         <Overview />
       </section>
       <section className="join-now">

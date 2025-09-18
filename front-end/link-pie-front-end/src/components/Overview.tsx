@@ -721,7 +721,7 @@ const SocialUnlocker = () => {
             className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium"
             style={{
               backgroundImage:
-                "linear-gradient(45deg, #f69d5dff, #d62976, #962fbf, #4f5bd5)",
+                "linear-gradient(45deg, #f69d5dff, #da4286ff, #962fbf, #4f5bd5)",
             }}
           >
             <FaInstagram className="text-xl" />

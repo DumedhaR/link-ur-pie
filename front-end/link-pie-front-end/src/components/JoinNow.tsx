@@ -10,7 +10,7 @@ const JoinNow = () => {
 
   return (
     <div
-      className="w-full min-h-screen flex justify-center items-center text-center text-white"
+      className="relative w-full min-h-screen flex justify-center items-center"
       style={{
         backgroundImage: 'url("/fan2.jpg")',
         backgroundSize: "cover",
@@ -18,25 +18,29 @@ const JoinNow = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="flex flex-col justify-center items-center bg-white/94 text-black rounded-4xl p-14 shadow-sm">
-        <FaUserAstronaut className="w-12 h-12 mb-4" />
-        <h1 className="text-[27px] font-semibold mb-8">
-          Start Your Journey <br />
-          As
+      {/* Overlay */}
+      <div className="absolute z-10 inset-0 bg-black/20" />
+
+      <div className="relative z-20 flex flex-col justify-center items-center bg-gradient-to-br from-white/90 to-white/60 text-black/90 rounded-3xl py-14 px-12 shadow-2xl backdrop-blur-md max-w-sm w-full">
+        <FaUserAstronaut className="w-14 h-14 mb-6" />
+        <h1 className="text-3xl font-semibold mb-10 text-center">
+          Start Your Journey <br /> As
         </h1>
+
         <button
-          className="w-full bg-gradient-to-br from-blue-600 to-blue-400 text-white font-semibold py-3 rounded-full shadow-md cursor-pointer mb-3"
+          className="w-full bg-gradient-to-br from-blue-700 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg mb-4"
           onClick={handleGetStarted}
         >
           Creator
         </button>
         <button
-          className="w-full bg-gradient-to-br from-pink-600 to-red-400 text-white font-semibold py-3 rounded-full shadow-md cursor-pointer"
+          className="w-full bg-gradient-to-br from-pink-600 to-red-400 text-white font-semibold py-3 rounded-full shadow-lg"
           onClick={handleGetStarted}
         >
           Fan
         </button>
-        <p className="mt-4 text-gray-600">
+
+        <p className="mt-6 text-gray-600 text-sm text-center">
           Already have an account?{" "}
           <Link to={"/signin"} className="text-blue-600 font-medium">
             Login
