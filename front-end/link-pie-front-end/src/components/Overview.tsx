@@ -673,56 +673,60 @@ const ProductCard = ({
 
 const SocialUnlocker = () => {
   return (
-    <Card className="relative bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
+    <Card className="relative bg-[#1a1a1a] rounded-2xl shadow-lg border border-[#2a2a2a] overflow-hidden">
+      {/* Blurred Background */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: 'url("/cover_art.jpg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          filter: "blur(40px) brightness(0.50)",
+          // filter: "blur(40px) brightness(0.5)",
         }}
       />
-      <div className="absolute z-20 inset-0 bg-black/50" />
-      <CardContent className="relative z-40 flex flex-col gap-5 text-white items-center justify-center">
-        <div className="w-full flex items-center justify-center pt-8">
-          <div className="flex flex-col items-center">
-            <img
-              src="/cover_art1.png"
-              alt="Cover Art"
-              className="w-52 h-52 rounded-lg shadow-lg"
-            />
-            <h1 className="text-white mt-6 text-2xl font-bold">
-              Content Title
-            </h1>
-          </div>
+      {/* Overlay */}
+      <div className="absolute z-10 inset-0 bg-black/50 backdrop-blur-lg" />
+
+      <CardContent className="relative z-20 flex flex-col items-center text-white px-6 py-10 gap-8">
+        {/* Cover Art + Title */}
+        <div className="flex flex-col items-center">
+          <img
+            src="/cover_art1.png"
+            alt="Cover Art"
+            className="w-48 h-48 rounded-xl shadow-lg"
+          />
+          <h1 className="text-2xl font-bold mt-6">Rock Bottom</h1>
         </div>
-        <div className="px-20">
-          <p className="mb-7 text-center">
-            Please complete at least 2 steps below to download the file.
+
+        {/* Instructions */}
+        <div className="max-w-xs text-center">
+          <p className="text-gray-300">
+            Complete at least{" "}
+            <span className="font-semibold text-white">2 steps</span> below to
+            unlock your download.
           </p>
-          {/* Actions */}
-          <div className="flex flex-col gap-4 w-full text-sm pb-8 px-4">
-            <button className="flex items-center justify-center gap-3 bg-green-500 py-3 rounded-full shadow-lg">
-              <FaSpotify className="text-xl" />
-              <span className="font-medium">Follow on Spotify</span>
-            </button>
-            <button className="flex items-center justify-center gap-3 bg-red-600 py-3 rounded-full shadow-lg">
-              <FaYoutube className="text-xl" />
-              <span className="font-medium">Subscribe on YouTube</span>
-            </button>
-            <button
-              className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium"
-              style={{
-                backgroundImage:
-                  "linear-gradient(45deg, #fa7e1e, #d62976, #962fbf, #4f5bd5)",
-              }}
-            >
-              <FaInstagram className="text-xl" />
-              <span>Follow on Instagram</span>
-            </button>
-          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-col w-full max-w-md gap-4 text-sm max-w-xs">
+          <button className="flex items-center justify-center gap-3 bg-gradient-to-tr from-green-400 via-green-500 to-green-600 py-3 rounded-full shadow-lg">
+            <FaSpotify className="text-xl" />
+            <span className="font-medium">Follow on Spotify</span>
+          </button>
+          <button className="flex items-center justify-center gap-3 bg-gradient-to-tr from-red-400 via-red-500 to-red-600 py-3 rounded-full shadow-lg">
+            <FaYoutube className="text-xl" />
+            <span className="font-medium">Subscribe on YouTube</span>
+          </button>
+          <button
+            className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium"
+            style={{
+              backgroundImage:
+                "linear-gradient(45deg, #f69d5dff, #d62976, #962fbf, #4f5bd5)",
+            }}
+          >
+            <FaInstagram className="text-xl" />
+            <span>Follow on Instagram</span>
+          </button>
         </div>
       </CardContent>
     </Card>
