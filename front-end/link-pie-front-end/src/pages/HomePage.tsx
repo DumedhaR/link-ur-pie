@@ -17,7 +17,7 @@ const HomePage = () => {
         <Overview />
       </section>
       <section className="relative join-now">
-        <div className="absolute z-20 bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute z-20 bottom-0 left-0 right-0 h-18 bg-gradient-to-b from-transparent to-background" />
         <JoinNow />
       </section>
     </div>
