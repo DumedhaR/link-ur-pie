@@ -28,13 +28,15 @@ const JoinNow = () => {
           As
         </h1>
         <button
-          className="w-full bg-gradient-to-br from-blue-700 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg mb-4"
+          className="w-full bg-gradient-to-br hover:from-blue-600 from-blue-700 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg mb-4 
+          transition-colors duration-200 ease-in-outsss"
           onClick={handleGetStarted}
         >
           Creator
         </button>
         <button
-          className="w-full bg-gradient-to-br from-pink-600 to-red-400 text-white font-semibold py-3 rounded-full shadow-lg mb-5"
+          className="w-full bg-gradient-to-br hover:from-pink-500 from-pink-600 to-red-400 text-white font-semibold py-3 rounded-full shadow-lg mb-5 
+          transition-colors duration-200 ease-in-out"
           onClick={handleGetStarted}
         >
           Fan
