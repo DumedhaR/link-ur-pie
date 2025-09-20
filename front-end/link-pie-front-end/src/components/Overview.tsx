@@ -684,16 +684,22 @@ const SocialUnlocker = () => {
 
         {/* Actions */}
         <div className="flex flex-col w-full max-w-md gap-4 text-sm max-w-xs">
-          <button className="flex items-center justify-center gap-3 bg-gradient-to-tr from-green-400 via-green-500 to-green-600 py-3 rounded-full shadow-lg">
+          <button
+            className="flex items-center justify-center gap-3 bg-gradient-to-tr from-green-400 via-green-500 to-green-600 py-3 
+          rounded-full shadow-lg cursor-pointer"
+          >
             <FaSpotify className="text-xl" />
             <span className="font-medium">Follow on Spotify</span>
           </button>
-          <button className="flex items-center justify-center gap-3 bg-gradient-to-tr from-red-400 via-red-500 to-red-600 py-3 rounded-full shadow-lg">
+          <button
+            className="flex items-center justify-center gap-3 bg-gradient-to-tr from-red-400 via-red-500 to-red-600 py-3 
+          rounded-full shadow-lg cursor-pointer"
+          >
             <FaYoutube className="text-xl" />
             <span className="font-medium">Subscribe on YouTube</span>
           </button>
           <button
-            className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium"
+            className="flex items-center justify-center gap-3 py-3 rounded-full shadow-lg text-white font-medium cursor-pointer"
             style={{
               backgroundImage:
                 "linear-gradient(45deg, #f69d5dff, #da4286ff, #962fbf, #4f5bd5)",
