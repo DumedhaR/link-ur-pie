@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col gap-28">
       <section className="relative hero-section" style={{ marginTop: 0 }}>
-        <div className="absolute z-20 bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute z-20 bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background" />
         <HeroFadeSlider />
       </section>
       <section className="greet-section">
