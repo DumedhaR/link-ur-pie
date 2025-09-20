@@ -182,7 +182,7 @@ export default function Overview() {
       </div>
 
       {/* Overview Section 3 */}
-      <div className="flex mx-auto gap-16 items-center max-w-6xl">
+      <div className="flex mx-auto gap-16 items-center max-w-7xl">
         <div className="flex-1 grid grid-cols-7 items-start gap-5 relative">
           {/* First Card */}
           <div className="row-span-2 col-span-3 place-self-center z-20 -translate-y-6">
@@ -273,31 +273,6 @@ export default function Overview() {
     </div>
   );
 }
-
-// const CardProfile = () => (
-//   <Card className="w-full h-full max-w-sm md:max-w-md bg-[#1a1a1a] rounded-lg text-center shadow-md border border-[#2a2a2a]">
-//     <CardContent className="flex flex-col items-center w-full">
-//       <Avatar className="w-20 h-20 mb-3 ring-3 ring-[#2a2a2a]">
-//         <AvatarImage
-//           className="object-cover"
-//           src="/morty.png"
-//           alt="Morty Smith"
-//         />
-//         <AvatarFallback>MS</AvatarFallback>
-//       </Avatar>
-//       <div className="text-white mb-4">
-//         <h2 className="text-lg font-medium">Morty Smith</h2>
-//         <p className="text-sm text-gray-400">Musician</p>
-//       </div>
-//       <Button
-//         variant="outline"
-//         className="bg-[#2a2a2a] border-none text-white w-full flex shadow-md justify-center cursor-pointer py-5 hover:bg-[#2a2a2a] hover:text-white"
-//       >
-//         Edit
-//       </Button>
-//     </CardContent>
-//   </Card>
-// );
 
 interface CardMediaProps {
   src: string[];
@@ -453,7 +428,7 @@ const CardDocs = ({
 };
 const CreatorProfileCard = () => (
   <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
-    <CardContent className="flex flex-col gap-5 text-white">
+    <CardContent className="flex flex-col gap-5 text-white m-2">
       <div className="flex md:items-start gap-4">
         <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
           <AvatarImage
