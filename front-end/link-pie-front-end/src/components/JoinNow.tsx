@@ -23,7 +23,7 @@ const JoinNow = () => {
 
       <div className="relative z-20 flex flex-col justify-center items-center bg-gradient-to-br from-white/90 to-white/60 text-black/90 rounded-3xl py-12 px-12 shadow-2xl backdrop-blur-md max-w-sm w-full">
         <FaUserAstronaut className="w-14 h-14 mb-5" />
-        <h1 className="text-[28px] font-semibold mb-9 text-center">
+        <h1 className="text-[27px] font-semibold mb-9 text-center">
           Start Your Journey <br /> As
         </h1>
         <button

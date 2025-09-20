@@ -13,7 +13,7 @@ const Footer = ({ logoSrc }: FooterProps) => {
         color: "var(--primary-foreground)",
       }}
     >
-      <div className="px-6 sm:px-12 lg:px-20 mx-auto mt-20 capitalize">
+      <div className="px-6 sm:px-12 lg:px-20 mx-auto mt-22 capitalize">
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center space-x-4">
             {logoSrc ? (
