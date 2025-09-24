@@ -84,7 +84,7 @@ const WaveAudioPlayer = ({
   return (
     <div className="flex flex-col w-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] p-5 gap-5 text-sm">
       <div className="flex gap-5">
-        <div className="flex-1 rounded-r-lg overflow-hidden min-w-50 min-h-50">
+        <div className="flex-1 rounded-l-lg overflow-hidden min-w-50 min-h-50">
           <img
             src={coverArt}
             alt="cover-art"

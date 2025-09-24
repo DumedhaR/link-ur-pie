@@ -292,7 +292,7 @@ const CardMedia = ({
   proImg,
 }: CardMediaProps) => {
   return (
-    <Card className="w-full h-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a] ">
+    <Card className="w-full h-full bg-[#1a1a1a] rounded-lg text-left shadow-md border border-[#2a2a2a]">
       <CardContent className="flex h-full flex-col w-full gap-3">
         <div className="relative w-full flex-1 overflow-hidden aspect-[5/3]">
           <Avatar className="w-12 h-12 absolute top-4 left-4 cursor-pointer z-10 ring-2 ring-[#2c2c2c]/90">
@@ -428,7 +428,7 @@ const CardDocs = ({
 };
 const CreatorProfileCard = () => (
   <Card className="bg-[#1a1a1a] rounded-lg shadow-md border border-[#2a2a2a] overflow-hidden">
-    <CardContent className="flex flex-col gap-5 text-white m-2">
+    <CardContent className="flex flex-col gap-5 text-white m-1.5">
       <div className="flex md:items-start gap-4">
         <Avatar className="w-14 h-14 ring-3 ring-[#2a2a2a]">
           <AvatarImage
