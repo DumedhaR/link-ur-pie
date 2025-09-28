@@ -4,7 +4,7 @@ interface GoogleLoginButtonProps {
 }
 
 const GoogleLoginButton = ({
-  redirectUrl = "http://localhost:8000/auth/google/login",
+  redirectUrl = "http://localhost:8000/api/user/auth/google",
   className = "",
 }: GoogleLoginButtonProps) => {
   return (
