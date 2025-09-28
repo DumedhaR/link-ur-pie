@@ -1,4 +1,4 @@
-import GoogleLoginButton from "../components/SignIn";
+import GoogleLoginButton from "../components/GoogleSignIn";
 
 export default function SignInPage() {
   return (
@@ -11,8 +11,8 @@ export default function SignInPage() {
         />
       </div>
 
-      <div className="flex flex-col justify-center items-center p-6 h-screen">
-        <div className="w-full max-w-sm text-center">
+      <div className="flex flex-col justify-center items-center h-screen">
+        <div className="w-full max-w-sm text-center px-6">
           <img
             src="/logo_trnsp.png"
             alt="LinkPi Logo"
