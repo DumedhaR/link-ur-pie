@@ -1,6 +1,18 @@
 import GoogleLoginButton from "../components/GoogleSignIn";
+import { useParams } from "react-router-dom";
+import { allowedRoles } from "@/data/authData";
 
 export default function SignInPage() {
+  const { role } = useParams<{ role: string }>();
+
+  if (!role || !allowedRoles.includes(role)) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-red-500">Oops! Page not found.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="h-screen grid grid-cols-2">
       <div className="bg-gray-100 h-screen">
@@ -20,7 +32,7 @@ export default function SignInPage() {
           />
           <h1 className="text-3xl font-semibold mb-4">Welcome to LinkPi</h1>
           <p className="text-gray-400 mb-4">Login or Signup to continue</p>
-          <GoogleLoginButton />
+          <GoogleLoginButton role={role} />
         </div>
       </div>
     </div>

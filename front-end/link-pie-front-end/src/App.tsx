@@ -32,7 +32,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
           </Route>
-          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signin/:role" element={<SignInPage />} />
         </Routes>
       </Router>
     </>

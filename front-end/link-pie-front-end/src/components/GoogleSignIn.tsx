@@ -1,15 +1,17 @@
+import { API_BASE_URL } from "@/config";
 interface GoogleLoginButtonProps {
-  redirectUrl?: string; // server-side login route
+  role: string;
   className?: string; // optional styles
 }
 
 const GoogleLoginButton = ({
-  redirectUrl = "http://localhost:8000/api/user/auth/google",
+  role,
   className = "",
 }: GoogleLoginButtonProps) => {
+  const authUrl = `${API_BASE_URL}/api/user/auth/google?role=${role}`;
   return (
     <a
-      href={redirectUrl}
+      href={authUrl}
       className={`flex items-center justify-center bg-white text-gray-700 rounded-full font-medium py-3 shadow-sm hover:bg-gray-100 transition-colors focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-blue-500 ${className}`}
       aria-label="Sign in with Google"
     >

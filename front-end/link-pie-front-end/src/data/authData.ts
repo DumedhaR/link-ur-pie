@@ -4,3 +4,5 @@ export interface GoogleUser {
   picture: string;
   sub: string; // Google user ID
 }
+
+export const allowedRoles = ["creator", "fan"];

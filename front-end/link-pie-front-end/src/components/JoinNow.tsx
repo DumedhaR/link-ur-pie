@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const JoinNow = () => {
   const navigate = useNavigate();
 
-  const handleGetStarted = () => {
-    navigate("/signin");
+  const handleGetStarted = (role: string) => {
+    navigate(`/signin/${role}`);
   };
 
   return (
@@ -30,14 +30,14 @@ const JoinNow = () => {
         <button
           className="w-full bg-gradient-to-br hover:from-blue-600 from-blue-700 to-blue-400 text-white font-semibold py-3 rounded-full shadow-lg mb-4 
           cursor-pointer transition-colors duration-200 ease-in-outsss"
-          onClick={handleGetStarted}
+          onClick={() => handleGetStarted("creator")}
         >
           Creator
         </button>
         <button
           className="w-full bg-gradient-to-br hover:from-pink-500 from-pink-600 to-red-400 text-white font-semibold py-3 rounded-full shadow-lg mb-5 
           cursor-pointer transition-colors duration-200 ease-in-out"
-          onClick={handleGetStarted}
+          onClick={() => handleGetStarted("fan")}
         >
           Fan
         </button>
